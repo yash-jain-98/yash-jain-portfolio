@@ -17,7 +17,7 @@ Then visit `http://localhost:4173`.
 - `dist/index.html`: branding, page sections, contact details, and accessible markup.
 - `dist/style.css`: responsive layouts, light theme, animations, and reduced-motion support.
 - `dist/app.js`: the project gallery, filters, dialogs, service tabs, demos, and contact interactions.
-- `dist/projects-data.js`: a curated snapshot of 32 public GitHub repositories, with descriptions, categories, source-file links, and preview metadata.
+- `dist/projects-data.js`: a curated snapshot of 25 public GitHub repositories, with descriptions, categories, source-file links, and preview metadata.
 - `dist/project-assets/`: original repository images, PDF page previews, and themed SVG project illustrations.
 - `docs/project-sources.md`: the repository audit, source attribution, and maintenance notes.
 - `dist/fonts/`: self-hosted DM Sans and its SIL Open Font License.
@@ -27,7 +27,7 @@ Then visit `http://localhost:4173`.
 
 - A dedicated AI agents & automation section showcases Google Business Profile review replies through Make.com a coal-company email classification, Drive filing, and Sheets workflow built using Claude and Google Apps Script; lead matching across Google Sheets; WhatsApp outreach with a 12-hour follow-up; and Gmail summaries saved to Google Docs. Expandable workflow details and enquiry links work on mobile and desktop.
 - Four keyboard-accessible service tabs with desktop/mobile website previews, sample dashboard period controls, and a simulated automation workflow.
-- A searchable 32-project gallery with five categories, three sort options, all projects visible by default, and native project dialogs linking to the original notebooks, reports, workbooks, and code. Escape dismisses dialogs and restores keyboard focus.
+- A searchable 25-project gallery with five categories, three sort options, all projects visible by default, and native project dialogs linking to the original notebooks, reports, workbooks, and code. Escape dismisses dialogs and restores keyboard focus.
 - Responsive mobile navigation, native FAQ disclosures, scroll reveals, and reduced-motion alternatives.
 - Service links preselect the contact form. The form validates the name, email, and project details and opens a prefilled email draft. It does **not** send or store messages. A copy-email action provides a fallback.
 
@@ -35,7 +35,7 @@ Project descriptions retain their original scope and limitations. Charts and wor
 
 ## Verification
 
-Browser checks passed at widths of 320, 360, 390, 680, 768, 820, 900, 1024, 1280, and 1440 pixels with no horizontal overflow. Service tabs and keyboard navigation, both interactive previews, workflow completion, all five project filters, search and empty-state handling, sorting, all projects visible by default, all 32 project dialogs, LinkedIn links, dialog focus restoration, form validation and email encoding, mobile navigation, FAQs, reduced motion, and image loading were checked. No JavaScript errors or failed page requests were observed. `node --check dist/app.js` and `git diff --check` also passed.
+Browser checks passed at widths of 320, 360, 390, 680, 768, 820, 900, 1024, 1280, and 1440 pixels with no horizontal overflow. Service tabs and keyboard navigation, both interactive previews, workflow completion, all five project filters, search and empty-state handling, sorting, all projects visible by default, all 25 project dialogs, LinkedIn links, dialog focus restoration, form validation and email encoding, mobile navigation, FAQs, reduced motion, and image loading were checked. No JavaScript errors or failed page requests were observed. `node --check dist/app.js` and `git diff --check` also passed.
 
 The screenshots under `docs/previews/` show the redesigned hero and expanded project gallery on desktop and mobile. This repository branch does not automatically update the separately hosted ChatGPT Site; publication must use the existing Sites project.
 
