@@ -1,6 +1,6 @@
 # GitHub project-source audit
 
-Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The public gallery contains 38 public repository showcases. Private repositories are not included in public content.
+Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The public gallery contains 32 public repository showcases. Private repositories are not included in public content.
 
 Every public repository tree was checked. Descriptions use README files, notebook sources, report text, workbook structure, or the verified file inventory. Source files remain linked to GitHub; large notebooks, videos, datasets, and office files are not bundled with the website.
 
@@ -44,12 +44,6 @@ The separate AI agents & automation section contains five projects described dir
 | [node-website.github.io](https://github.com/yash-jain-98/node-website.github.io) | Node.js fundamentals | Learning collection |
 | [test-website](https://github.com/yash-jain-98/test-website) | DigiMedia template study | Template study |
 | [dummy](https://github.com/yash-jain-98/dummy) | CSS animation experiment | Learning exercise |
-| [social-media-content-enrola](https://github.com/yash-jain-98/social-media-content-enrola) | Enrola motion-content samples | Content samples |
-| [social-media-content-gr-floreet](https://github.com/yash-jain-98/social-media-content-gr-floreet) | GR Floreet video sample | Content samples |
-| [social-media-content-novocorps](https://github.com/yash-jain-98/social-media-content-novocorps) | Novocorps video sample | Content samples |
-| [social-media-content-design-suraksha](https://github.com/yash-jain-98/social-media-content-design-suraksha) | Suraksha motion-content samples | Content samples |
-| [social-media-content-creation-five-dimension](https://github.com/yash-jain-98/social-media-content-creation-five-dimension) | Five Dimensions video samples | Content samples |
-| [social-media-content-zaphhire](https://github.com/yash-jain-98/social-media-content-zaphhire) | Zapphire motion-content samples | Content samples |
 
 ## Other public repositories
 
@@ -60,9 +54,22 @@ The separate AI agents & automation section contains five projects described dir
 | [baseball-again](https://github.com/yash-jain-98/baseball-again) | Asset-only repository with no HTML entry point |
 | [r-programming-books](https://github.com/yash-jain-98/r-programming-books) | Third-party reference books rather than original project work |
 
+## Design projects excluded by request
+
+The six social-content repositories were removed from the public gallery on 10 October 2026 at Yash’s request; the repositories themselves are unchanged.
+
+| Repository | Reason |
+| --- | --- |
+| [social-media-content-enrola](https://github.com/yash-jain-98/social-media-content-enrola) | Excluded from this portfolio’s scope |
+| [social-media-content-gr-floreet](https://github.com/yash-jain-98/social-media-content-gr-floreet) | Excluded from this portfolio’s scope |
+| [social-media-content-novocorps](https://github.com/yash-jain-98/social-media-content-novocorps) | Excluded from this portfolio’s scope |
+| [social-media-content-design-suraksha](https://github.com/yash-jain-98/social-media-content-design-suraksha) | Excluded from this portfolio’s scope |
+| [social-media-content-creation-five-dimension](https://github.com/yash-jain-98/social-media-content-creation-five-dimension) | Excluded from this portfolio’s scope |
+| [social-media-content-zaphhire](https://github.com/yash-jain-98/social-media-content-zaphhire) | Excluded from this portfolio’s scope |
+
 ## Preview sources
 
-Repository images are retained as supplied. Report previews render an original PDF page; content previews extract a frame from an original MP4. These are actual source artifacts, not simulated project results. TemplateMo and IBM coursework attribution is retained in project details.
+Eleven original repository images and PDF-page previews are retained as supplied. The 21 projects without original previews use individually composed SVG illustrations in the portfolio’s blue/slate palette. These are labelled PROJECT ILLUSTRATION, and their sample charts or interfaces do not claim to show actual project results. TemplateMo and IBM coursework attribution is retained in project details.
 
 - `car-prices.png` — [assets/price_by_condition.png](https://github.com/yash-jain-98/Car-Price-Prediction-Data-Science-Project/blob/main/assets/price_by_condition.png)
 - `bank-churn.png` — [assets/age_vs_churn.png](https://github.com/yash-jain-98/Bank-Customer-Churn-Data-Science-Project/blob/main/assets/age_vs_churn.png)
@@ -75,13 +82,7 @@ Repository images are retained as supplied. Report previews render an original P
 - `capstone.png` — [IBM Data Science Capstone Project.pdf](https://github.com/yash-jain-98/data-science-capstone/blob/main/IBM%20Data%20Science%20Capstone%20Project.pdf)
 - `digimedia.jpg` — [assets/images/demo-1.jpg](https://github.com/yash-jain-98/test-website/blob/main/assets/images/demo-1.jpg)
 - `stock-data.png` — [q5.png](https://github.com/yash-jain-98/ibm-python-project-web-scrapping/blob/main/q5.png)
-- `social-media-content-enrola.jpg` — [enrola-1.2.mp4](https://github.com/yash-jain-98/social-media-content-enrola/blob/main/enrola-1.2.mp4)
-- `social-media-content-gr-floreet.jpg` — [video-1-edited.mp4](https://github.com/yash-jain-98/social-media-content-gr-floreet/blob/main/video-1-edited.mp4)
-- `social-media-content-novocorps.jpg` — [Novocorps.mp4](https://github.com/yash-jain-98/social-media-content-novocorps/blob/main/Novocorps.mp4)
-- `social-media-content-design-suraksha.jpg` — [Suraksha(1).mp4](https://github.com/yash-jain-98/social-media-content-design-suraksha/blob/main/Suraksha%281%29.mp4)
-- `social-media-content-creation-five-dimension.jpg` — [The Five Dimensions-final.mp4](https://github.com/yash-jain-98/social-media-content-creation-five-dimension/blob/main/The%20Five%20Dimensions-final.mp4)
-- `social-media-content-zaphhire.jpg` — [Zapphire-1-final-2.mp4](https://github.com/yash-jain-98/social-media-content-zaphhire/blob/main/Zapphire-1-final-2.mp4)
 
 ## Maintenance
 
-Edit `dist/projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally.
+Edit `dist/projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 32 projects render by default. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.

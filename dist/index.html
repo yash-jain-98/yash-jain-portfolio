@@ -28,9 +28,9 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css" />
-    <script src="projects-data.js" defer></script>
-    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css?v=20261010-gallery" />
+    <script src="projects-data.js?v=20261010-gallery" defer></script>
+    <script src="app.js?v=20261010-gallery" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -826,7 +826,7 @@
           <div>
             <p>
               From dashboards and machine-learning studies to websites and
-              motion content. Explore the projects, notebooks, and source files
+              automation. Explore the projects, notebooks, and source files
               behind my work.
             </p>
             <a
@@ -844,7 +844,7 @@
         <div class="gallery-summary">
           <span class="availability-dot"></span
           ><span
-            ><strong id="gallery-total">38</strong> projects from public GitHub
+            ><strong id="gallery-total">32</strong> projects from public GitHub
             repositories</span
           ><span class="gallery-updated"
             >Reviewed <time datetime="2026-10-10">10 Oct 2026</time></span
@@ -878,7 +878,7 @@
         </div>
         <div class="project-filters" role="group" aria-label="Filter projects">
           <button aria-pressed="true" data-filter="all">
-            All work <span data-filter-count="all">38</span>
+            All work <span data-filter-count="all">32</span>
           </button>
           <button aria-pressed="false" data-filter="web">
             Web development <span data-filter-count="web">6</span>
@@ -892,8 +892,22 @@
           <button aria-pressed="false" data-filter="auto">
             Automation <span data-filter-count="auto">1</span>
           </button>
-          <button aria-pressed="false" data-filter="creative">
-            Design & content <span data-filter-count="creative">6</span>
+        </div>
+        <div class="gallery-results-bar">
+          <p
+            class="result-count"
+            id="project-count"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          ></p>
+          <button
+            type="button"
+            id="show-all-projects"
+            class="gallery-clear"
+            hidden
+          >
+            Show all projects
           </button>
         </div>
         <div class="project-grid" id="projects"></div>
@@ -908,21 +922,7 @@
           </button>
         </div>
         <div class="gallery-footer">
-          <p
-            class="result-count"
-            id="project-count"
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
-          ></p>
-          <button
-            type="button"
-            class="button button-white"
-            id="load-projects"
-            aria-controls="projects"
-          >
-            Show more projects</button
-          ><a
+          <a
             class="gallery-profile"
             href="https://github.com/yash-jain-98?tab=repositories"
             target="_blank"
@@ -1158,46 +1158,47 @@
       >
         <div class="section-heading split reveal">
           <div>
-            <p class="eyebrow">FROM “WHAT IF” TO “IT WORKS”</p>
+            <p class="eyebrow">CUSTOM SOLUTIONS, BUILT FOR YOU</p>
             <h2 id="process-title">
-              Good work starts<br />with a conversation.
+              Custom solutions.<br />Built for your business.
             </h2>
           </div>
           <p>
-            A clear process. Room for feedback.<br />Someone who cares about the
-            details.
+            Custom websites, dashboards, and automations shaped around your
+            goals, your team, and the way you work.
           </p>
         </div>
         <div class="process-steps">
           <article>
             <span>01</span>
-            <h3>Understand</h3>
+            <h3>Discover your needs</h3>
             <p>
-              We talk about your goals, your users, and what a useful outcome
-              looks like.
+              We start with your goals, current tools, and everyday challenges
+              to identify what the solution needs to do.
             </p>
           </article>
           <article>
             <span>02</span>
-            <h3>Shape</h3>
+            <h3>Design the right fit</h3>
             <p>
-              We agree on the scope, priorities, and a clear direction before
-              building.
+              Together, we define the features, integrations, and scope around
+              your priorities, budget, and workflow.
             </p>
           </article>
           <article>
             <span>03</span>
-            <h3>Build</h3>
+            <h3>Build & connect</h3>
             <p>
-              I bring the solution to life and share progress for your feedback.
+              I develop your custom solution, connect the tools it needs, and
+              share working versions for your feedback.
             </p>
           </article>
           <article>
             <span>04</span>
-            <h3>Refine & hand off</h3>
+            <h3>Test & make it yours</h3>
             <p>
-              We test the details and make the finished work easy to use and
-              maintain.
+              We test it with your real use cases, refine the details, and hand
+              over a solution your team can use and maintain.
             </p>
           </article>
         </div>

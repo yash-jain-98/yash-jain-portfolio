@@ -191,7 +191,7 @@ const normalizeSearch = (value) =>
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
-const galleryState = { category: "all", query: "", sort: "featured", limit: 9 };
+const galleryState = { category: "all", query: "", sort: "featured" };
 function projectVisual(project) {
   if (project.image)
     return `<img src="${escapeHTML(project.image)}" alt="" loading="lazy" decoding="async">`;
@@ -200,7 +200,6 @@ function projectVisual(project) {
     analytics: "XLS",
     science: "PY",
     auto: "PY",
-    creative: "MP4",
   }[project.category];
   return `<div class="repository-file-preview"><div class="file-preview-top"><span>${mark}</span><span>${escapeHTML(project.kind)}</span></div><strong>${escapeHTML(project.title)}</strong><div class="preview-file-list">${project.artifacts
     .slice(0, 2)
@@ -251,21 +250,19 @@ function getFilteredProjects() {
   return filtered;
 }
 function renderProjects() {
-  const filtered = getFilteredProjects(),
-    visible = filtered.slice(0, galleryState.limit);
-  $("#projects").innerHTML = visible
+  const filtered = getFilteredProjects();
+  $("#projects").innerHTML = filtered
     .map(
       (project) =>
-        `<article class="project-card" data-project-id="${escapeHTML(project.id)}" data-category="${project.category}"><div class="project-preview ${project.image ? "has-original-preview" : ""}" aria-hidden="true">${projectVisual(project)}<span class="visual-label">${escapeHTML(project.imageLabel)}</span></div><div class="project-category-line"><p class="project-category">${escapeHTML(project.categoryName)}</p><span class="project-kind">${escapeHTML(project.kind)}</span></div><h3>${escapeHTML(project.title)}</h3><p class="project-description">${escapeHTML(project.desc)}</p><div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div><div class="project-links"><button type="button" data-project="${project.index}" aria-label="Explore ${escapeHTML(project.title)}">Explore project ${arrowIcon}</button><a href="${escapeHTML(project.url)}" target="_blank" rel="noopener" aria-label="View ${escapeHTML(project.title)} repository on GitHub">Repository ${arrowIcon}</a></div></article>`,
+        `<article class="project-card" data-project-id="${escapeHTML(project.id)}" data-category="${project.category}"><div class="project-preview ${project.image ? "has-preview" : ""}" aria-hidden="true">${projectVisual(project)}<span class="visual-label">${escapeHTML(project.imageLabel)}</span></div><div class="project-category-line"><p class="project-category">${escapeHTML(project.categoryName)}</p><span class="project-kind">${escapeHTML(project.kind)}</span></div><h3>${escapeHTML(project.title)}</h3><p class="project-description">${escapeHTML(project.desc)}</p><div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div><div class="project-links"><button type="button" data-project="${project.index}" aria-label="Explore ${escapeHTML(project.title)}">Explore project ${arrowIcon}</button><a href="${escapeHTML(project.url)}" target="_blank" rel="noopener" aria-label="View ${escapeHTML(project.title)} repository on GitHub">Repository ${arrowIcon}</a></div></article>`,
     )
     .join("");
   $("#project-count").textContent = filtered.length
-    ? `Showing ${visible.length} of ${filtered.length} ${filtered.length === 1 ? "project" : "projects"}${galleryState.category !== "all" || galleryState.query ? " matching your filters" : ""}`
+    ? `Showing ${filtered.length} of ${projects.length} projects${galleryState.category !== "all" || galleryState.query ? " matching your filters" : " · All projects are displayed below"}`
     : "No projects match your search and filters.";
   $("#gallery-empty").hidden = filtered.length !== 0;
-  $("#load-projects").hidden = visible.length >= filtered.length;
-  $("#load-projects").textContent =
-    `Show ${Math.min(9, filtered.length - visible.length)} more projects`;
+  $("#show-all-projects").hidden =
+    galleryState.category === "all" && !galleryState.query;
   $$(".project-filters button").forEach((button) =>
     button.setAttribute(
       "aria-pressed",
@@ -276,40 +273,44 @@ function renderProjects() {
 $(".project-filters").addEventListener("click", (event) => {
   const button = event.target.closest("[data-filter]");
   if (!button) return;
+  clearTimeout(searchTimer);
   galleryState.category = button.dataset.filter;
-  galleryState.limit = 9;
+  if (galleryState.category === "all") {
+    galleryState.query = "";
+    $("#project-search").value = "";
+  }
   renderProjects();
 });
 let searchTimer;
 $("#project-search").addEventListener("input", (event) => {
   clearTimeout(searchTimer);
   galleryState.query = event.target.value;
-  galleryState.limit = 9;
   searchTimer = setTimeout(renderProjects, 150);
 });
 $("#project-sort").addEventListener("change", (event) => {
   galleryState.sort = event.target.value;
-  galleryState.limit = 9;
   renderProjects();
 });
-$("#load-projects").addEventListener("click", () => {
-  clearTimeout(searchTimer);
-  const previousCount = $$(".project-card").length;
-  galleryState.limit += 9;
-  renderProjects();
-  $$(".project-card")[previousCount]?.querySelector("[data-project]")?.focus();
-});
-$("#reset-projects").addEventListener("click", () => {
+function resetGallery() {
   clearTimeout(searchTimer);
   Object.assign(galleryState, {
     category: "all",
     query: "",
     sort: "featured",
-    limit: 9,
   });
   $("#project-search").value = "";
   $("#project-sort").value = "featured";
   renderProjects();
+}
+$("#show-all-projects").addEventListener("click", () => {
+  resetGallery();
+  $('[data-filter="all"]').focus();
+});
+$$('a[href="#work"]').forEach((link) =>
+  link.addEventListener("click", resetGallery),
+);
+$("#reset-projects").addEventListener("click", () => {
+  resetGallery();
   $("#project-search").focus();
 });
 $$("[data-filter-count]").forEach((element) => {
