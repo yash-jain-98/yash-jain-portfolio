@@ -4,6 +4,10 @@ Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private
 
 Every public repository tree was checked. Descriptions use README files, notebook sources, report text, workbook structure, or the verified file inventory. Source files remain linked to GitHub; large notebooks, videos, datasets, and office files are not bundled with the website.
 
+## Additional automation showcases
+
+The separate AI agents & automation section contains two projects described directly by Yash on 10 October 2026. These are not counted as GitHub repositories: Google Business Profile review-reply automation using Make.com, and a coal-company Gmail classification, Drive attachment filing, and Google Sheets workflow built using Claude and Google Apps Script. The 40–50 emails/day figure is the workload Yash supplied, not a measured performance result. No client name, private emails, attachments, credentials, or invented source links are included.
+
 ## Included public repositories
 
 | Repository | Portfolio title | Type |

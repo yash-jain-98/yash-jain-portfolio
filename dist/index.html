@@ -71,7 +71,7 @@
         </button>
         <nav id="main-nav" aria-label="Main navigation">
           <a href="#services">Services <span aria-hidden="true">⌄</span></a
-          ><a href="#work">Projects</a><a href="#about">About me</a
+          ><a href="#work">Projects</a><a href="#automation">AI & automation</a
           ><a
             href="https://github.com/yash-jain-98"
             target="_blank"
@@ -312,6 +312,161 @@
         </div>
       </section>
 
+      <section
+        class="automation-section section-shell"
+        id="automation"
+        aria-labelledby="automation-title"
+      >
+        <div class="wrap">
+          <div class="automation-heading reveal">
+            <div>
+              <p class="eyebrow">AI AGENTS & AUTOMATION</p>
+              <h2 id="automation-title">
+                Everyday work.<br />Thoughtfully automated.
+              </h2>
+            </div>
+            <p>
+              Practical workflows that connect the tools a business already
+              uses. From customer reviews to a busy inbox, here are two
+              automations I’ve built.
+            </p>
+          </div>
+          <div class="automation-grid">
+            <article
+              class="automation-case reveal"
+              aria-labelledby="review-automation-title"
+            >
+              <div class="automation-case-top">
+                <span class="automation-number">01 / CUSTOMER EXPERIENCE</span
+                ><span class="automation-mark" aria-hidden="true">✦</span>
+              </div>
+              <h3 id="review-automation-title">
+                A new review.<br />A reply, automatically.
+              </h3>
+              <p>
+                A Make.com workflow for Google Business Profile that
+                automatically posts a reply whenever a new customer review comes
+                in.
+              </p>
+              <ul class="automation-tools" aria-label="Project tools">
+                <li>Make.com</li>
+                <li>Google Business Profile</li>
+              </ul>
+              <ol class="automation-flow" aria-label="Review reply workflow">
+                <li>
+                  <span aria-hidden="true">01</span><strong>New review</strong
+                  ><small>A customer leaves a review</small>
+                </li>
+                <li>
+                  <span aria-hidden="true">02</span><strong>Run workflow</strong
+                  ><small>Make.com handles the trigger</small>
+                </li>
+                <li>
+                  <span aria-hidden="true">03</span><strong>Post reply</strong
+                  ><small>The response is published</small>
+                </li>
+              </ol>
+              <details class="automation-details">
+                <summary>
+                  Inside the workflow <span aria-hidden="true">+</span>
+                </summary>
+                <div>
+                  <p>
+                    <strong>The task</strong>Keeping up with incoming Google
+                    Business Profile reviews.
+                  </p>
+                  <p>
+                    <strong>The automation</strong>A new review triggers a
+                    Make.com workflow, which posts a reply to that review.
+                  </p>
+                  <p>
+                    <strong>The result</strong>Review replies are handled
+                    automatically as new reviews arrive.
+                  </p>
+                </div>
+              </details>
+              <a
+                class="text-link"
+                href="#contact"
+                data-service="Automation & workflows"
+                >Build a review workflow <span aria-hidden="true"><svg class="icon-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a
+              >
+            </article>
+            <article
+              class="automation-case automation-case-inbox reveal"
+              aria-labelledby="inbox-automation-title"
+            >
+              <div class="automation-case-top">
+                <span class="automation-number">02 / BUSINESS OPERATIONS</span
+                ><span class="automation-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg></span>
+              </div>
+              <h3 id="inbox-automation-title">
+                A busy inbox.<br />One organised view.
+              </h3>
+              <p>
+                Built for a coal company receiving 40–50 emails a day: read
+                incoming messages, classify them by department, file attachments
+                in Drive, and record the links in Google Sheets.
+              </p>
+              <ul class="automation-tools" aria-label="Project tools">
+                <li>Claude</li>
+                <li>Google Apps Script</li>
+                <li>Gmail · Drive · Sheets</li>
+              </ul>
+              <ol
+                class="automation-flow"
+                aria-label="Email organisation workflow"
+              >
+                <li>
+                  <span aria-hidden="true">01</span
+                  ><strong>Read & classify</strong
+                  ><small>Organise emails by department</small>
+                </li>
+                <li>
+                  <span aria-hidden="true">02</span
+                  ><strong>File attachments</strong
+                  ><small>Save files to Google Drive</small>
+                </li>
+                <li>
+                  <span aria-hidden="true">03</span
+                  ><strong>Log the links</strong
+                  ><small>Keep a record in Google Sheets</small>
+                </li>
+              </ol>
+              <details class="automation-details">
+                <summary>
+                  Inside the workflow <span aria-hidden="true">+</span>
+                </summary>
+                <div>
+                  <p>
+                    <strong>The task</strong>A daily flow of 40–50 emails, with
+                    messages and attachments to organise across departments.
+                  </p>
+                  <p>
+                    <strong>The automation</strong>Built using Claude and Google
+                    Apps Script to read and classify emails, save attachments in
+                    a Drive folder, and add the associated links to a Google
+                    Sheet.
+                  </p>
+                  <p>
+                    <strong>The result</strong>A structured spreadsheet record
+                    connecting departmental emails with their stored
+                    attachments.
+                  </p>
+                </div>
+              </details>
+              <a
+                class="text-link"
+                href="#contact"
+                data-service="Automation & workflows"
+                >Simplify your inbox workflow
+                <span aria-hidden="true"><svg class="icon-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section wrap" id="work" aria-labelledby="work-title">
         <div class="section-heading split reveal">
           <div>
@@ -321,8 +476,8 @@
           <div>
             <p>
               From dashboards and machine-learning studies to websites and
-              motion content. Explore the projects, notebooks, and source
-              files behind my work.
+              motion content. Explore the projects, notebooks, and source files
+              behind my work.
             </p>
             <a
               class="text-link"

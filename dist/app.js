@@ -70,11 +70,11 @@ const serviceContent = {
     kicker: "AUTOMATION & WORKFLOWS",
     title: "Less everyday effort.<br>More time for ideas.",
     description:
-      "Put repetitive tasks in their place. I build focused scripts and data workflows that turn recurring manual steps into simpler, more reliable processes.",
+      "Put repetitive tasks in their place. I connect business tools with Make.com, Google Apps Script, and practical AI-assisted workflows to simplify recurring manual tasks.",
     items: [
-      "Python scripts & data processing",
-      "Web data collection workflows",
-      "Spreadsheet & reporting automation",
+      "Google Business Profile review-reply automation",
+      "Email classification & attachment organisation",
+      "Connected Google Workspace & reporting workflows",
     ],
     cta: "Let’s simplify your workflow",
     service: "Automation & workflows",
@@ -374,8 +374,10 @@ document.addEventListener("click", (event) => {
   if (!event.target.closest(".navigation")) closeMenu();
 });
 matchMedia("(min-width:821px)").addEventListener("change", closeMenu);
-$("#service-cta").addEventListener("click", (event) => {
-  $("#service").value = event.currentTarget.dataset.service;
+$$("[data-service]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    $("#service").value = event.currentTarget.dataset.service;
+  });
 });
 
 function createEmailDraft({ name, replyTo, service, message }) {
