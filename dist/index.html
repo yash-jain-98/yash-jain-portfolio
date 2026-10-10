@@ -327,7 +327,7 @@
             </div>
             <p>
               Practical workflows that connect the tools a business already
-              uses. From customer reviews to a busy inbox, here are two
+              uses. From customer reviews to a busy inbox, here are five
               automations I’ve built.
             </p>
           </div>
@@ -389,8 +389,11 @@
                 class="text-link"
                 href="#contact"
                 data-service="Automation & workflows"
-                >Build a review workflow <span aria-hidden="true"><svg class="icon-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a
-              >
+                >Build a review workflow
+                <span aria-hidden="true"
+                  ><svg class="icon-arrow" viewBox="0 0 24 24">
+                    <path d="M5 19 19 5M5 5h14v14" /></svg></span
+              ></a>
             </article>
             <article
               class="automation-case automation-case-inbox reveal"
@@ -398,7 +401,18 @@
             >
               <div class="automation-case-top">
                 <span class="automation-number">02 / BUSINESS OPERATIONS</span
-                ><span class="automation-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg></span>
+                ><span class="automation-mark" aria-hidden="true"
+                  ><svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3 6 9 7 9-7" /></svg
+                ></span>
               </div>
               <h3 id="inbox-automation-title">
                 A busy inbox.<br />One organised view.
@@ -460,8 +474,242 @@
                 href="#contact"
                 data-service="Automation & workflows"
                 >Simplify your inbox workflow
-                <span aria-hidden="true"><svg class="icon-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a
-              >
+                <span aria-hidden="true"
+                  ><svg class="icon-arrow" viewBox="0 0 24 24">
+                    <path d="M5 19 19 5M5 5h14v14" /></svg></span
+              ></a>
+            </article>
+            <article
+              class="automation-case reveal"
+              aria-labelledby="lead-automation-title"
+            >
+              <div class="automation-case-top">
+                <span class="automation-number">03 / LEAD OPERATIONS</span
+                ><span class="automation-mark" aria-hidden="true"
+                  ><svg
+                    class="icon-arrow"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 19 19 5M5 5h14v14" /></svg
+                ></span>
+              </div>
+              <h3 id="lead-automation-title">
+                New form entries.<br />Matched and moved.
+              </h3>
+              <p>
+                A Google Apps Script workflow that checks each new Google Forms
+                response against two other Google Sheets. When a matching record
+                exists, the entry moves to the “Convert” sheet.
+              </p>
+              <ul class="automation-tools" aria-label="Project tools">
+                <li>Google Forms</li>
+                <li>Google Sheets</li>
+                <li>Google Apps Script</li>
+              </ul>
+              <ol class="automation-flow" aria-label="Lead workflow">
+                <li>
+                  <span aria-hidden="true">01</span
+                  ><strong>Receive entry</strong
+                  ><small>A form response enters the sheet</small>
+                </li>
+                <li>
+                  <span aria-hidden="true">02</span
+                  ><strong>Check two sheets</strong
+                  ><small>Look for an existing matching record</small>
+                </li>
+                <li>
+                  <span aria-hidden="true">03</span
+                  ><strong>Move the match</strong
+                  ><small>Send the entry to the Convert sheet</small>
+                </li>
+              </ol>
+              <details class="automation-details">
+                <summary>
+                  Inside the workflow <span aria-hidden="true">+</span>
+                </summary>
+                <div>
+                  <p>
+                    <strong>The task</strong>Cross-checking new leads against
+                    existing records across multiple sheets.
+                  </p>
+                  <p>
+                    <strong>The automation</strong>When a Google Forms response
+                    adds a row, the script checks for the data in two other
+                    Google Sheets. If it finds a match, it moves the entry to a
+                    sheet named Convert.
+                  </p>
+                  <p>
+                    <strong>The result</strong>Matching entries are organised in
+                    a dedicated sheet for the lead-conversion workflow.
+                  </p>
+                </div>
+              </details>
+              <a
+                class="text-link"
+                href="#contact"
+                data-service="Automation & workflows"
+                >Connect your lead workflow<span aria-hidden="true"
+                  ><svg
+                    class="icon-arrow"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 19 19 5M5 5h14v14" /></svg></span
+              ></a>
+            </article>
+            <article
+              class="automation-case reveal"
+              aria-labelledby="whatsapp-automation-title"
+            >
+              <div class="automation-case-top">
+                <span class="automation-number">04 / CUSTOMER FOLLOW-UP</span
+                ><span class="automation-mark" aria-hidden="true"
+                  ><svg
+                    class="icon-arrow"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 19 19 5M5 5h14v14" /></svg
+                ></span>
+              </div>
+              <h3 id="whatsapp-automation-title">
+                A new lead.<br />A timely conversation.
+              </h3>
+              <p>
+                A WhatsApp bot connected to Google Sheets sends a message when a
+                new entry arrives, then follows up after 12 hours.
+              </p>
+              <ul class="automation-tools" aria-label="Project tools">
+                <li>WhatsApp</li>
+                <li>Google Sheets</li>
+                <li>12-hour follow-up</li>
+              </ul>
+              <ol class="automation-flow" aria-label="Whatsapp workflow">
+                <li>
+                  <span aria-hidden="true">01</span
+                  ><strong>New sheet entry</strong
+                  ><small>A contact is added to Google Sheets</small>
+                </li>
+                <li>
+                  <span aria-hidden="true">02</span
+                  ><strong>Send a message</strong
+                  ><small>The bot reaches out on WhatsApp</small>
+                </li>
+                <li>
+                  <span aria-hidden="true">03</span><strong>Follow up</strong
+                  ><small>Send the follow-up after 12 hours</small>
+                </li>
+              </ol>
+              <details class="automation-details">
+                <summary>
+                  Inside the workflow <span aria-hidden="true">+</span>
+                </summary>
+                <div>
+                  <p>
+                    <strong>The task</strong>Starting a conversation with new
+                    contacts and keeping track of the next follow-up.
+                  </p>
+                  <p>
+                    <strong>The automation</strong>A new Google Sheets entry
+                    triggers a WhatsApp message to the contact. The workflow
+                    then sends a follow-up after 12 hours.
+                  </p>
+                  <p>
+                    <strong>The result</strong>An initial message and a
+                    scheduled follow-up connected to the contact record in
+                    Google Sheets.
+                  </p>
+                </div>
+              </details>
+              <a
+                class="text-link"
+                href="#contact"
+                data-service="Automation & workflows"
+                >Build a follow-up workflow<span aria-hidden="true"
+                  ><svg
+                    class="icon-arrow"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 19 19 5M5 5h14v14" /></svg></span
+              ></a>
+            </article>
+            <article
+              class="automation-case reveal"
+              aria-labelledby="summary-automation-title"
+            >
+              <div class="automation-case-top">
+                <span class="automation-number">05 / EMAIL PRODUCTIVITY</span
+                ><span class="automation-mark" aria-hidden="true"
+                  ><svg
+                    class="icon-arrow"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 19 19 5M5 5h14v14" /></svg
+                ></span>
+              </div>
+              <h3 id="summary-automation-title">
+                Long emails.<br />The essentials, together.
+              </h3>
+              <p>
+                An email summarisation workflow that turns each new Gmail
+                message into a shorter summary and saves it to Google Docs for
+                the user to read.
+              </p>
+              <ul class="automation-tools" aria-label="Project tools">
+                <li>Gmail</li>
+                <li>Google Docs</li>
+                <li>Email summarisation</li>
+              </ul>
+              <ol class="automation-flow" aria-label="Summary workflow">
+                <li>
+                  <span aria-hidden="true">01</span
+                  ><strong>Receive email</strong
+                  ><small>A new message arrives in Gmail</small>
+                </li>
+                <li>
+                  <span aria-hidden="true">02</span><strong>Summarise</strong
+                  ><small>Create a concise version of the email</small>
+                </li>
+                <li>
+                  <span aria-hidden="true">03</span><strong>Save to Docs</strong
+                  ><small>Make the summary available to read</small>
+                </li>
+              </ol>
+              <details class="automation-details">
+                <summary>
+                  Inside the workflow <span aria-hidden="true">+</span>
+                </summary>
+                <div>
+                  <p>
+                    <strong>The task</strong>Reviewing incoming emails without
+                    having to work through every full message first.
+                  </p>
+                  <p>
+                    <strong>The automation</strong>Each new Gmail message
+                    triggers a summary, which is made available to the user in
+                    Google Docs.
+                  </p>
+                  <p>
+                    <strong>The result</strong>A shorter version of incoming
+                    messages in a document-based reading workflow.
+                  </p>
+                </div>
+              </details>
+              <a
+                class="text-link"
+                href="#contact"
+                data-service="Automation & workflows"
+                >Simplify email review<span aria-hidden="true"
+                  ><svg
+                    class="icon-arrow"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 19 19 5M5 5h14v14" /></svg></span
+              ></a>
             </article>
           </div>
         </div>

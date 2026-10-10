@@ -25,7 +25,7 @@ Then visit `http://localhost:4173`.
 
 ## Interactions
 
-- A dedicated AI agents & automation section showcases Google Business Profile review replies through Make.com and a coal-company email classification, Drive filing, and Sheets workflow built using Claude and Google Apps Script. Expandable workflow details and enquiry links work on mobile and desktop.
+- A dedicated AI agents & automation section showcases Google Business Profile review replies through Make.com a coal-company email classification, Drive filing, and Sheets workflow built using Claude and Google Apps Script; lead matching across Google Sheets; WhatsApp outreach with a 12-hour follow-up; and Gmail summaries saved to Google Docs. Expandable workflow details and enquiry links work on mobile and desktop.
 - Four keyboard-accessible service tabs with desktop/mobile website previews, sample dashboard period controls, and a simulated automation workflow.
 - A searchable 38-project gallery with six categories, three sort options, progressive loading, and native project dialogs linking to the original notebooks, reports, workbooks, code, and videos. Escape dismisses dialogs and restores keyboard focus.
 - Responsive mobile navigation, native FAQ disclosures, scroll reveals, and reduced-motion alternatives.

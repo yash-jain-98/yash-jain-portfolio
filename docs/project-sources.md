@@ -6,7 +6,7 @@ Every public repository tree was checked. Descriptions use README files, noteboo
 
 ## Additional automation showcases
 
-The separate AI agents & automation section contains two projects described directly by Yash on 10 October 2026. These are not counted as GitHub repositories: Google Business Profile review-reply automation using Make.com, and a coal-company Gmail classification, Drive attachment filing, and Google Sheets workflow built using Claude and Google Apps Script. The 40–50 emails/day figure is the workload Yash supplied, not a measured performance result. No client name, private emails, attachments, credentials, or invented source links are included.
+The separate AI agents & automation section contains five projects described directly by Yash on 10 October 2026. These are not counted as GitHub repositories: Google Business Profile review-reply automation using Make.com, and a coal-company Gmail classification, Drive attachment filing, and Google Sheets workflow built using Claude and Google Apps Script; a Google Forms/Sheets matching workflow that moves matching entries to a Convert sheet; a Sheets-triggered WhatsApp message and 12-hour follow-up; and Gmail summaries saved to Google Docs. The implementation platform for WhatsApp and the summarisation provider were not supplied and are not claimed. The 40–50 emails/day figure is the workload Yash supplied, not a measured performance result. No client name, private emails, attachments, credentials, or invented source links are included.
 
 ## Included public repositories
 
