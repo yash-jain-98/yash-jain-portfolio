@@ -29,6 +29,7 @@
       crossorigin
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="projects-data.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -70,7 +71,7 @@
         </button>
         <nav id="main-nav" aria-label="Main navigation">
           <a href="#services">Services <span aria-hidden="true">⌄</span></a
-          ><a href="#work">Selected work</a><a href="#about">About me</a
+          ><a href="#work">Projects</a><a href="#about">About me</a
           ><a
             href="https://github.com/yash-jain-98"
             target="_blank"
@@ -79,6 +80,13 @@
             <span aria-hidden="true"
               ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 19 19 5M5 5h14v14" /></svg></span></a
+          ><a
+            href="https://www.linkedin.com/in/yash-jain-surat/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn
+            <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 19 19 5M5 5h14v14" /></svg></a
           ><a class="button button-small" href="#contact"
             >Let’s talk
             <span aria-hidden="true"
@@ -312,8 +320,9 @@
           </div>
           <div>
             <p>
-              Real repositories. Open notebooks. Practical experiments.<br />A
-              closer look at how I turn questions into projects.
+              From dashboards and machine-learning studies to websites and
+              motion content. Explore the projects, notebooks, and source
+              files behind my work.
             </p>
             <a
               class="text-link"
@@ -327,19 +336,97 @@
             ></a>
           </div>
         </div>
+        <div class="gallery-summary">
+          <span class="availability-dot"></span
+          ><span
+            ><strong id="gallery-total">38</strong> projects from public GitHub
+            repositories</span
+          ><span class="gallery-updated"
+            >Reviewed <time datetime="2026-10-10">10 Oct 2026</time></span
+          >
+        </div>
+        <div class="gallery-toolbar">
+          <div class="project-search-field">
+            <label for="project-search">Find a project</label>
+            <div>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="10" cy="10" r="6.5" />
+                <path d="m15 15 5 5" /></svg
+              ><input
+                type="search"
+                id="project-search"
+                placeholder="Search projects, tools, or topics…"
+                autocomplete="off"
+                maxlength="150"
+                aria-controls="projects"
+              />
+            </div>
+          </div>
+          <div class="project-sort-field">
+            <label for="project-sort">Sort projects</label
+            ><select id="project-sort" aria-controls="projects">
+              <option value="featured">Featured first</option>
+              <option value="recent">Recently updated</option>
+              <option value="title">Project name A–Z</option>
+            </select>
+          </div>
+        </div>
         <div class="project-filters" role="group" aria-label="Filter projects">
           <button aria-pressed="true" data-filter="all">
-            All work <span>06</span></button
-          ><button aria-pressed="false" data-filter="web">
-            Web development</button
-          ><button aria-pressed="false" data-filter="analytics">
-            Data analytics</button
-          ><button aria-pressed="false" data-filter="science">
-            Data science</button
-          ><button aria-pressed="false" data-filter="auto">Automation</button>
+            All work <span data-filter-count="all">38</span>
+          </button>
+          <button aria-pressed="false" data-filter="web">
+            Web development <span data-filter-count="web">6</span>
+          </button>
+          <button aria-pressed="false" data-filter="analytics">
+            Data analytics <span data-filter-count="analytics">18</span>
+          </button>
+          <button aria-pressed="false" data-filter="science">
+            Data science <span data-filter-count="science">7</span>
+          </button>
+          <button aria-pressed="false" data-filter="auto">
+            Automation <span data-filter-count="auto">1</span>
+          </button>
+          <button aria-pressed="false" data-filter="creative">
+            Design & content <span data-filter-count="creative">6</span>
+          </button>
         </div>
         <div class="project-grid" id="projects"></div>
-        <p class="result-count" id="project-count" aria-live="polite"></p>
+        <div class="gallery-empty" id="gallery-empty" hidden>
+          <h3>No projects found.</h3>
+          <p>
+            Try another topic or tool, or clear your filters to explore all
+            projects.
+          </p>
+          <button type="button" class="button button-white" id="reset-projects">
+            Clear search & filters
+          </button>
+        </div>
+        <div class="gallery-footer">
+          <p
+            class="result-count"
+            id="project-count"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          ></p>
+          <button
+            type="button"
+            class="button button-white"
+            id="load-projects"
+            aria-controls="projects"
+          >
+            Show more projects</button
+          ><a
+            class="gallery-profile"
+            href="https://github.com/yash-jain-98?tab=repositories"
+            target="_blank"
+            rel="noopener"
+            >Explore GitHub
+            <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 19 19 5M5 5h14v14" /></svg
+          ></a>
+        </div>
         <noscript
           ><p>
             Explore all projects on
@@ -582,6 +669,15 @@
                 <path d="M5 19 19 5M5 5h14v14" /></svg></span></a
           ><button class="copy-email" type="button">Copy email address</button
           ><span class="sr-only" id="copy-status" aria-live="polite"></span>
+          <a
+            class="linkedin-contact"
+            href="https://www.linkedin.com/in/yash-jain-surat/"
+            target="_blank"
+            rel="noopener"
+            ><span aria-hidden="true">in</span> Connect with me on LinkedIn
+            <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 19 19 5M5 5h14v14" /></svg
+          ></a>
         </div>
         <form id="contact-form">
           <h3>Tell me what you have in mind.</h3>
