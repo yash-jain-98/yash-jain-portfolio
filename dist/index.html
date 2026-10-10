@@ -1,13 +1,680 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fbfcff"><title>Yash Jain — Websites, Data & Automation</title><meta name="description" content="Yash Jain is a freelance developer working across website design, data analytics, data science and automation. Explore projects and start a conversation."><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232e4de6'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Arial' font-size='34' font-weight='bold' fill='white'%3Eyj%3C/text%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script src="app.js" defer></script></head>
-<body><a class="skip" href="#main">Skip to content</a>
-<div class="announcement">From a new website to your next data challenge. <a href="#contact">Let’s make it happen.</a></div><header><div class="nav wrap"><a class="brand" href="#home" aria-label="Yash Jain home"><span class="monogram">yj.</span><span>Yash Jain<small>WEB · DATA · AUTOMATION</small></span></a><button class="menu-button" aria-expanded="false" aria-controls="navigation">Menu</button><nav id="navigation" aria-label="Main navigation"><a href="#services">Services</a><a href="#work">Projects</a><a href="#about">About me</a><a href="https://github.com/yash-jain-98" target="_blank" rel="noopener">GitHub</a><a href="#contact" class="button small">Let’s talk</a></nav></div></header>
-<main id="main"><section class="hero-shell" id="home"><div class="hero-photo" role="img" aria-label="A sunlit workspace with a laptop and notebook"></div><div class="hero wrap"><div class="hero-copy"><p class="eyebrow">YASH JAIN · FREELANCE DEVELOPER</p><h1>Digital experiences.<br>Built for your<br><span>next chapter.</span></h1><p class="intro">Thoughtful websites. Clearer data. Smarter workflows.<br>I help turn your business challenges into practical digital solutions.</p><div class="actions"><a class="button" href="#contact">Discuss your project</a><a class="button outline" href="#work">View my work</a></div></div><div class="hero-note"><span class="note-symbol">✳</span><div><strong>Design meets problem-solving.</strong><span>Web development · Analytics · Automation</span></div></div></div></section>
-<div class="expertise-strip"><div class="wrap"><span>BUILT WITH A PRACTICAL TOOLKIT</span><strong>JavaScript</strong><strong>Python</strong><strong>Power BI</strong><strong>SQL</strong><strong>Excel</strong></div></div>
-<section class="services-section" id="services"><div class="wrap section"><div class="section-head centered"><div><p class="eyebrow">THE RIGHT SOLUTION FOR YOUR NEXT STEP</p><h2>Great ideas deserve<br>thoughtful execution.</h2><p>One independent partner for your website, your data,<br>and the workflows that connect them.</p></div></div><div class="lab-tabs solution-tabs" role="group" aria-label="Explore services"><button class="active" data-mode="web" aria-pressed="true"><span class="tab-symbol">&lt;/&gt;</span>Websites & experiences</button><button data-mode="data" aria-pressed="false"><span class="tab-symbol">▥</span>Analytics & data science</button><button data-mode="auto" aria-pressed="false"><span class="tab-symbol">⌘</span>Automation & workflows</button></div><div class="solution-panel"><div class="solution-copy"><span id="service-kicker" class="eyebrow">WEBSITE DESIGN & DEVELOPMENT</span><h3 id="service-title">Give your business<br>a better front door.</h3><p id="service-description">A considered website helps people understand what you do and makes the next step feel effortless. I design and develop responsive experiences around your business and your users.</p><ul id="service-list"><li>Business websites & landing pages</li><li>Mobile-first layouts & clear navigation</li><li>UI improvements & website redesigns</li></ul><a class="button" id="service-cta" href="#contact" data-service="Website design & development">Let’s talk websites</a></div><div class="solution-visual"><div class="lab-view" id="lab-view"></div><div class="lab-bottom"><span id="lab-caption">Designed with care. Built to work.</span><span>INTERACTIVE CONCEPT</span></div></div></div></div></section><section class="section wrap" id="work"><div class="section-head"><div><p class="eyebrow">SELECTED PROJECTS</p><h2>The work behind<br>the possibilities.</h2></div><p>A selection of my development and data projects.<br>Explore the thinking, then dive into the code.</p></div><div class="filters" role="group" aria-label="Filter projects"><button class="active" data-filter="all" aria-pressed="true">All projects</button><button data-filter="web" aria-pressed="false">Web development</button><button data-filter="analytics" aria-pressed="false">Data analytics</button><button data-filter="science" aria-pressed="false">Data science</button><button data-filter="auto" aria-pressed="false">Automation</button></div><div class="projects" id="projects"></div><p class="result-count" id="project-count" aria-live="polite"></p><div class="github-bar"><div><span class="code-mark">&lt;/&gt;</span><span><strong>Curiosity, committed.</strong><small>More experiments, notebooks, and code on GitHub.</small></span></div><a class="button outline" href="https://github.com/yash-jain-98" target="_blank" rel="noopener">Explore GitHub</a></div></section>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <title>Yash Jain — Websites, Data & Automation</title>
+    <meta
+      name="description"
+      content="Websites that connect. Data that makes sense. Workflows that give you time back. Explore Yash Jain’s freelance development, analytics and automation services."
+    />
+    <meta
+      property="og:title"
+      content="Yash Jain — Websites, Data & Automation"
+    />
+    <meta
+      property="og:description"
+      content="A creative eye. An analytical mind. Your independent partner for websites, analytics, data science and automation."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%232b59ff'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial' font-size='32' font-weight='bold' fill='white'%3Eyj.%3C/text%3E%3C/svg%3E"
+    />
+    <link
+      rel="preload"
+      href="fonts/dm-sans-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="announcement">
+      <span class="availability-dot"></span> Independent developer. Connected
+      thinking.
+      <a href="#contact"
+        >Let’s build something useful
+        <span aria-hidden="true"
+          ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 19 19 5M5 5h14v14" /></svg></span
+      ></a>
+    </div>
+    <header class="site-header">
+      <div class="navigation">
+        <a class="brand" href="#home" aria-label="Yash Jain home"
+          ><span class="brand-mark">yj<span>.</span></span
+          ><span
+            >Yash Jain<span class="brand-caption"
+              >WEB. DATA. AUTOMATION.</span
+            ></span
+          ></a
+        >
+        <button
+          class="menu-button"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span>Menu</span
+          ><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+            <path
+              d="M3 6h14M3 14h14"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+          </svg>
+        </button>
+        <nav id="main-nav" aria-label="Main navigation">
+          <a href="#services">Services <span aria-hidden="true">⌄</span></a
+          ><a href="#work">Selected work</a><a href="#about">About me</a
+          ><a
+            href="https://github.com/yash-jain-98"
+            target="_blank"
+            rel="noopener"
+            >GitHub
+            <span aria-hidden="true"
+              ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 19 19 5M5 5h14v14" /></svg></span></a
+          ><a class="button button-small" href="#contact"
+            >Let’s talk
+            <span aria-hidden="true"
+              ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 19 19 5M5 5h14v14" /></svg></span
+          ></a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section
+        class="hero section-shell"
+        id="home"
+        aria-labelledby="hero-title"
+      >
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="short-line"></span> YASH JAIN · FREELANCE DEVELOPER
+          </p>
+          <h1 id="hero-title">
+            Your next chapter.<br />A better website.<br /><span
+              >Smarter everything.</span
+            >
+          </h1>
+          <p class="hero-description">
+            I design websites, turn data into insight, and automate the
+            everyday. Thoughtful digital solutions for businesses ready to move
+            forward.
+          </p>
+          <div class="actions">
+            <a class="button" href="#contact"
+              >Discuss your project
+              <span aria-hidden="true"
+                ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 19 19 5M5 5h14v14" /></svg></span></a
+            ><a class="button button-white" href="#work"
+              ><span class="play-icon" aria-hidden="true"></span> Explore my
+              work</a
+            >
+          </div>
+          <div class="hero-footnote">
+            <span class="mini-mark" aria-hidden="true">yj.</span
+            ><span
+              >One person. A connected skill set.<br /><strong
+                >From the first idea to the final handoff.</strong
+              ></span
+            >
+          </div>
+        </div>
+        <div class="hero-art">
+          <img
+            class="hero-photo"
+            src="hero-workspace.png"
+            alt="A bright workspace with a laptop, notebook and plants"
+            width="1672"
+            height="941"
+            fetchpriority="high"
+          />
+          <div class="photo-caption">
+            <span class="availability-dot"></span> MADE FOR THE WAY YOU WORK
+          </div>
+          <div class="floating-card insight-card">
+            <span class="card-icon" aria-hidden="true"
+              ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 19 19 5M5 5h14v14" /></svg
+            ></span>
+            <div>
+              <small>FROM COMPLEXITY TO CLARITY</small
+              ><strong>Ideas, brought to life.</strong>
+              <div class="tiny-bars" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+            </div>
+          </div>
+          <div class="floating-card workflow-card">
+            <span class="check-circle" aria-hidden="true">✓</span
+            ><span>Less routine.<br /><strong>More possibility.</strong></span
+            ><span class="workflow-spark" aria-hidden="true"
+              ><svg
+                width="26"
+                height="26"
+                viewBox="0 0 26 26"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+              >
+                <path
+                  d="M13 2v22M2 13h22M5.2 5.2l15.6 15.6M5.2 20.8 20.8 5.2"
+                /></svg
+            ></span>
+          </div>
+        </div>
+      </section>
+      <section
+        class="tool-strip wrap"
+        aria-label="Development and analytics toolkit"
+      >
+        <p>THE TOOLS BEHIND<br /><strong>THE POSSIBILITIES</strong></p>
+        <div>
+          <span
+            ><b class="tool-letter python" aria-hidden="true">Py</b>
+            Python</span
+          ><span
+            ><b class="tool-letter js" aria-hidden="true">JS</b>
+            JavaScript</span
+          ><span><b class="bi-mark" aria-hidden="true">▥</b> Power BI</span
+          ><span><b class="tool-letter sql" aria-hidden="true">≋</b> SQL</span
+          ><span
+            ><b class="tool-letter excel" aria-hidden="true">X</b> Excel</span
+          >
+        </div>
+      </section>
 
-<section class="section wrap about" id="about"><div><p class="eyebrow">YOUR PARTNER IN THE PROCESS</p><h2>A creative eye.<br>An analytical mind.</h2><p class="about-text">I’m Yash Jain, a freelance developer working at the intersection of design, data, and technology.</p><p class="muted">I enjoy making complicated things easier to use and understand—whether that’s a website, a dashboard, or a repetitive workflow. My approach brings thoughtful interfaces and practical problem-solving to the same table.</p><a class="text-link" href="https://github.com/yash-jain-98" target="_blank" rel="noopener">Get to know my work on GitHub</a></div><div class="toolbox"><div class="toolbox-title"><h3>Tools of the trade</h3><span>MY TOOLKIT</span></div><div class="skill-row"><strong>Web & interfaces</strong><div><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive design</span></div></div><div class="skill-row"><strong>Analytics & reporting</strong><div><span>Power BI</span><span>Excel</span><span>SQL</span><span>Power Query</span></div></div><div class="skill-row"><strong>Data science & workflows</strong><div><span>Python</span><span>Jupyter</span><span>Machine learning</span><span>Web scraping</span></div></div><div class="toolbox-note">Clear thinking. Thoughtful execution. Useful outcomes.</div></div></section>
-<section class="process wrap"><p class="eyebrow">A SIMPLE WAY TO WORK TOGETHER</p><div class="steps"><div><span>01</span><h3>Understand</h3><p>Talk through your goals, your users, and the problem worth solving.</p></div><div><span>02</span><h3>Shape</h3><p>Define the scope and find a clear direction before development begins.</p></div><div><span>03</span><h3>Build</h3><p>Bring the solution to life, with space for feedback along the way.</p></div><div><span>04</span><h3>Refine & hand off</h3><p>Check the details and make the finished work easy to use and maintain.</p></div></div></section>
-<section class="contact-section" id="contact"><div class="wrap contact"><div><p class="eyebrow">LET’S GET STARTED</p><h2>Something in mind?<br><span>Let’s build on it.</span></h2><p>A new website, a data challenge, or a workflow that could work better. I’d love to hear about it.</p><a class="email" href="mailto:works.yashjain@gmail.com">works.yashjain@gmail.com</a><button class="copy-email" type="button">Copy email</button><span id="copy-status" class="sr-only" aria-live="polite"></span></div><form id="contact-form"><label for="client-name">Your name</label><input id="client-name" name="name" autocomplete="name" required placeholder="How should I call you?" maxlength="100"><label for="service">What can I help with?</label><select id="service" name="service"><option>Website design & development</option><option>Data analytics & science</option><option>Automation</option><option>Something else</option></select><label for="message">A little about your project</label><textarea id="message" name="message" rows="3" required maxlength="5000" placeholder="Your idea, goals, and timeline…"></textarea><button class="button" type="submit">Start a conversation</button><p class="form-note">Opens your email app with your project details.</p></form></div></section></main>
-<footer class="wrap"><a class="brand" href="#home">Yash Jain<span class="blue">.</span></a><span>Thoughtfully designed. Purposefully built.</span><a href="https://github.com/yash-jain-98" target="_blank" rel="noopener">GitHub</a><span>© <span id="year">2026</span> Yash Jain</span></footer>
-<dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close project details">×</button><div id="dialog-content"></div></dialog></body></html>
+      <section
+        class="services-section section-shell"
+        id="services"
+        aria-labelledby="services-title"
+      >
+        <div class="section-heading centered reveal">
+          <p class="eyebrow">BUILT AROUND YOUR BUSINESS</p>
+          <h2 id="services-title">
+            Big-picture thinking.<br />Hands-on execution.
+          </h2>
+          <p>
+            Your website, your data, your everyday workflows.<br />Let’s make
+            them work better together.
+          </p>
+        </div>
+        <div
+          class="service-tabs"
+          role="tablist"
+          aria-label="Explore my services"
+        >
+          <button
+            id="tab-web"
+            role="tab"
+            aria-selected="true"
+            aria-controls="service-panel"
+            data-mode="web"
+          >
+            <span aria-hidden="true">&lt;/&gt;</span> Websites
+          </button>
+          <button
+            id="tab-data"
+            role="tab"
+            aria-selected="false"
+            aria-controls="service-panel"
+            tabindex="-1"
+            data-mode="data"
+          >
+            <span aria-hidden="true">▥</span> Data analytics
+          </button>
+          <button
+            id="tab-science"
+            role="tab"
+            aria-selected="false"
+            aria-controls="service-panel"
+            tabindex="-1"
+            data-mode="science"
+          >
+            <span aria-hidden="true">&lowast;</span> Data science
+          </button>
+          <button
+            id="tab-auto"
+            role="tab"
+            aria-selected="false"
+            aria-controls="service-panel"
+            tabindex="-1"
+            data-mode="auto"
+          >
+            <span aria-hidden="true"
+              ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 19 19 5M5 5h14v14" /></svg
+            ></span>
+            Automation
+          </button>
+        </div>
+        <div
+          class="service-panel"
+          id="service-panel"
+          role="tabpanel"
+          aria-labelledby="tab-web"
+          tabindex="0"
+        >
+          <div class="service-copy">
+            <p class="eyebrow" id="service-kicker">
+              WEBSITE DESIGN & DEVELOPMENT
+            </p>
+            <h3 id="service-title">
+              A first impression.<br />A lasting connection.
+            </h3>
+            <p id="service-description">
+              Give your business a home on the web that feels like you. Clear
+              storytelling, thoughtful interfaces, and responsive development
+              that makes every interaction count.
+            </p>
+            <ul id="service-list">
+              <li>Business websites & landing pages</li>
+              <li>Responsive design, from phone to desktop</li>
+              <li>Website redesigns & interface improvements</li>
+            </ul>
+            <a
+              class="text-link"
+              id="service-cta"
+              href="#contact"
+              data-service="Website design & development"
+              >Let’s talk websites
+              <span aria-hidden="true"
+                ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 19 19 5M5 5h14v14" /></svg></span
+            ></a>
+          </div>
+          <div class="service-stage">
+            <div class="demo-stage" id="demo-stage"></div>
+            <p class="demo-caption">
+              <span class="live-dot"></span
+              ><span id="demo-caption"
+                >Try the preview: switch between desktop and mobile.</span
+              ><span class="concept-label">ILLUSTRATIVE DEMO</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" id="work" aria-labelledby="work-title">
+        <div class="section-heading split reveal">
+          <div>
+            <p class="eyebrow">EXPLORE THE WORK</p>
+            <h2 id="work-title">A little curiosity.<br />A lot of making.</h2>
+          </div>
+          <div>
+            <p>
+              Real repositories. Open notebooks. Practical experiments.<br />A
+              closer look at how I turn questions into projects.
+            </p>
+            <a
+              class="text-link"
+              href="https://github.com/yash-jain-98"
+              target="_blank"
+              rel="noopener"
+              >All projects on GitHub
+              <span aria-hidden="true"
+                ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 19 19 5M5 5h14v14" /></svg></span
+            ></a>
+          </div>
+        </div>
+        <div class="project-filters" role="group" aria-label="Filter projects">
+          <button aria-pressed="true" data-filter="all">
+            All work <span>06</span></button
+          ><button aria-pressed="false" data-filter="web">
+            Web development</button
+          ><button aria-pressed="false" data-filter="analytics">
+            Data analytics</button
+          ><button aria-pressed="false" data-filter="science">
+            Data science</button
+          ><button aria-pressed="false" data-filter="auto">Automation</button>
+        </div>
+        <div class="project-grid" id="projects"></div>
+        <p class="result-count" id="project-count" aria-live="polite"></p>
+        <noscript
+          ><p>
+            Explore all projects on
+            <a href="https://github.com/yash-jain-98"
+              >Yash Jain’s GitHub profile</a
+            >. Enable JavaScript for previews and filters.
+          </p></noscript
+        >
+      </section>
+
+      <section
+        class="about-section section-shell"
+        id="about"
+        aria-labelledby="about-title"
+      >
+        <div class="about-art reveal">
+          <div class="about-orbit orbit-one"></div>
+          <div class="about-orbit orbit-two"></div>
+          <span class="orbit-label orbit-web">&lt;/&gt; <b>Web</b></span
+          ><span class="orbit-label orbit-data">▥ <b>Data</b></span
+          ><span class="orbit-label orbit-auto">⌘ <b>Automation</b></span>
+          <div class="about-monogram">yj<span>.</span></div>
+          <div class="about-signature">
+            <strong>Yash Jain</strong><span>INDEPENDENT DEVELOPER</span>
+          </div>
+        </div>
+        <div class="about-copy reveal">
+          <p class="eyebrow">YOUR PARTNER IN THE PROCESS</p>
+          <h2 id="about-title">A creative eye.<br />An analytical mind.</h2>
+          <p class="lead">
+            Hi, I’m Yash. I connect design, development, and data to make useful
+            things.
+          </p>
+          <p>
+            Whether you need a website that tells your story, a dashboard that
+            answers the right questions, or a script that saves repetitive
+            effort, I bring clear thinking and careful execution to the same
+            table.
+          </p>
+          <div class="about-principles">
+            <span><b>01</b> Direct collaboration</span
+            ><span><b>02</b> Thoughtful details</span
+            ><span><b>03</b> Practical outcomes</span>
+          </div>
+          <a class="text-link" href="#contact"
+            >Let’s find the right solution
+            <span aria-hidden="true"
+              ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 19 19 5M5 5h14v14" /></svg></span
+          ></a>
+        </div>
+      </section>
+
+      <section
+        class="section wrap toolkit-section"
+        aria-labelledby="toolkit-title"
+      >
+        <div class="section-heading centered reveal">
+          <p class="eyebrow">CONNECTED TO YOUR CHALLENGE</p>
+          <h2 id="toolkit-title">
+            The right tools.<br />For the job that matters.
+          </h2>
+        </div>
+        <div class="toolkit-grid">
+          <div>
+            <span class="toolkit-number">01 / BUILD</span>
+            <h3>Web & interfaces</h3>
+            <p>
+              Design that feels considered. Development that brings it to life.
+            </p>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Responsive design</li>
+            </ul>
+          </div>
+          <div>
+            <span class="toolkit-number">02 / UNDERSTAND</span>
+            <h3>Analytics & reporting</h3>
+            <p>
+              Turn scattered information into a clearer view of your business.
+            </p>
+            <ul>
+              <li>Power BI</li>
+              <li>Excel</li>
+              <li>SQL</li>
+              <li>Power Query</li>
+            </ul>
+          </div>
+          <div>
+            <span class="toolkit-number">03 / SIMPLIFY</span>
+            <h3>Science & workflows</h3>
+            <p>
+              Explore patterns, develop models, and make recurring tasks easier.
+            </p>
+            <ul>
+              <li>Python</li>
+              <li>Jupyter</li>
+              <li>Machine learning</li>
+              <li>Web scraping</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="process-section section-shell"
+        aria-labelledby="process-title"
+      >
+        <div class="section-heading split reveal">
+          <div>
+            <p class="eyebrow">FROM “WHAT IF” TO “IT WORKS”</p>
+            <h2 id="process-title">
+              Good work starts<br />with a conversation.
+            </h2>
+          </div>
+          <p>
+            A clear process. Room for feedback.<br />Someone who cares about the
+            details.
+          </p>
+        </div>
+        <div class="process-steps">
+          <article>
+            <span>01</span>
+            <h3>Understand</h3>
+            <p>
+              We talk about your goals, your users, and what a useful outcome
+              looks like.
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Shape</h3>
+            <p>
+              We agree on the scope, priorities, and a clear direction before
+              building.
+            </p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Build</h3>
+            <p>
+              I bring the solution to life and share progress for your feedback.
+            </p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Refine & hand off</h3>
+            <p>
+              We test the details and make the finished work easy to use and
+              maintain.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section wrap faq-section" aria-labelledby="faq-title">
+        <div>
+          <p class="eyebrow">A FEW THINGS TO KNOW</p>
+          <h2 id="faq-title">Before we<br />get started.</h2>
+          <a class="text-link" href="mailto:works.yashjain@gmail.com"
+            >Ask me something else
+            <span aria-hidden="true"
+              ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 19 19 5M5 5h14v14" /></svg></span
+          ></a>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>
+              What kinds of projects can we work on?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <p>
+              Business websites, landing pages, interface improvements, Power BI
+              and Excel dashboards, SQL analysis, data-science studies, and
+              focused Python automations. Share your idea and we can work out
+              the right scope.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Can you improve something I already have?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <p>
+              Yes. We can start with an existing website, report, dataset, or
+              workflow, identify the friction, and agree on the changes that
+              would be most useful.
+            </p>
+          </details>
+          <details>
+            <summary>
+              How do pricing and timelines work?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <p>
+              They depend on the scope, complexity, and available materials.
+              After discussing your goals, I’ll propose deliverables, a
+              timeline, and pricing for you to review before work begins.
+            </p>
+          </details>
+          <details>
+            <summary>
+              What should I include in my first message?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <p>
+              A short description of your idea, links to anything you already
+              have, your preferred timeline, and an approximate budget if you
+              have one. It’s fine if you are still figuring out the details.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section
+        class="contact-section section-shell"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="contact-copy">
+          <p class="eyebrow">YOUR NEXT IDEA STARTS HERE</p>
+          <h2 id="contact-title">
+            Let’s make<br />something<br /><span>work better.</span>
+          </h2>
+          <p>
+            A new website. A data challenge.<br />A workflow that needs a fresh
+            perspective.
+          </p>
+          <a class="email-link" href="mailto:works.yashjain@gmail.com"
+            >works.yashjain@gmail.com
+            <span aria-hidden="true"
+              ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 19 19 5M5 5h14v14" /></svg></span></a
+          ><button class="copy-email" type="button">Copy email address</button
+          ><span class="sr-only" id="copy-status" aria-live="polite"></span>
+        </div>
+        <form id="contact-form">
+          <h3>Tell me what you have in mind.</h3>
+          <div class="form-row">
+            <div>
+              <label for="client-name">Your name</label
+              ><input
+                id="client-name"
+                name="name"
+                autocomplete="name"
+                required
+                maxlength="100"
+                placeholder="Alex Taylor"
+              />
+            </div>
+            <div>
+              <label for="client-email">Your email</label
+              ><input
+                id="client-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                maxlength="254"
+                placeholder="alex@company.com"
+              />
+            </div>
+          </div>
+          <label for="service">What can I help with?</label
+          ><select id="service" name="service">
+            <option>Website design & development</option>
+            <option>Data analytics & reporting</option>
+            <option>Data science & machine learning</option>
+            <option>Automation & workflows</option>
+            <option>Something else</option></select
+          ><label for="message">A little about your project</label
+          ><textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            maxlength="3000"
+            placeholder="Your idea, goals, and ideal timeline…"
+          ></textarea
+          ><button class="button" type="submit">
+            Let’s start a conversation
+            <span aria-hidden="true"
+              ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 19 19 5M5 5h14v14" /></svg
+            ></span>
+          </button>
+          <p class="form-note" id="form-status" aria-live="polite">
+            Opens your email app with a draft. Nothing is sent automatically.
+          </p>
+        </form>
+      </section>
+    </main>
+    <footer class="wrap">
+      <div class="footer-top">
+        <a class="brand" href="#home"
+          ><span class="brand-mark">yj<span>.</span></span
+          ><span
+            >Yash Jain<span class="brand-caption"
+              >WEB. DATA. AUTOMATION.</span
+            ></span
+          ></a
+        >
+        <p>Thoughtfully designed.<br />Purposefully built.</p>
+        <a href="https://github.com/yash-jain-98" target="_blank" rel="noopener"
+          >Explore GitHub
+          <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 19 19 5M5 5h14v14" /></svg></a
+        ><a href="mailto:works.yashjain@gmail.com"
+          >Get in touch
+          <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 19 19 5M5 5h14v14" /></svg
+        ></a>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> Yash Jain</span
+        ><span>Independent thinking. Connected solutions.</span
+        ><a href="#home">Back to top ↑</a>
+      </div>
+    </footer>
+    <dialog id="project-dialog" aria-labelledby="dialog-title">
+      <button
+        class="dialog-close"
+        type="button"
+        aria-label="Close project details"
+      >
+        ×
+      </button>
+      <div id="dialog-content"></div>
+    </dialog>
+  </body>
+</html>
