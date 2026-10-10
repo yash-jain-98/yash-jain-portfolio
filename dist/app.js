@@ -306,9 +306,9 @@ $("#show-all-projects").addEventListener("click", () => {
   resetGallery();
   $('[data-filter="all"]').focus();
 });
-$$('a[href="#work"]').forEach((link) =>
-  link.addEventListener("click", resetGallery),
-);
+document.addEventListener("click", (event) => {
+  if (event.target.closest('a[href="#work"]')) resetGallery();
+});
 $("#reset-projects").addEventListener("click", () => {
   resetGallery();
   $("#project-search").focus();

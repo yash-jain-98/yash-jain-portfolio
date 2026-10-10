@@ -30,7 +30,9 @@
     />
     <link rel="stylesheet" href="style.css?v=20261010-curated" />
     <script src="projects-data.js?v=20261010-curated" defer></script>
-    <script src="app.js?v=20261010-curated" defer></script>
+    <script src="app.js?v=20261010-hero" defer></script>
+    <link rel="stylesheet" href="hero.css?v=20261010-prisma" />
+    <script type="module" src="hero.js?v=20261010-prisma"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -97,87 +99,45 @@
       </div>
     </header>
     <main id="main">
-      <section
-        class="hero section-shell"
-        id="home"
-        aria-labelledby="hero-title"
-      >
-        <div class="hero-copy">
-          <p class="eyebrow">
-            <span class="short-line"></span> YASH JAIN · FREELANCE DEVELOPER
-          </p>
-          <h1 id="hero-title">
-            Your next chapter.<br />A better website.<br /><span
-              >Smarter everything.</span
-            >
-          </h1>
-          <p class="hero-description">
-            I design websites, turn data into insight, and automate the
-            everyday. Thoughtful digital solutions for businesses ready to move
-            forward.
-          </p>
-          <div class="actions">
-            <a class="button" href="#contact"
-              >Discuss your project
-              <span aria-hidden="true"
-                ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 19 19 5M5 5h14v14" /></svg></span></a
-            ><a class="button button-white" href="#work"
-              ><span class="play-icon" aria-hidden="true"></span> Explore my
-              work</a
-            >
-          </div>
-          <div class="hero-footnote">
-            <span class="mini-mark" aria-hidden="true">yj.</span
-            ><span
-              >One person. A connected skill set.<br /><strong
-                >From the first idea to the final handoff.</strong
-              ></span
-            >
-          </div>
-        </div>
-        <div class="hero-art">
-          <img
-            class="hero-photo"
-            src="hero-workspace.png"
-            alt="A bright workspace with a laptop, notebook and plants"
-            width="1672"
-            height="941"
-            fetchpriority="high"
-          />
-          <div class="photo-caption">
-            <span class="availability-dot"></span> MADE FOR THE WAY YOU WORK
-          </div>
-          <div class="floating-card insight-card">
-            <span class="card-icon" aria-hidden="true"
-              ><svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 19 19 5M5 5h14v14" /></svg
-            ></span>
-            <div>
-              <small>FROM COMPLEXITY TO CLARITY</small
-              ><strong>Ideas, brought to life.</strong>
-              <div class="tiny-bars" aria-hidden="true">
-                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <section class="section-shell" id="home" aria-labelledby="hero-title">
+        <div id="prisma-hero-root">
+          <div class="prisma-hero">
+            <img
+              class="prisma-backdrop"
+              src="hero-workspace.png"
+              alt=""
+              width="1672"
+              height="941"
+              fetchpriority="high"
+            />
+            <div class="prisma-wash" aria-hidden="true"></div>
+            <div class="prisma-topline">
+              <span>INDEPENDENT DEVELOPER & ANALYST</span
+              ><span>WEB / DATA / AUTOMATION</span>
+            </div>
+            <div class="prisma-introduction">
+              <p class="eyebrow">YOUR IDEA. A SOLUTION THAT FITS.</p>
+              <p>
+                Thoughtfully designed.<br /><span>Purposefully built.</span>
+              </p>
+            </div>
+            <div class="prisma-bottom">
+              <div class="prisma-name">
+                <p class="prisma-role">CUSTOM DIGITAL SOLUTIONS</p>
+                <h1 id="hero-title">Yash Jain</h1>
+              </div>
+              <div class="prisma-summary">
+                <p>
+                  I build custom websites, turn data into clear insights, and
+                  automate everyday work—around your business and the way you
+                  operate.
+                </p>
+                <div class="prisma-actions">
+                  <a class="prisma-cta" href="#contact">Let’s build something</a
+                  ><a class="prisma-work" href="#work">Explore my work</a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="floating-card workflow-card">
-            <span class="check-circle" aria-hidden="true">✓</span
-            ><span>Less routine.<br /><strong>More possibility.</strong></span
-            ><span class="workflow-spark" aria-hidden="true"
-              ><svg
-                width="26"
-                height="26"
-                viewBox="0 0 26 26"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                aria-hidden="true"
-              >
-                <path
-                  d="M13 2v22M2 13h22M5.2 5.2l15.6 15.6M5.2 20.8 20.8 5.2"
-                /></svg
-            ></span>
           </div>
         </div>
       </section>
