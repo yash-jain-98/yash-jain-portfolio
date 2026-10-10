@@ -438,3 +438,25 @@ if (
   );
   $$(".reveal").forEach((element) => observer.observe(element));
 }
+
+// Decorative motion can be paused, and follows the visitor's system setting.
+const driftingSection = $(".drifting-section");
+const driftingToggle = $(".drifting-toggle");
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+function syncDriftingMotion() {
+  driftingToggle.hidden = reducedMotion.matches;
+  if (reducedMotion.matches) driftingSection.classList.add("is-paused");
+  else
+    driftingSection.classList.toggle(
+      "is-paused",
+      driftingToggle.getAttribute("aria-pressed") === "true",
+    );
+}
+driftingToggle.addEventListener("click", () => {
+  const paused = driftingToggle.getAttribute("aria-pressed") !== "true";
+  driftingToggle.setAttribute("aria-pressed", String(paused));
+  driftingToggle.textContent = paused ? "Resume motion" : "Pause motion";
+  driftingSection.classList.toggle("is-paused", paused);
+});
+reducedMotion.addEventListener("change", syncDriftingMotion);
+syncDriftingMotion();

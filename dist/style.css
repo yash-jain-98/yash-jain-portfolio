@@ -3614,3 +3614,351 @@ body.dialog-open {
     font-size: 13px;
   }
 }
+
+/* Footer contact bar: one entrance, responsive links, motion-aware hover. */
+.footer-contact-bar {
+  margin-bottom: 48px;
+  padding: 48px;
+  background: #f0f5fe;
+  border: 1px solid #e4ebf7;
+  border-radius: 28px;
+  overflow: hidden;
+}
+.footer-contact-intro {
+  position: relative;
+  padding-right: 135px;
+}
+.footer-contact-intro h2 {
+  font-size: clamp(32px, 4.3vw, 58px);
+  letter-spacing: -0.05em;
+  line-height: 1.12;
+}
+.footer-contact-intro h2 span {
+  color: var(--blue);
+}
+.footer-contact-intro > p:last-of-type {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 15px;
+}
+.footer-contact-arrow {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: white;
+  display: grid;
+  place-items: center;
+  transition:
+    background 0.25s,
+    box-shadow 0.3s;
+}
+.footer-contact-arrow svg {
+  width: 40px;
+  height: 40px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.footer-contact-arrow:hover,
+.footer-contact-arrow:focus-visible {
+  background: var(--blue-hover);
+  box-shadow: 0 0 0 12px #2854ee12;
+}
+.footer-contact-arrow:hover svg,
+.footer-contact-arrow:focus-visible svg {
+  transform: translate(4px, -4px);
+}
+.footer-contact-links {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+  margin-top: 36px;
+}
+.footer-contact-links a {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  background: white;
+  border: 1px solid #e0e7f3;
+  border-radius: 16px;
+  transition:
+    transform 0.3s,
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+.footer-contact-links a small {
+  display: block;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+.footer-contact-links a strong {
+  font-size: clamp(14px, 1.7vw, 21px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+.footer-contact-links .icon-arrow {
+  color: var(--blue);
+  flex: 0 0 20px;
+  transition: transform 0.3s;
+}
+.footer-contact-links a:hover,
+.footer-contact-links a:focus-visible {
+  transform: translateY(-4px);
+  border-color: #aabcf7;
+  box-shadow: 0 12px 24px #17233108;
+}
+.footer-contact-links a:hover .icon-arrow {
+  transform: translate(2px, -2px);
+}
+@media (max-width: 700px) {
+  .footer-contact-bar {
+    padding: 28px 22px;
+    border-radius: 22px;
+    margin-bottom: 32px;
+  }
+  .footer-contact-intro {
+    padding-right: 0;
+  }
+  .footer-contact-intro h2 {
+    font-size: 36px;
+  }
+  .footer-contact-intro > p:last-of-type {
+    padding-right: 54px;
+    font-size: 13px;
+  }
+  .footer-contact-arrow {
+    top: auto;
+    bottom: 0;
+    transform: none;
+    width: 48px;
+    height: 48px;
+  }
+  .footer-contact-arrow svg {
+    width: 23px;
+    height: 23px;
+  }
+  .footer-contact-links {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .footer-contact-links a {
+    padding: 18px 16px;
+  }
+  .footer-contact-links a strong {
+    font-size: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-contact-bar,
+  .footer-contact-bar * {
+    transition: none !important;
+    animation: none !important;
+  }
+  .footer-contact-links a:hover,
+  .footer-contact-links a:focus-visible,
+  .footer-contact-arrow:hover svg,
+  .footer-contact-arrow:focus-visible svg,
+  .footer-contact-links a:hover .icon-arrow {
+    transform: none;
+  }
+}
+
+/* Original drifting-symbol interlude, in the portfolio's existing palette. */
+.drifting-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #f5f7fc;
+  border: 1px solid #e6ebf4;
+  margin-bottom: 40px;
+  padding: 100px 24px;
+  min-height: 520px;
+}
+.drifting-copy {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+}
+.drifting-copy h2 {
+  font-size: clamp(38px, 4.8vw, 66px);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+}
+.drifting-copy h2 span {
+  color: var(--blue);
+}
+.drifting-copy > p:not(.eyebrow) {
+  margin: 24px 0 30px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+.drifting-copy .button {
+  font-size: 13px;
+}
+.drifting-marks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.drift-mark {
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  border: 1px solid #e0e7f5;
+  background: #fff;
+  color: #597097;
+  box-shadow: 0 12px 30px #25365107;
+  transform: rotate(var(--tilt));
+  animation: mark-drift 7s ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+}
+.drift-mark .tool-icon {
+  width: 34px;
+  height: 34px;
+}
+.drift-mark-1 {
+  left: 12%;
+  top: 14%;
+  --tilt: -12deg;
+  --delay: -2s;
+}
+.drift-mark-2 {
+  left: 5%;
+  top: 47%;
+  --tilt: 9deg;
+  --delay: -5s;
+}
+.drift-mark-3 {
+  left: 17%;
+  bottom: 10%;
+  --tilt: -6deg;
+  --delay: -3s;
+}
+.drift-mark-4 {
+  right: 12%;
+  top: 14%;
+  --tilt: 10deg;
+  --delay: -4s;
+}
+.drift-mark-5 {
+  right: 5%;
+  top: 47%;
+  --tilt: -8deg;
+  --delay: -1s;
+}
+.drift-mark-6 {
+  right: 17%;
+  bottom: 10%;
+  --tilt: 7deg;
+  --delay: -6s;
+}
+.drifting-toggle {
+  position: absolute;
+  bottom: 18px;
+  right: 22px;
+  border: 1px solid #dce3ef;
+  background: white;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.drifting-section.is-paused .drift-mark {
+  animation-play-state: paused;
+}
+@keyframes mark-drift {
+  from {
+    transform: translate3d(0, -8px, 0) rotate(var(--tilt));
+  }
+  to {
+    transform: translate3d(8px, 10px, 0) rotate(calc(var(--tilt) + 8deg));
+  }
+}
+@media (max-width: 1000px) {
+  .drift-mark {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+  }
+  .drift-mark-1,
+  .drift-mark-3 {
+    left: 7%;
+  }
+  .drift-mark-4,
+  .drift-mark-6 {
+    right: 7%;
+  }
+  .drift-mark-2 {
+    left: 2%;
+  }
+  .drift-mark-5 {
+    right: 2%;
+  }
+  .drifting-copy {
+    max-width: 470px;
+  }
+}
+@media (max-width: 700px) {
+  .drifting-section {
+    padding: 40px 20px 66px;
+    min-height: 0;
+  }
+  .drifting-marks {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    max-width: 250px;
+    margin: 0 auto 38px;
+  }
+  .drift-mark {
+    position: static;
+    width: 54px;
+    height: 54px;
+    animation-duration: 8s;
+  }
+  .drift-mark .tool-icon {
+    width: 25px;
+    height: 25px;
+  }
+  .drifting-copy .eyebrow {
+    font-size: 8px;
+  }
+  .drifting-copy h2 {
+    font-size: 42px;
+  }
+  .drifting-copy > p:not(.eyebrow) {
+    font-size: 13px;
+  }
+  .drifting-copy .button {
+    padding-inline: 16px;
+    gap: 12px;
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .drift-mark {
+    animation: none;
+  }
+}

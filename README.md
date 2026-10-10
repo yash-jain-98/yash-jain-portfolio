@@ -38,3 +38,9 @@ Project descriptions retain their original scope and limitations. Charts and wor
 Browser checks passed at widths of 320, 360, 390, 680, 768, 820, 900, 1024, 1280, and 1440 pixels with no horizontal overflow. Service tabs and keyboard navigation, both interactive previews, workflow completion, all six project filters, search and empty-state handling, sorting, progressive loading, all 38 project dialogs, LinkedIn links, dialog focus restoration, form validation and email encoding, mobile navigation, FAQs, reduced motion, and image loading were checked. No JavaScript errors or failed page requests were observed. `node --check dist/app.js` and `git diff --check` also passed.
 
 The screenshots under `docs/previews/` show the redesigned hero and expanded project gallery on desktop and mobile. This repository branch does not automatically update the separately hosted ChatGPT Site; publication must use the existing Sites project.
+
+## Motion sections
+
+The tools strip shows Python, SQL, Excel, Power BI, Shopify, WordPress, and AI Automation with monochrome inline SVGs. A custom drifting-symbol section sits between the project gallery and About; visitors can pause its decorative motion, and it follows reduced-motion preferences. The footer contact bar provides email and LinkedIn links, a project-enquiry shortcut, and gentle entrance/hover transitions.
+
+These two sections are original implementations in the existing theme. The requested Skillry preview videos and Minimal Motion Hero installation file could not be retrieved, so no Skillry skill was installed and the sections do not claim an exact visual match. The existing main hero is retained pending the source package.
