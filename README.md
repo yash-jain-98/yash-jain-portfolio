@@ -50,7 +50,7 @@ These two sections are original implementations in the existing theme. The reque
 
 The user-supplied React hero is adapted in `components/ui/prisma-hero.tsx`, using Framer Motion, Lucide React, and TypeScript. Its oversized name, word entrance motion, full background media, and lower call-to-action layout are preserved in the portfolio’s light blue palette. The existing navigation and remaining static sections continue to work. The fallback image is the existing local workspace photograph.
 
-- `src/hero.tsx` mounts only the hero; `src/demo.tsx` shows standalone usage.
+- `src/hero.tsx` mounts the hero and footer carousel as separate React roots; `src/demo.tsx` shows standalone usage.
 - `styles/prisma-hero.css` contains scoped hero styling and Tailwind v4 utilities with the `tw` prefix. Preflight is omitted to preserve the rest of the site.
 - `components.json` declares the shadcn-compatible `components/ui` location; TypeScript resolves the `@/` alias from the project root.
 - `scripts/build-hero.mjs` bundles the hero into `dist/hero.js` and `dist/hero.css`. Do not edit those two generated files directly.
@@ -64,3 +64,10 @@ npm run build
 ```
 
 The supplied CloudFront video URL is used directly. It was blocked by this execution environment’s network policy, so its actual content/playback could not be verified here. The hero retains its local image when video fails, has play/pause controls, and disables autoplay for reduced-motion users. Media controls were checked with a local test clip; failed-video fallback, all hero links, the gallery reset, no-JavaScript fallback, and layouts at 320–1920 pixels were checked in Chromium.
+
+
+## Footer squeeze carousel
+
+The supplied `SqueezeCarousel` component lives in `components/ui/carousel-squeeze.tsx`. `components/ui/footer-squeeze.tsx` supplies five portfolio service panels: websites, analytics, automation, data science, and connected solutions. It uses the existing font and colour palette, local images and SVG illustrations, and real enquiry/project links. `styles/footer-squeeze.css` scopes its styling; the shared build emits both React sections into `dist/hero.js` and `dist/hero.css`.
+
+Autoplay is off. Visitors can use the arrows, preview panels, or Left/Right/Home/End keys. Focus follows the selected panel. Navigation briefly waits for each transition to finish to prevent the supplied component’s rapid-direction-change bug. Reduced-motion settings remove transitions. The mobile geometry keeps all panel widths positive. Checks covered five-panel wraparound, rapid mixed navigation, selected-panel focus, contact service preselection, automation navigation, and layouts from 320 to 1440px. The carousel uses no external image or font requests.

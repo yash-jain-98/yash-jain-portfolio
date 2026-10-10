@@ -1,0 +1,75 @@
+@theme inline {
+  --color-muted: #edf2f9;
+  --color-background: #ffffff;
+  --color-foreground: #172331;
+  --color-muted-foreground: #5e6b7b;
+}
+.footer-squeeze-section {
+  margin: 0 0 70px;
+  padding-top: 14px;
+}
+.footer-squeeze-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 14px;
+}
+.footer-squeeze-heading h2 {
+  font-size: clamp(30px, 3.6vw, 48px);
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+}
+.footer-squeeze-heading h2 span {
+  color: var(--blue);
+}
+.footer-squeeze-heading > p {
+  max-width: 260px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.squeeze-carousel button {
+  font-family: inherit;
+  border: 0;
+}
+.squeeze-carousel [role="tab"]:focus-visible {
+  outline: 3px solid #2854ee;
+  outline-offset: -4px;
+}
+.squeeze-carousel [role="tabpanel"] p {
+  margin: 0;
+}
+.squeeze-wordmark {
+  font-size: 14px;
+  color: #263d63;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.squeeze-carousel img {
+  display: block;
+}
+@media (max-width: 700px) {
+  .footer-squeeze-section {
+    margin-bottom: 44px;
+  }
+  .footer-squeeze-heading {
+    display: block;
+    margin-bottom: 24px;
+  }
+  .footer-squeeze-heading .eyebrow {
+    font-size: 8px;
+  }
+  .footer-squeeze-heading > p {
+    margin-top: 18px;
+    max-width: 300px;
+    font-size: 13px;
+  }
+  .squeeze-wordmark {
+    font-size: 10px;
+  }
+}
+.squeeze-carousel button:disabled {
+  opacity: 0.45;
+  cursor: wait;
+}

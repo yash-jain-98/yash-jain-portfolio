@@ -1,6 +1,7 @@
 @import "tailwindcss/theme.css" prefix(tw);
 @import "tailwindcss/utilities.css" prefix(tw);
-@source "../components/ui/prisma-hero.tsx";
+@import "./footer-squeeze.css";
+@source "../components/ui";
 
 .prisma-hero {
   position: relative;
