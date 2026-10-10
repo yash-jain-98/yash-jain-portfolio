@@ -1,78 +1,4 @@
-const projects = [
-  {
-    title: "Small tools. Thoughtful interactions.",
-    category: "web",
-    categoryName: "WEB DEVELOPMENT",
-    repo: "javascript_projects",
-    desc: "A collection of JavaScript utilities, from a grocery list to a tip calculator and word counter.",
-    tags: ["JavaScript", "HTML", "CSS"],
-    visual: "web",
-    details:
-      "A collection of browser-based JavaScript projects exploring useful everyday interactions. The repository includes a grocery list, tip calculator, background color switcher, day-of-the-week app, height converter, and word-count tool.",
-    scope:
-      "Interactive utilities · Interface fundamentals · Browser development",
-  },
-  {
-    title: "Retail, through a clearer lens.",
-    category: "analytics",
-    categoryName: "DATA ANALYTICS",
-    repo: "retail-analysis-power-bi",
-    desc: "A retail analysis project bringing a spreadsheet dataset into a Power BI report.",
-    tags: ["Power BI", "Excel", "Retail analysis"],
-    visual: "dashboard",
-    details:
-      "This repository contains a Power BI report alongside its Excel source workbook. Explore the report file to see the retail analysis, or inspect the source data in the spreadsheet.",
-    scope: "Business intelligence · Data visualization · Report development",
-  },
-  {
-    title: "Calgary crime data, explored.",
-    category: "science",
-    categoryName: "DATA SCIENCE",
-    repo: "Calgary-Crime-Neural-Network-Data-Science-Project",
-    desc: "Exploratory analysis of public crime data, with an experimental LSTM model and a documented review of its limitations.",
-    tags: ["Python", "LSTM", "Jupyter"],
-    visual: "science",
-    details:
-      "An exploration of Calgary community-level crime data from 2018 to early 2024, with a notebook, report, and experimental LSTM model. The README openly documents sequencing, train/test overlap, and aggregation limitations; the model is a learning experiment, not a validated forecasting system.",
-    scope: "Exploratory analysis · Neural networks · Critical model evaluation",
-  },
-  {
-    title: "From web pages to usable data.",
-    category: "auto",
-    categoryName: "DATA COLLECTION",
-    repo: "ibm-python-project-web-scrapping",
-    desc: "Python notebook work exploring web data collection as a foundation for repeatable analysis.",
-    tags: ["Python", "Web scraping", "Jupyter"],
-    visual: "workflow",
-    details:
-      "A Python project repository containing assignment notebooks and supporting screenshots for web-scraping work. It demonstrates the data-collection side of an analytical workflow; it is not presented as a deployed automation service.",
-    scope: "Web data collection · Python notebooks · Repeatable workflows",
-  },
-  {
-    title: "Questions answered with SQL.",
-    category: "analytics",
-    categoryName: "DATA ANALYTICS",
-    repo: "SQL-Projects-Data_Business_Analysis",
-    desc: "SQL projects focused on exploring data and answering business-analysis questions.",
-    tags: ["SQL", "Business analysis"],
-    visual: "code",
-    details:
-      "A collection of SQL and business-analysis project materials. Browse the repository for the individual datasets, queries, and supporting analysis.",
-    scope: "Query development · Data exploration · Business analysis",
-  },
-  {
-    title: "Exploring customer churn.",
-    category: "science",
-    categoryName: "DATA SCIENCE",
-    repo: "Bank-Customer-Churn-Data-Science-Project",
-    desc: "A notebook-based data-science project examining bank customer churn.",
-    tags: ["Python", "Jupyter", "Machine learning"],
-    visual: "science",
-    details:
-      "A data-science study centered on bank customer churn. The repository provides the project materials and notebook so you can inspect the analysis and modeling approach directly.",
-    scope: "Customer analytics · Data exploration · Model development",
-  },
-];
+const projects = window.PORTFOLIO_DATA?.projects || [];
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -144,11 +70,11 @@ const serviceContent = {
     kicker: "AUTOMATION & WORKFLOWS",
     title: "Less everyday effort.<br>More time for ideas.",
     description:
-      "Put repetitive tasks in their place. I build focused scripts and data workflows that turn recurring manual steps into simpler, more reliable processes.",
+      "Put repetitive tasks in their place. I connect business tools with Make.com, Google Apps Script, and practical AI-assisted workflows to simplify recurring manual tasks.",
     items: [
-      "Python scripts & data processing",
-      "Web data collection workflows",
-      "Spreadsheet & reporting automation",
+      "Google Business Profile review-reply automation",
+      "Email classification & attachment organisation",
+      "Connected Google Workspace & reporting workflows",
     ],
     cta: "Let’s simplify your workflow",
     service: "Automation & workflows",
@@ -243,41 +169,158 @@ $("#demo-stage").addEventListener("click", async (event) => {
 });
 selectService("web");
 
-function projectVisual(project) {
-  if (project.repo === "Calgary-Crime-Neural-Network-Data-Science-Project")
-    return '<img src="calgary-analysis.png" alt="" loading="lazy" width="900" height="450">';
-  if (project.repo === "Bank-Customer-Churn-Data-Science-Project")
-    return '<img src="churn-analysis.png" alt="" loading="lazy" width="900" height="450">';
-  return (
-    {
-      web: webDemo(false),
-      dashboard: dashboardDemo(false),
-      workflow: workflowDemo(false),
-      code: codeDemo,
-    }[project.visual] || scienceDemo
+const arrowIcon =
+  '<svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>';
+const escapeHTML = (value) =>
+  String(value).replace(
+    /[&<>"']/g,
+    (character) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        character
+      ],
   );
+const formatProjectDate = (value) =>
+  new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(value + "T00:00:00Z"));
+const normalizeSearch = (value) =>
+  String(value)
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+const galleryState = { category: "all", query: "", sort: "featured", limit: 9 };
+function projectVisual(project) {
+  if (project.image)
+    return `<img src="${escapeHTML(project.image)}" alt="" loading="lazy" decoding="async">`;
+  const mark = {
+    web: "&lt;/&gt;",
+    analytics: "XLS",
+    science: "PY",
+    auto: "PY",
+    creative: "MP4",
+  }[project.category];
+  return `<div class="repository-file-preview"><div class="file-preview-top"><span>${mark}</span><span>${escapeHTML(project.kind)}</span></div><strong>${escapeHTML(project.title)}</strong><div class="preview-file-list">${project.artifacts
+    .slice(0, 2)
+    .map(
+      (file) =>
+        `<div><span>${escapeHTML(file.type)}</span><span>${escapeHTML(file.name)}</span></div>`,
+    )
+    .join(
+      "",
+    )}</div><small>${project.fileCount} source files · ${escapeHTML(project.tags[0])}</small></div>`;
 }
-function renderProjects(filter = "all") {
-  const shown = projects
+function getFilteredProjects() {
+  const words = normalizeSearch(galleryState.query)
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+  const filtered = projects
     .map((project, index) => ({ ...project, index }))
-    .filter((project) => filter === "all" || project.category === filter);
-  $("#projects").innerHTML = shown
+    .filter((project) => {
+      if (
+        galleryState.category !== "all" &&
+        project.category !== galleryState.category
+      )
+        return false;
+      const haystack = normalizeSearch(
+        [
+          project.title,
+          project.repo,
+          project.desc,
+          project.details,
+          project.categoryName,
+          project.kind,
+          ...project.tags,
+          ...project.highlights,
+          ...project.artifacts.map((file) => file.name),
+        ].join(" "),
+      );
+      return words.every((word) => haystack.includes(word));
+    });
+  if (galleryState.sort === "recent")
+    filtered.sort(
+      (a, b) =>
+        b.updatedAt.localeCompare(a.updatedAt) ||
+        a.title.localeCompare(b.title),
+    );
+  if (galleryState.sort === "title")
+    filtered.sort((a, b) => a.title.localeCompare(b.title));
+  return filtered;
+}
+function renderProjects() {
+  const filtered = getFilteredProjects(),
+    visible = filtered.slice(0, galleryState.limit);
+  $("#projects").innerHTML = visible
     .map(
       (project) =>
-        `<article class="project-card"><div class="project-preview" aria-hidden="true">${projectVisual(project)}<span class="visual-label">${project.category === "science" ? "ORIGINAL CHART FROM PROJECT REPOSITORY" : "ILLUSTRATIVE PROJECT PREVIEW"}</span></div><p class="project-category">${project.categoryName}</p><h3>${project.title}</h3><p class="project-description">${project.desc}</p><div class="project-meta">${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div><div class="project-links"><button type="button" data-project="${project.index}" aria-label="Read about ${project.title}">Explore project <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></button><a href="https://github.com/yash-jain-98/${project.repo}" target="_blank" rel="noopener" aria-label="View ${project.repo} on GitHub">View code <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div></article>`,
+        `<article class="project-card" data-project-id="${escapeHTML(project.id)}" data-category="${project.category}"><div class="project-preview ${project.image ? "has-original-preview" : ""}" aria-hidden="true">${projectVisual(project)}<span class="visual-label">${escapeHTML(project.imageLabel)}</span></div><div class="project-category-line"><p class="project-category">${escapeHTML(project.categoryName)}</p><span class="project-kind">${escapeHTML(project.kind)}</span></div><h3>${escapeHTML(project.title)}</h3><p class="project-description">${escapeHTML(project.desc)}</p><div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div><div class="project-links"><button type="button" data-project="${project.index}" aria-label="Explore ${escapeHTML(project.title)}">Explore project ${arrowIcon}</button><a href="${escapeHTML(project.url)}" target="_blank" rel="noopener" aria-label="View ${escapeHTML(project.title)} repository on GitHub">Repository ${arrowIcon}</a></div></article>`,
     )
     .join("");
-  $("#project-count").textContent =
-    `Showing ${shown.length} of ${projects.length} selected projects`;
+  $("#project-count").textContent = filtered.length
+    ? `Showing ${visible.length} of ${filtered.length} ${filtered.length === 1 ? "project" : "projects"}${galleryState.category !== "all" || galleryState.query ? " matching your filters" : ""}`
+    : "No projects match your search and filters.";
+  $("#gallery-empty").hidden = filtered.length !== 0;
+  $("#load-projects").hidden = visible.length >= filtered.length;
+  $("#load-projects").textContent =
+    `Show ${Math.min(9, filtered.length - visible.length)} more projects`;
+  $$(".project-filters button").forEach((button) =>
+    button.setAttribute(
+      "aria-pressed",
+      String(button.dataset.filter === galleryState.category),
+    ),
+  );
 }
 $(".project-filters").addEventListener("click", (event) => {
   const button = event.target.closest("[data-filter]");
   if (!button) return;
-  $$(".project-filters button").forEach((item) =>
-    item.setAttribute("aria-pressed", String(item === button)),
-  );
-  renderProjects(button.dataset.filter);
+  galleryState.category = button.dataset.filter;
+  galleryState.limit = 9;
+  renderProjects();
 });
+let searchTimer;
+$("#project-search").addEventListener("input", (event) => {
+  clearTimeout(searchTimer);
+  galleryState.query = event.target.value;
+  galleryState.limit = 9;
+  searchTimer = setTimeout(renderProjects, 150);
+});
+$("#project-sort").addEventListener("change", (event) => {
+  galleryState.sort = event.target.value;
+  galleryState.limit = 9;
+  renderProjects();
+});
+$("#load-projects").addEventListener("click", () => {
+  clearTimeout(searchTimer);
+  const previousCount = $$(".project-card").length;
+  galleryState.limit += 9;
+  renderProjects();
+  $$(".project-card")[previousCount]?.querySelector("[data-project]")?.focus();
+});
+$("#reset-projects").addEventListener("click", () => {
+  clearTimeout(searchTimer);
+  Object.assign(galleryState, {
+    category: "all",
+    query: "",
+    sort: "featured",
+    limit: 9,
+  });
+  $("#project-search").value = "";
+  $("#project-sort").value = "featured";
+  renderProjects();
+  $("#project-search").focus();
+});
+$$("[data-filter-count]").forEach((element) => {
+  const category = element.dataset.filterCount;
+  element.textContent = String(
+    category === "all"
+      ? projects.length
+      : projects.filter((project) => project.category === category).length,
+  );
+});
+$("#gallery-total").textContent = String(projects.length);
 renderProjects();
 
 const dialog = $("#project-dialog");
@@ -288,7 +331,7 @@ $("#projects").addEventListener("click", (event) => {
   projectTrigger = trigger;
   const project = projects[Number(trigger.dataset.project)];
   $("#dialog-content").innerHTML =
-    `<p class="eyebrow">${project.categoryName}</p><h2 id="dialog-title">${project.title}</h2><p>${project.details}</p><p><strong>Project focus</strong><br>${project.scope}</p><div class="project-meta">${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div><a class="button" href="https://github.com/yash-jain-98/${project.repo}" target="_blank" rel="noopener">View repository on GitHub <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>`;
+    `<p class="eyebrow">${escapeHTML(project.categoryName)} · ${escapeHTML(project.kind)}</p><h2 id="dialog-title">${escapeHTML(project.title)}</h2>${project.image ? `<figure class="dialog-project-preview"><img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.imageAlt)}"><figcaption>${escapeHTML(project.imageLabel)}</figcaption></figure>` : ""}<p>${escapeHTML(project.details)}</p>${project.highlights.length ? `<h3 class="dialog-subheading">A closer look</h3><ul class="project-highlights">${project.highlights.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>` : ""}<div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div><h3 class="dialog-subheading">Explore the original files</h3><ul class="project-artifacts">${project.artifacts.map((file) => `<li><a href="${escapeHTML(file.url)}" target="_blank" rel="noopener"><span class="artifact-type">${escapeHTML(file.type)}</span><span>${escapeHTML(file.name)}</span>${arrowIcon}</a></li>`).join("")}</ul><p class="project-source-note">${project.fileCount} source files · Updated ${formatProjectDate(project.updatedAt)}<br>Files open on GitHub. Office files and videos may need downloading to view.</p><a class="button" href="${escapeHTML(project.url)}" target="_blank" rel="noopener">View repository on GitHub ${arrowIcon}</a>`;
   dialog.showModal();
   document.body.classList.add("dialog-open");
 });
@@ -330,9 +373,11 @@ document.addEventListener("keydown", (event) => {
 document.addEventListener("click", (event) => {
   if (!event.target.closest(".navigation")) closeMenu();
 });
-matchMedia("(min-width:681px)").addEventListener("change", closeMenu);
-$("#service-cta").addEventListener("click", (event) => {
-  $("#service").value = event.currentTarget.dataset.service;
+matchMedia("(min-width:821px)").addEventListener("change", closeMenu);
+$$("[data-service]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    $("#service").value = event.currentTarget.dataset.service;
+  });
 });
 
 function createEmailDraft({ name, replyTo, service, message }) {
