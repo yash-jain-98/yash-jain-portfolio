@@ -1,14 +1,36 @@
 # Yash Jain portfolio
 
-A responsive static portfolio for website development, data analytics, data science, and automation.
+A responsive, light-theme portfolio for freelance website development, data analytics, data science, and automation. The visual direction takes cues from Birdeye’s Australian marketing site, adapted for Yash Jain with original copy, existing portfolio imagery, and real GitHub projects.
 
-Open dist/index.html or serve dist/ with a local HTTP server. No build or dependencies required.
+## Preview locally
 
-## Personalization
-- Contact and page sections: dist/index.html
-- Project data, filtering, dialogs, and interactions: dist/app.js
-- Layout, theme, responsive breakpoints, and reduced-motion support: dist/style.css
+No build step or dependencies are required. Open `dist/index.html`, or serve the directory:
 
-Projects link to verified public repositories from github.com/yash-jain-98. Project visualizations are illustrative, not screenshots or claimed performance results. The contact form opens the visitor's email app; it does not send or store messages itself. No analytics tracking or backend is configured.
+```sh
+python -m http.server 4173 --directory dist
+```
 
-The Sites manifest contains the registered site identity. Preserve it for future updates.
+Then visit `http://localhost:4173`.
+
+## Edit the site
+
+- `dist/index.html`: branding, page sections, contact details, and accessible markup.
+- `dist/style.css`: responsive layouts, light theme, animations, and reduced-motion support.
+- `dist/app.js`: six existing project entries, filters, dialogs, service tabs, demos, and contact interactions.
+- `dist/fonts/`: self-hosted DM Sans and its SIL Open Font License.
+- `.openai/hosting.json`: the existing Sites project identity and static output directory; preserve these when publishing.
+
+## Interactions
+
+- Four keyboard-accessible service tabs with desktop/mobile website previews, sample dashboard period controls, and a simulated automation workflow.
+- Project filtering, repository links, and native project dialogs with Escape dismissal and restored keyboard focus.
+- Responsive mobile navigation, native FAQ disclosures, scroll reveals, and reduced-motion alternatives.
+- Service links preselect the contact form. The form validates the name, email, and project details and opens a prefilled email draft. It does **not** send or store messages. A copy-email action provides a fallback.
+
+Project descriptions retain their original scope and limitations. Charts and workflow demonstrations are clearly identified as illustrative; they are not client results. The Calgary and churn thumbnails are retained original repository charts. There are no invented customer logos, testimonials, or performance claims.
+
+## Verification
+
+Browser checks passed at widths of 320, 360, 390, 680, 768, 900, 1024, 1280, and 1440 pixels with no horizontal overflow. Service tabs and keyboard navigation, both interactive previews, workflow completion, all five project filters, dialog focus restoration, form validation and email encoding, mobile navigation, FAQs, reduced motion, and image loading were checked. No JavaScript errors or failed page requests were observed. `node --check dist/app.js` and `git diff --check` also passed.
+
+The screenshots under `docs/previews/` show the redesigned desktop and mobile hero. This repository branch does not automatically update the separately hosted ChatGPT Site; publication must use the existing Sites project.
