@@ -1,12 +1,12 @@
 # GitHub project-source audit
 
-Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The public gallery contains 25 public repository showcases. Private repositories are not included in public content.
+Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The gallery contains 25 public repository showcases plus five owner-described custom automation workflows (30 projects total). Private repositories are not included in public content.
 
 Every public repository tree was checked. Descriptions use README files, notebook sources, report text, workbook structure, or the verified file inventory. Source files remain linked to GitHub; large notebooks, videos, datasets, and office files are not bundled with the website.
 
 ## Additional automation showcases
 
-The separate AI agents & automation section contains five projects described directly by Yash on 10 October 2026. These are not counted as GitHub repositories: Google Business Profile review-reply automation using Make.com, and a coal-company Gmail classification, Drive attachment filing, and Google Sheets workflow built using Claude and Google Apps Script; a Google Forms/Sheets matching workflow that moves matching entries to a Convert sheet; a Sheets-triggered WhatsApp message and 12-hour follow-up; and Gmail summaries saved to Google Docs. The implementation platform for WhatsApp and the summarisation provider were not supplied and are not claimed. The 40–50 emails/day figure is the workload Yash supplied, not a measured performance result. No client name, private emails, attachments, credentials, or invented source links are included.
+The AI agents & automation section and the searchable project gallery both contain five projects described directly by Yash on 10 October 2026. These are not counted as GitHub repositories: Google Business Profile review-reply automation using Make.com, and a coal-company Gmail classification, Drive attachment filing, and Google Sheets workflow built using Claude and Google Apps Script; a Google Forms/Sheets matching workflow that moves matching entries to a Convert sheet; a Sheets-triggered WhatsApp message and 12-hour follow-up; and Gmail summaries saved to Google Docs. The implementation platform for WhatsApp and the summarisation provider were not supplied and are not claimed. The 40–50 emails/day figure is the workload Yash supplied, not a measured performance result. No client name, private emails, attachments, credentials, or invented source links are included.
 
 ## Included public repositories
 
@@ -91,4 +91,4 @@ Ten original repository images and PDF-page previews are retained as supplied. T
 
 ## Maintenance
 
-Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 25 projects render by default. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.
+Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 30 projects render by default. The Automation filter includes the five custom workflows plus one GitHub project (six total). Custom workflows have no fabricated repository links or update dates. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.

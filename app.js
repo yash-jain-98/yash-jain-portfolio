@@ -242,7 +242,7 @@ function getFilteredProjects() {
   if (galleryState.sort === "recent")
     filtered.sort(
       (a, b) =>
-        b.updatedAt.localeCompare(a.updatedAt) ||
+        (b.updatedAt || "").localeCompare(a.updatedAt || "") ||
         a.title.localeCompare(b.title),
     );
   if (galleryState.sort === "title")
@@ -254,7 +254,7 @@ function renderProjects() {
   $("#projects").innerHTML = filtered
     .map(
       (project) =>
-        `<article class="project-card" data-project-id="${escapeHTML(project.id)}" data-category="${project.category}"><div class="project-preview ${project.image ? "has-preview" : ""}" aria-hidden="true">${projectVisual(project)}<span class="visual-label">${escapeHTML(project.imageLabel)}</span></div><div class="project-category-line"><p class="project-category">${escapeHTML(project.categoryName)}</p><span class="project-kind">${escapeHTML(project.kind)}</span></div><h3>${escapeHTML(project.title)}</h3><p class="project-description">${escapeHTML(project.desc)}</p><div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div><div class="project-links"><button type="button" data-project="${project.index}" aria-label="Explore ${escapeHTML(project.title)}">Explore project ${arrowIcon}</button><a href="${escapeHTML(project.url)}" target="_blank" rel="noopener" aria-label="View ${escapeHTML(project.title)} repository on GitHub">Repository ${arrowIcon}</a></div></article>`,
+        `<article class="project-card" data-project-id="${escapeHTML(project.id)}" data-category="${project.category}"><div class="project-preview ${project.image ? "has-preview" : ""}" aria-hidden="true">${projectVisual(project)}<span class="visual-label">${escapeHTML(project.imageLabel)}</span></div><div class="project-category-line"><p class="project-category">${escapeHTML(project.categoryName)}</p><span class="project-kind">${escapeHTML(project.kind)}</span></div><h3>${escapeHTML(project.title)}</h3><p class="project-description">${escapeHTML(project.desc)}</p><div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div><div class="project-links"><button type="button" data-project="${project.index}" aria-label="Explore ${escapeHTML(project.title)}">Explore project ${arrowIcon}</button>${project.sourceType === "custom" ? `<a href="#automation">Workflow collection ${arrowIcon}</a>` : `<a href="${escapeHTML(project.url)}" target="_blank" rel="noopener" aria-label="View ${escapeHTML(project.title)} repository on GitHub">Repository ${arrowIcon}</a>`}</div></article>`,
     )
     .join("");
   $("#project-count").textContent = filtered.length
@@ -324,6 +324,13 @@ $$("[data-filter-count]").forEach((element) => {
 $("#gallery-total").textContent = String(projects.length);
 renderProjects();
 
+function projectResources(project) {
+  if (project.sourceType === "custom") {
+    return `<p class="project-source-note">Custom automation project. A public source repository has not been linked for this workflow.</p><button type="button" class="button" data-workflow-enquiry>Discuss a similar workflow ${arrowIcon}</button>`;
+  }
+  return `<h3 class="dialog-subheading">Explore the original files</h3><ul class="project-artifacts">${project.artifacts.map((file) => `<li><a href="${escapeHTML(file.url)}" target="_blank" rel="noopener"><span class="artifact-type">${escapeHTML(file.type)}</span><span>${escapeHTML(file.name)}</span>${arrowIcon}</a></li>`).join("")}</ul><p class="project-source-note">${project.fileCount} source files · Updated ${formatProjectDate(project.updatedAt)}<br>Files open on GitHub. Office files and videos may need downloading to view.</p><a class="button" href="${escapeHTML(project.url)}" target="_blank" rel="noopener">View repository on GitHub ${arrowIcon}</a>`;
+}
+
 const dialog = $("#project-dialog");
 let projectTrigger;
 $("#projects").addEventListener("click", (event) => {
@@ -332,12 +339,20 @@ $("#projects").addEventListener("click", (event) => {
   projectTrigger = trigger;
   const project = projects[Number(trigger.dataset.project)];
   $("#dialog-content").innerHTML =
-    `<p class="eyebrow">${escapeHTML(project.categoryName)} · ${escapeHTML(project.kind)}</p><h2 id="dialog-title">${escapeHTML(project.title)}</h2>${project.image ? `<figure class="dialog-project-preview"><img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.imageAlt)}"><figcaption>${escapeHTML(project.imageLabel)}</figcaption></figure>` : ""}<p>${escapeHTML(project.details)}</p>${project.highlights.length ? `<h3 class="dialog-subheading">A closer look</h3><ul class="project-highlights">${project.highlights.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>` : ""}<div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div><h3 class="dialog-subheading">Explore the original files</h3><ul class="project-artifacts">${project.artifacts.map((file) => `<li><a href="${escapeHTML(file.url)}" target="_blank" rel="noopener"><span class="artifact-type">${escapeHTML(file.type)}</span><span>${escapeHTML(file.name)}</span>${arrowIcon}</a></li>`).join("")}</ul><p class="project-source-note">${project.fileCount} source files · Updated ${formatProjectDate(project.updatedAt)}<br>Files open on GitHub. Office files and videos may need downloading to view.</p><a class="button" href="${escapeHTML(project.url)}" target="_blank" rel="noopener">View repository on GitHub ${arrowIcon}</a>`;
+    `<p class="eyebrow">${escapeHTML(project.categoryName)} · ${escapeHTML(project.kind)}</p><h2 id="dialog-title">${escapeHTML(project.title)}</h2>${project.image ? `<figure class="dialog-project-preview"><img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.imageAlt)}"><figcaption>${escapeHTML(project.imageLabel)}</figcaption></figure>` : ""}<p>${escapeHTML(project.details)}</p>${project.highlights.length ? `<h3 class="dialog-subheading">A closer look</h3><ul class="project-highlights">${project.highlights.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>` : ""}<div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div>${projectResources(project)}`;
   dialog.showModal();
   document.body.classList.add("dialog-open");
 });
 $(".dialog-close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", (event) => {
+  if (event.target.closest("[data-workflow-enquiry]")) {
+    projectTrigger = null;
+    dialog.close();
+    $("#service").value = "Automation & workflows";
+    $("#contact").scrollIntoView({ behavior: "auto" });
+    $("#client-name").focus({ preventScroll: true });
+    return;
+  }
   if (event.target !== dialog) return;
   const rect = dialog.getBoundingClientRect();
   if (

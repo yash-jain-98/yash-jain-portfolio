@@ -1,8 +1,139 @@
-// Curated public GitHub projects. See docs/project-sources.md.
+// Public GitHub projects and five owner-described custom workflows. See docs/project-sources.md.
 window.PORTFOLIO_DATA = {
   updatedAt: "2026-10-10",
   publicRepositoriesReviewed: 42,
   projects: [
+    {
+      "id": "google-business-review-replies",
+      "sourceType": "custom",
+      "repo": "",
+      "title": "Google Business Profile review replies",
+      "category": "auto",
+      "categoryName": "AUTOMATION",
+      "tags": [
+        "Make.com",
+        "Google Business Profile"
+      ],
+      "desc": "Automatically replies whenever a new Google Business Profile review arrives.",
+      "details": "A Make.com workflow watches for new Google Business Profile reviews and automatically posts a reply. It connects the review trigger to the reply action to reduce routine manual responses.",
+      "kind": "Custom workflow",
+      "highlights": [
+        "Trigger on a new review",
+        "Generate the review response",
+        "Post the reply automatically"
+      ],
+      "artifacts": [],
+      "updatedAt": null,
+      "image": "project-assets/google-business-review-replies.svg",
+      "imageAlt": "Google Business Profile review replies \u2014 workflow illustration",
+      "imageLabel": "WORKFLOW ILLUSTRATION"
+    },
+    {
+      "id": "coal-company-email-classification",
+      "sourceType": "custom",
+      "repo": "",
+      "title": "Gmail classification & attachment filing",
+      "category": "auto",
+      "categoryName": "AUTOMATION",
+      "tags": [
+        "Gmail",
+        "Claude",
+        "Google Apps Script",
+        "Google Drive",
+        "Google Sheets"
+      ],
+      "desc": "Organises 40\u201350 daily emails for a coal company by department, with attachment links in Google Sheets.",
+      "details": "Built using Claude and Google Apps Script for a coal company receiving 40\u201350 emails daily. The workflow reads incoming emails, classifies them by department, saves attachments into a Google Drive folder, and records the relevant links in Google Sheets.",
+      "kind": "Custom workflow",
+      "highlights": [
+        "Classify incoming email by department",
+        "Save attachments into Google Drive",
+        "Keep email and attachment links in Google Sheets"
+      ],
+      "artifacts": [],
+      "updatedAt": null,
+      "image": "project-assets/coal-company-email-classification.svg",
+      "imageAlt": "Gmail classification & attachment filing \u2014 workflow illustration",
+      "imageLabel": "WORKFLOW ILLUSTRATION"
+    },
+    {
+      "id": "sheets-lead-conversion",
+      "sourceType": "custom",
+      "repo": "",
+      "title": "Google Sheets lead conversion",
+      "category": "auto",
+      "categoryName": "AUTOMATION",
+      "tags": [
+        "Google Forms",
+        "Google Sheets",
+        "Google Apps Script"
+      ],
+      "desc": "Checks form submissions against two other spreadsheets and moves matching leads to the Convert sheet.",
+      "details": "When a Google Forms response enters the source Google Sheet, Google Apps Script checks whether its data exists in two other Google Sheets. Matching entries are moved to a sheet named Convert to support lead conversion tracking.",
+      "kind": "Custom workflow",
+      "highlights": [
+        "Trigger from a new form response",
+        "Match data against two other Google Sheets",
+        "Move matching entries to Convert"
+      ],
+      "artifacts": [],
+      "updatedAt": null,
+      "image": "project-assets/sheets-lead-conversion.svg",
+      "imageAlt": "Google Sheets lead conversion \u2014 workflow illustration",
+      "imageLabel": "WORKFLOW ILLUSTRATION"
+    },
+    {
+      "id": "whatsapp-sheets-follow-up",
+      "sourceType": "custom",
+      "repo": "",
+      "title": "WhatsApp outreach & 12-hour follow-up",
+      "category": "auto",
+      "categoryName": "AUTOMATION",
+      "tags": [
+        "WhatsApp",
+        "Google Sheets",
+        "Chatbot"
+      ],
+      "desc": "Sends a WhatsApp message when a new entry reaches Google Sheets, then follows up after 12 hours.",
+      "details": "A Google Sheets entry triggers a WhatsApp chatbot message to the user. The bot also sends a follow-up after 12 hours, connecting the lead record with the outreach workflow.",
+      "kind": "Custom workflow",
+      "highlights": [
+        "Trigger on a new Google Sheets entry",
+        "Send the initial WhatsApp message",
+        "Follow up after 12 hours"
+      ],
+      "artifacts": [],
+      "updatedAt": null,
+      "image": "project-assets/whatsapp-sheets-follow-up.svg",
+      "imageAlt": "WhatsApp outreach & 12-hour follow-up \u2014 workflow illustration",
+      "imageLabel": "WORKFLOW ILLUSTRATION"
+    },
+    {
+      "id": "gmail-docs-summaries",
+      "sourceType": "custom",
+      "repo": "",
+      "title": "Gmail summaries in Google Docs",
+      "category": "auto",
+      "categoryName": "AUTOMATION",
+      "tags": [
+        "Gmail",
+        "Google Docs",
+        "Email summarisation"
+      ],
+      "desc": "Summarises each new Gmail message and saves a shorter version in Google Docs.",
+      "details": "Whenever a new email arrives in Gmail, the workflow creates a concise summary and makes it available to the user in Google Docs. It supports a shorter, document-based email review process.",
+      "kind": "Custom workflow",
+      "highlights": [
+        "Trigger on a new Gmail message",
+        "Create a concise email summary",
+        "Save the summary in Google Docs"
+      ],
+      "artifacts": [],
+      "updatedAt": null,
+      "image": "project-assets/gmail-docs-summaries.svg",
+      "imageAlt": "Gmail summaries in Google Docs \u2014 workflow illustration",
+      "imageLabel": "WORKFLOW ILLUSTRATION"
+    },
     {
       id: "room-occupancy-data-science-project",
       repo: "Room-Occupancy-Data-Science-Project",

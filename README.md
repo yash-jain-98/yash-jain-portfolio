@@ -17,7 +17,7 @@ Then visit `http://localhost:4173`.
 - `index.html`: branding, page sections, contact details, and accessible markup.
 - `style.css`: responsive layouts, light theme, animations, and reduced-motion support.
 - `app.js`: the project gallery, filters, dialogs, service tabs, demos, and contact interactions.
-- `projects-data.js`: a curated snapshot of 25 public GitHub repositories, with descriptions, categories, source-file links, and preview metadata.
+- `projects-data.js`: a curated snapshot of 25 public GitHub repositories and five custom automation workflows, with descriptions, categories, source-file links, and preview metadata.
 - `project-assets/`: original repository images, PDF page previews, and themed SVG project illustrations.
 - `docs/project-sources.md`: the repository audit, source attribution, and maintenance notes.
 - `fonts/`: self-hosted DM Sans and its SIL Open Font License.
@@ -27,7 +27,7 @@ Then visit `http://localhost:4173`.
 
 - A dedicated AI agents & automation section showcases Google Business Profile review replies through Make.com; a coal-company email classification, Drive filing, and Sheets workflow built using Claude and Google Apps Script; lead matching across Google Sheets; WhatsApp outreach with a 12-hour follow-up; and Gmail summaries saved to Google Docs. Expandable workflow details and enquiry links work on mobile and desktop.
 - Four keyboard-accessible service tabs with desktop/mobile website previews, sample dashboard period controls, and a simulated automation workflow.
-- A searchable 25-project gallery with five categories, three sort options, all projects visible by default, and native project dialogs linking to the original notebooks, reports, workbooks, and code. Escape dismisses dialogs and restores keyboard focus.
+- A searchable 30-project gallery (25 GitHub projects plus five custom workflows) with five categories, three sort options, all projects visible by default, and native project dialogs linking to the original notebooks, reports, workbooks, and code. Escape dismisses dialogs and restores keyboard focus.
 - Responsive mobile navigation, native FAQ disclosures, scroll reveals, and reduced-motion alternatives.
 - Service links preselect the contact form. The form validates the name, email, and project details and opens a prefilled email draft. It does **not** send or store messages. A copy-email action provides a fallback.
 
@@ -104,3 +104,7 @@ contact validation, footer navigation, and reduced-motion video/carousel control
 The repository-root site was also verified at `/yash-jain-portfolio/` in phone,
 landscape, and desktop viewports. All 25 project previews resolved, and hero/menu
 anchors, project filters/dialogs, and footer enquiry links retained the prefix.
+
+The Automation gallery filter includes six projects: five owner-described workflows
+plus the existing GitHub automation project. Custom workflow dialogs show process
+details and an enquiry action, without claiming a public repository or source files.
