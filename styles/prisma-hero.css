@@ -11,8 +11,8 @@
   max-height: 940px;
   border-radius: 28px;
   overflow: hidden;
-  background: #e9f0fa;
-  color: #172331;
+  background: #f0f3f2;
+  color: #202c2a;
 }
 .prisma-backdrop,
 .prisma-video,
@@ -42,10 +42,10 @@
 .prisma-wash {
   background: linear-gradient(
     180deg,
-    rgba(242, 246, 253, 0.9) 0%,
-    rgba(234, 242, 253, 0.32) 40%,
-    rgba(242, 246, 253, 0.84) 66%,
-    #f1f5fd 100%
+    rgba(246, 247, 241, 0.9) 0%,
+    rgba(231, 239, 230, 0.32) 40%,
+    rgba(246, 247, 241, 0.84) 66%,
+    #f4f5ef 100%
   );
 }
 .prisma-grain {
@@ -61,7 +61,7 @@
   padding: 30px 42px;
   font-size: 9px;
   letter-spacing: 0.14em;
-  color: #52647f;
+  color: #526b60;
   font-weight: 600;
 }
 .prisma-introduction {
@@ -80,7 +80,7 @@
   font-weight: 500;
 }
 .prisma-introduction > p:last-child span {
-  color: #2854ee;
+  color: #18594e;
 }
 .prisma-bottom {
   position: absolute;
@@ -93,7 +93,7 @@
   gap: 26px;
 }
 .prisma-role {
-  color: #52647f;
+  color: #526b60;
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -104,7 +104,7 @@
   font-weight: 500;
   line-height: 0.88;
   letter-spacing: -0.075em;
-  color: #2854ee;
+  color: #18594e;
   margin: 0;
 }
 .prisma-words {
@@ -128,7 +128,7 @@
 .prisma-summary > p {
   font-size: 14px;
   line-height: 1.65;
-  color: #405470;
+  color: #435f55;
   max-width: 390px;
   margin-bottom: 22px;
 }
@@ -146,14 +146,14 @@
   font-size: 13px;
   font-weight: 550;
   border-radius: 40px;
-  background: #2854ee;
+  background: #18594e;
   padding: 5px 5px 5px 20px;
   transition: background 0.2s;
   white-space: nowrap;
 }
 .prisma-cta > span {
   background: white;
-  color: #2854ee;
+  color: #18594e;
   width: 37px;
   height: 37px;
   border-radius: 50%;
@@ -162,7 +162,7 @@
   transition: transform 0.25s;
 }
 .prisma-cta:hover {
-  background: #1940d1;
+  background: #10463d;
 }
 .prisma-cta:hover > span {
   transform: rotate(-35deg);
@@ -172,8 +172,8 @@
   align-items: center;
   gap: 12px;
   font-size: 12px;
-  color: #405470;
-  border-bottom: 1px solid #b4c1d8;
+  color: #435f55;
+  border-bottom: 1px solid #bdcfc8;
   padding-bottom: 3px;
 }
 .prisma-motion-control {
@@ -184,11 +184,11 @@
   align-items: center;
   gap: 7px;
   border-radius: 30px;
-  border: 1px solid #d4deed;
+  border: 1px solid #dde4e1;
   background: rgba(255, 255, 255, 0.88);
   padding: 6px 10px;
   font-size: 10px;
-  color: #52647f;
+  color: #526b60;
 }
 @media (min-width: 1700px) {
   .prisma-name h1 {
@@ -284,10 +284,10 @@
   .prisma-wash {
     background: linear-gradient(
       180deg,
-      rgba(242, 246, 253, 0.93),
-      rgba(234, 242, 253, 0.4) 32%,
-      rgba(242, 246, 253, 0.95) 65%,
-      #f1f5fd
+      rgba(246, 247, 241, 0.93),
+      rgba(231, 239, 230, 0.4) 32%,
+      rgba(246, 247, 241, 0.95) 65%,
+      #f4f5ef
     );
   }
   .prisma-motion-control {

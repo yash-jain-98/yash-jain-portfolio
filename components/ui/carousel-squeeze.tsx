@@ -491,7 +491,7 @@ export function SqueezeCarousel({
                       opacity: front ? 1 : 0,
                       transition: `opacity var(--sq-ms) var(--sq-ease)`,
                       backgroundImage:
-                        "linear-gradient(to top, rgb(240 245 253 / 0.96), rgb(240 245 253 / 0))",
+                        "linear-gradient(to top, rgb(241 245 239 / 0.96), rgb(241 245 239 / 0))",
                     }}
                   >
                     {slide.overlay}

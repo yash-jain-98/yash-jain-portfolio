@@ -86,7 +86,7 @@ export function FooterSqueezeSection() {
       <SqueezeCarousel
         slides={slides}
         label="Explore custom services"
-        accent="#2854ee"
+        accent="#18594e"
         accentForeground="#ffffff"
         duration={650}
         autoplay={false}

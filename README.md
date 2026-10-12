@@ -108,3 +108,13 @@ anchors, project filters/dialogs, and footer enquiry links retained the prefix.
 The Automation gallery filter includes six projects: five owner-described workflows
 plus the existing GitHub automation project. Custom workflow dialogs show process
 details and an enquiry action, without claiming a public repository or source files.
+
+## Colour palette
+
+The light theme uses deep teal (`#18594e`) for primary actions, charcoal
+(`#202c2a`) for headings, warm white (`#fafaf7`) for the page, and soft sage
+(`#eff3ee`) for panels. Shared `--accent` and `--accent-hover` tokens style
+interactive elements. The hero, footer carousel, and authored SVG illustrations
+use the same palette; original repository screenshots retain their source colours.
+Desktop and mobile previews were reviewed, with primary button text exceeding
+4.5:1 contrast.

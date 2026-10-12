@@ -1,8 +1,8 @@
 @theme inline {
-  --color-muted: #edf2f9;
+  --color-muted: #f2f4f3;
   --color-background: #ffffff;
-  --color-foreground: #172331;
-  --color-muted-foreground: #5e6b7b;
+  --color-foreground: #202c2a;
+  --color-muted-foreground: #596760;
 }
 .footer-squeeze-section {
   margin: 0 0 70px;
@@ -21,7 +21,7 @@
   line-height: 1.15;
 }
 .footer-squeeze-heading h2 span {
-  color: var(--blue);
+  color: var(--accent);
 }
 .footer-squeeze-heading > p {
   max-width: 260px;
@@ -33,7 +33,7 @@
   border: 0;
 }
 .squeeze-carousel [role="tab"]:focus-visible {
-  outline: 3px solid #2854ee;
+  outline: 3px solid #18594e;
   outline-offset: -4px;
 }
 .squeeze-carousel [role="tabpanel"] p {
@@ -41,7 +41,7 @@
 }
 .squeeze-wordmark {
   font-size: 14px;
-  color: #263d63;
+  color: #355448;
   letter-spacing: -0.025em;
   font-weight: 600;
   white-space: nowrap;
