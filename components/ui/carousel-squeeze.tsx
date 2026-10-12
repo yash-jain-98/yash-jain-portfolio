@@ -604,7 +604,7 @@ function Arrow({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "tw:grid tw:size-9 tw:cursor-pointer tw:place-items-center tw:rounded-md",
+        "tw:grid tw:size-11 tw:cursor-pointer tw:place-items-center tw:rounded-md",
         "tw:bg-[var(--sq-fill)] tw:text-[var(--sq-on-fill)]",
         "tw:transition-opacity tw:hover:opacity-85 tw:outline-none",
         "tw:focus-visible:ring-2 tw:focus-visible:ring-[var(--sq-fill)]",
@@ -655,7 +655,7 @@ function Action({ slide, shown }: { slide: SqueezeSlide; shown: boolean }) {
   );
 
   const dress = cn(
-    "tw:group/sq-action tw:inline-flex tw:shrink-0 tw:cursor-pointer tw:items-center tw:gap-2 tw:rounded-md",
+    "tw:group/sq-action tw:inline-flex tw:min-h-11 tw:shrink-0 tw:cursor-pointer tw:items-center tw:gap-2 tw:rounded-md",
     "tw:bg-[var(--sq-fill)] tw:px-4 tw:py-2.5 tw:text-sm tw:font-medium tw:text-[var(--sq-on-fill)]",
     "tw:transition-opacity tw:hover:opacity-85 tw:outline-none",
     "tw:focus-visible:ring-2 tw:focus-visible:ring-[var(--sq-fill)]",

@@ -223,8 +223,11 @@
 }
 @media (max-width: 700px) {
   .prisma-hero {
-    min-height: 720px;
-    height: calc(100svh - 125px);
+    display: flex;
+    flex-direction: column;
+    min-height: 640px;
+    height: auto;
+    max-height: none;
     border-radius: 22px;
   }
   .prisma-topline {
@@ -239,9 +242,9 @@
     text-align: right;
   }
   .prisma-introduction {
-    top: 18%;
-    left: 24px;
-    right: 24px;
+    position: relative;
+    inset: auto;
+    margin: 32px 24px 0;
   }
   .prisma-introduction > p:last-child {
     font-size: 30px;
@@ -250,10 +253,11 @@
     font-size: 8px;
   }
   .prisma-bottom {
-    left: 24px;
-    right: 24px;
-    bottom: 58px;
-    gap: 28px;
+    position: relative;
+    inset: auto;
+    margin-top: auto;
+    padding: 52px 24px 22px;
+    gap: 24px;
   }
   .prisma-name h1 {
     font-size: clamp(62px, 19vw, 125px);
@@ -287,8 +291,10 @@
     );
   }
   .prisma-motion-control {
-    right: 20px;
-    bottom: 16px;
+    position: relative;
+    inset: auto;
+    align-self: flex-end;
+    margin: 0 24px 16px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -297,4 +303,9 @@
     transition: none !important;
     animation: none !important;
   }
+}
+
+@media (pointer: coarse), (max-width: 900px) {
+  .prisma-work, .prisma-motion-control { min-height: 44px; }
+  .prisma-actions { gap: 8px; }
 }

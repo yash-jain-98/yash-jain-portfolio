@@ -1,12 +1,13 @@
 import { build } from "esbuild";
 import { execFileSync } from "node:child_process";
+import { cpSync, mkdirSync, rmSync } from "node:fs";
 await build({
   entryPoints: ["src/hero.tsx"],
   bundle: true,
   minify: true,
   format: "esm",
   target: ["es2020"],
-  outfile: "dist/hero.js",
+  outfile: "hero.js",
   define: { "process.env.NODE_ENV": '"production"' },
   legalComments: "eof",
 });
@@ -17,8 +18,20 @@ execFileSync(
     "-i",
     "styles/prisma-hero.css",
     "-o",
-    "dist/hero.css",
+    "hero.css",
     "--minify",
   ],
   { stdio: "inherit" },
 );
+
+// Root files are the GitHub Pages site; dist is an isolated Sites deployment.
+// Copy only public assets, never the repository, source, or local credentials.
+rmSync("dist", { recursive: true, force: true });
+mkdirSync("dist", { recursive: true });
+for (const asset of [
+  "index.html", "style.css", "app.js", "projects-data.js", "hero.css", "hero.js",
+  "hero-workspace.png", "calgary-analysis.png", "churn-analysis.png",
+  "fonts", "project-assets", "footer-assets", ".nojekyll",
+]) {
+  cpSync(asset, `dist/${asset}`, { recursive: true });
+}

@@ -3432,7 +3432,7 @@ body.dialog-open {
     font-size: 11px;
   }
 }
-@media (max-width: 820px) {
+@media (max-width: 900px) {
   .menu-button {
     display: flex;
     align-items: center;
@@ -3975,3 +3975,32 @@ body.dialog-open {
   padding: 7px 13px;
 }
 .gallery-results-bar .result-count { font-size: 12px; }
+
+/* Comfortable touch targets and readable forms on phones and tablets. */
+@media (pointer: coarse), (max-width: 900px) {
+  input, select, textarea,
+  .project-search-field input, .project-sort-field select { font-size: 16px; }
+  .text-link, .gallery-profile, .email-link, .linkedin-contact,
+  .footer-top > a, .footer-bottom > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .copy-email, .drifting-toggle, .project-filters button,
+  .project-links button, .project-links a, .service-tabs button,
+  .browser-bar button, .demo-toggle button, .project-artifacts a {
+    min-height: 44px;
+  }
+  .browser-bar { flex-wrap: wrap; }
+  .browser-bar button { min-width: 52px; font-size: 10px; }
+  .dialog-close { width: 44px; height: 44px; }
+  dialog { max-height: calc(100dvh - 32px); overscroll-behavior: contain; }
+  dialog h2 { padding-right: 28px; }
+}
+@media (max-width: 900px) {
+  #main-nav {
+    max-height: calc(100dvh - 105px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}

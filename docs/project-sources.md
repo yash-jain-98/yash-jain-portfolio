@@ -91,4 +91,4 @@ Ten original repository images and PDF-page previews are retained as supplied. T
 
 ## Maintenance
 
-Edit `dist/projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 25 projects render by default. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.
+Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 25 projects render by default. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.

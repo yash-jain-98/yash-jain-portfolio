@@ -4,23 +4,23 @@ A responsive, light-theme portfolio for freelance website development, data anal
 
 ## Preview locally
 
-The production files are committed in `dist/`. Serve them over HTTP to load the React hero module:
+The production files, including `index.html`, are committed at the repository root. Serve them over HTTP to load the React hero module:
 
 ```sh
-python -m http.server 4173 --directory dist
+python -m http.server 4173
 ```
 
 Then visit `http://localhost:4173`.
 
 ## Edit the site
 
-- `dist/index.html`: branding, page sections, contact details, and accessible markup.
-- `dist/style.css`: responsive layouts, light theme, animations, and reduced-motion support.
-- `dist/app.js`: the project gallery, filters, dialogs, service tabs, demos, and contact interactions.
-- `dist/projects-data.js`: a curated snapshot of 25 public GitHub repositories, with descriptions, categories, source-file links, and preview metadata.
-- `dist/project-assets/`: original repository images, PDF page previews, and themed SVG project illustrations.
+- `index.html`: branding, page sections, contact details, and accessible markup.
+- `style.css`: responsive layouts, light theme, animations, and reduced-motion support.
+- `app.js`: the project gallery, filters, dialogs, service tabs, demos, and contact interactions.
+- `projects-data.js`: a curated snapshot of 25 public GitHub repositories, with descriptions, categories, source-file links, and preview metadata.
+- `project-assets/`: original repository images, PDF page previews, and themed SVG project illustrations.
 - `docs/project-sources.md`: the repository audit, source attribution, and maintenance notes.
-- `dist/fonts/`: self-hosted DM Sans and its SIL Open Font License.
+- `fonts/`: self-hosted DM Sans and its SIL Open Font License.
 - `.openai/hosting.json`: the existing Sites project identity and static output directory; preserve these when publishing.
 
 ## Interactions
@@ -53,7 +53,7 @@ The user-supplied React hero is adapted in `components/ui/prisma-hero.tsx`, usin
 - `src/hero.tsx` mounts the hero and footer carousel as separate React roots; `src/demo.tsx` shows standalone usage.
 - `styles/prisma-hero.css` contains scoped hero styling and Tailwind v4 utilities with the `tw` prefix. Preflight is omitted to preserve the rest of the site.
 - `components.json` declares the shadcn-compatible `components/ui` location; TypeScript resolves the `@/` alias from the project root.
-- `scripts/build-hero.mjs` bundles the hero into `dist/hero.js` and `dist/hero.css`. Do not edit those two generated files directly.
+- `scripts/build-hero.mjs` bundles the hero into `hero.js` and `hero.css`. Do not edit those two generated files directly.
 
 After editing the hero:
 
@@ -68,6 +68,39 @@ The supplied CloudFront video URL is used directly. It was blocked by this execu
 
 ## Footer squeeze carousel
 
-The supplied `SqueezeCarousel` component lives in `components/ui/carousel-squeeze.tsx`. `components/ui/footer-squeeze.tsx` supplies five portfolio service panels: websites, analytics, automation, data science, and connected solutions. It uses the existing font and colour palette, local images and SVG illustrations, and real enquiry/project links. `styles/footer-squeeze.css` scopes its styling; the shared build emits both React sections into `dist/hero.js` and `dist/hero.css`.
+The supplied `SqueezeCarousel` component lives in `components/ui/carousel-squeeze.tsx`. `components/ui/footer-squeeze.tsx` supplies five portfolio service panels: websites, analytics, automation, data science, and connected solutions. It uses the existing font and colour palette, local images and SVG illustrations, and real enquiry/project links. `styles/footer-squeeze.css` scopes its styling; the shared build emits both React sections into `hero.js` and `hero.css`.
 
 Autoplay is off. Visitors can use the arrows, preview panels, or Left/Right/Home/End keys. Focus follows the selected panel. Navigation briefly waits for each transition to finish to prevent the supplied component’s rapid-direction-change bug. Reduced-motion settings remove transitions. The mobile geometry keeps all panel widths positive. Checks covered five-panel wraparound, rapid mixed navigation, selected-panel focus, contact service preselection, automation navigation, and layouts from 320 to 1440px. The carousel uses no external image or font requests.
+
+
+## GitHub Pages
+
+In the repository’s **Settings → Pages**, select **Deploy from a branch**, then
+**main** and **/(root)**, and save. The entry point is `index.html` at the repository
+root. `.nojekyll` enables direct static-file serving. GitHub Pages availability for
+private repositories depends on your GitHub plan; changing repository visibility
+is not part of this setup.
+
+Styles, scripts, fonts, project images, and section links use relative URLs, so
+both the GitHub Pages project URL (`/yash-jain-portfolio/`) and a custom domain work.
+The contact form opens an email draft and requires no backend.
+
+After editing React components or their styles, run `npm ci`, `npm run typecheck`,
+and `npm run build`, then commit the updated root `hero.js` and `hero.css` along
+with the source changes. GitHub Pages serves the committed files without Node.js.
+The build also copies an explicit list of public assets to ignored `dist/` for the
+existing ChatGPT Sites deployment; `.openai/hosting.json` continues to point there.
+Do not edit the generated `dist/` copy.
+
+## Mobile refinements
+
+The hero flows naturally on small screens; navigation uses a scrollable menu up
+to 900px, including short landscape displays. Primary touch controls are at least 44px
+high, form inputs use 16px text on touch devices, and dialogs fit the dynamic
+viewport. Phone/tablet browser checks covered 320×568 through 1024×768, plus
+1440×900 desktop, gallery filtering, all service panels, project dialogs,
+contact validation, footer navigation, and reduced-motion video/carousel controls.
+
+The repository-root site was also verified at `/yash-jain-portfolio/` in phone,
+landscape, and desktop viewports. All 25 project previews resolved, and hero/menu
+anchors, project filters/dialogs, and footer enquiry links retained the prefix.
