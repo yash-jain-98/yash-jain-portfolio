@@ -228,6 +228,7 @@ function getFilteredProjects() {
         [
           project.title,
           project.repo,
+          project.url,
           project.desc,
           project.details,
           project.categoryName,
@@ -249,12 +250,21 @@ function getFilteredProjects() {
     filtered.sort((a, b) => a.title.localeCompare(b.title));
   return filtered;
 }
+function projectDestinationLink(project) {
+  if (project.sourceType === "custom") {
+    return `<a href="#automation">Workflow collection ${arrowIcon}</a>`;
+  }
+  const website = project.sourceType === "website";
+  const label = website ? `Visit ${project.title} website` : `View ${project.title} repository on GitHub`;
+  return `<a href="${escapeHTML(project.url)}" target="_blank" rel="noopener" aria-label="${escapeHTML(label)}">${website ? "Visit website" : "Repository"} ${arrowIcon}</a>`;
+}
+
 function renderProjects() {
   const filtered = getFilteredProjects();
   $("#projects").innerHTML = filtered
     .map(
       (project) =>
-        `<article class="project-card" data-project-id="${escapeHTML(project.id)}" data-category="${project.category}"><div class="project-preview ${project.image ? "has-preview" : ""}" aria-hidden="true">${projectVisual(project)}<span class="visual-label">${escapeHTML(project.imageLabel)}</span></div><div class="project-category-line"><p class="project-category">${escapeHTML(project.categoryName)}</p><span class="project-kind">${escapeHTML(project.kind)}</span></div><h3>${escapeHTML(project.title)}</h3><p class="project-description">${escapeHTML(project.desc)}</p><div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div><div class="project-links"><button type="button" data-project="${project.index}" aria-label="Explore ${escapeHTML(project.title)}">Explore project ${arrowIcon}</button>${project.sourceType === "custom" ? `<a href="#automation">Workflow collection ${arrowIcon}</a>` : `<a href="${escapeHTML(project.url)}" target="_blank" rel="noopener" aria-label="View ${escapeHTML(project.title)} repository on GitHub">Repository ${arrowIcon}</a>`}</div></article>`,
+        `<article class="project-card" data-project-id="${escapeHTML(project.id)}" data-category="${project.category}"><div class="project-preview ${project.image ? "has-preview" : ""}" aria-hidden="true">${projectVisual(project)}<span class="visual-label">${escapeHTML(project.imageLabel)}</span></div><div class="project-category-line"><p class="project-category">${escapeHTML(project.categoryName)}</p><span class="project-kind">${escapeHTML(project.kind)}</span></div><h3>${escapeHTML(project.title)}</h3><p class="project-description">${escapeHTML(project.desc)}</p><div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div><div class="project-links"><button type="button" data-project="${project.index}" aria-label="Explore ${escapeHTML(project.title)}">Explore project ${arrowIcon}</button>${projectDestinationLink(project)}</div></article>`,
     )
     .join("");
   $("#project-count").textContent = filtered.length
@@ -325,6 +335,9 @@ $("#gallery-total").textContent = String(projects.length);
 renderProjects();
 
 function projectResources(project) {
+  if (project.sourceType === "website") {
+    return `<a class="button" href="${escapeHTML(project.url)}" target="_blank" rel="noopener">Visit live website ${arrowIcon}</a>`;
+  }
   if (project.sourceType === "custom") {
     return `<p class="project-source-note">Custom automation project. A public source repository has not been linked for this workflow.</p><button type="button" class="button" data-workflow-enquiry>Discuss a similar workflow ${arrowIcon}</button>`;
   }

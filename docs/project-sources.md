@@ -1,6 +1,6 @@
 # GitHub project-source audit
 
-Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The gallery contains 25 public repository showcases plus five owner-described custom automation workflows (30 projects total). Private repositories are not included in public content.
+Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The gallery contains 25 public repository showcases plus five owner-described custom automation workflows and four live websites (34 projects total). Private repositories are not included in public content.
 
 Every public repository tree was checked. Descriptions use README files, notebook sources, report text, workbook structure, or the verified file inventory. Source files remain linked to GitHub; large notebooks, videos, datasets, and office files are not bundled with the website.
 
@@ -91,4 +91,21 @@ Ten original repository images and PDF-page previews are retained as supplied. T
 
 ## Maintenance
 
-Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 30 projects render by default. The Automation filter includes the five custom workflows plus one GitHub project (six total). Custom workflows have no fabricated repository links or update dates. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.
+Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 34 projects render by default. The Automation filter includes the five custom workflows plus one GitHub project (six total). Custom workflows have no fabricated repository links or update dates. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.
+
+
+## Live website projects added 13 October 2026
+
+Yash supplied these four websites as his projects. Their public pages were read
+for the descriptions below. The portfolio does not assert a specific development
+stack, sole authorship, conversion results, or custom booking/payment implementation.
+
+- [Australian Boat Parties](https://australianboatparties.com/): fleet, cruise/event listings, external booking links, and contact details. The public footer credits Future Vision Computers; Yash’s precise contribution has not been separately specified.
+- [Roohani Rang](https://roohanirang.com/): handmade stationery and lifestyle product collections, product information, search, and cart interactions.
+- [Singhvi Interiors](https://singhviinteriors.com/): Mumbai interior studio, design services, residential/commercial work, and enquiry routes.
+- [Akruti Wholesale](https://akrutiwholesale.com/): wholesale saree collections, product catalogue, cart, and company information.
+
+These entries use `sourceType: "website"`, live-site links, and no invented
+repository, source file counts, or last-modified dates. The covers are labelled
+project illustrations rather than screenshots. The Web development filter includes
+these four websites and the existing Express repository (five total).

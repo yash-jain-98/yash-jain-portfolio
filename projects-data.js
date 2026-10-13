@@ -1,8 +1,116 @@
-// Public GitHub projects and five owner-described custom workflows. See docs/project-sources.md.
+// GitHub projects, five custom workflows, and four live websites. See docs/project-sources.md.
 window.PORTFOLIO_DATA = {
   updatedAt: "2026-10-10",
   publicRepositoriesReviewed: 42,
   projects: [
+    {
+      "id": "australian-boat-parties",
+      "sourceType": "website",
+      "repo": "",
+      "title": "Australian Boat Parties",
+      "category": "web",
+      "categoryName": "WEB DEVELOPMENT",
+      "tags": [
+        "Website development",
+        "Boat events",
+        "Hospitality"
+      ],
+      "desc": "A website bringing together boat venues, cruise experiences, and event booking links in Australia.",
+      "details": "An events and hospitality website showcasing boat venues and cruise experiences in Melbourne. Visitors can explore the fleet, browse event categories, and follow booking links for the experience they want.",
+      "kind": "Events & hospitality",
+      "highlights": [
+        "Fleet and venue showcases",
+        "Cruise and event discovery",
+        "Booking links and contact information"
+      ],
+      "artifacts": [],
+      "updatedAt": null,
+      "url": "https://australianboatparties.com/",
+      "image": "project-assets/australian-boat-parties.svg",
+      "imageAlt": "Australian Boat Parties \u2014 illustrative website project cover",
+      "imageLabel": "PROJECT ILLUSTRATION"
+    },
+    {
+      "id": "roohani-rang",
+      "sourceType": "website",
+      "repo": "",
+      "title": "Roohani Rang",
+      "category": "web",
+      "categoryName": "WEB DEVELOPMENT",
+      "tags": [
+        "E-commerce",
+        "Handmade products",
+        "Product catalogue"
+      ],
+      "desc": "An online store for handmade stationery, planners, calendars, and thoughtful lifestyle products.",
+      "details": "An e-commerce website for Roohani Rang, presenting handmade stationery and lifestyle products. The storefront brings together product collections, individual product information, search, and cart interactions.",
+      "kind": "E-commerce website",
+      "highlights": [
+        "Stationery and lifestyle collections",
+        "Product discovery and search",
+        "Product details and shopping cart"
+      ],
+      "artifacts": [],
+      "updatedAt": null,
+      "url": "https://roohanirang.com/",
+      "image": "project-assets/roohani-rang.svg",
+      "imageAlt": "Roohani Rang \u2014 illustrative website project cover",
+      "imageLabel": "PROJECT ILLUSTRATION"
+    },
+    {
+      "id": "singhvi-interiors",
+      "sourceType": "website",
+      "repo": "",
+      "title": "Singhvi Interiors",
+      "category": "web",
+      "categoryName": "WEB DEVELOPMENT",
+      "tags": [
+        "Website development",
+        "Interiors",
+        "Service showcase"
+      ],
+      "desc": "A studio website presenting interior design services, residential and commercial work, and client enquiries.",
+      "details": "A website for a Mumbai-based interior design studio. It introduces the studio, showcases residential and commercial spaces, and presents consultancy, turnkey projects, styling, and 3D visualisation services alongside contact information.",
+      "kind": "Interior studio website",
+      "highlights": [
+        "Interior services and project showcases",
+        "Studio story and working process",
+        "Clear routes to client enquiries"
+      ],
+      "artifacts": [],
+      "updatedAt": null,
+      "url": "https://singhviinteriors.com/",
+      "image": "project-assets/singhvi-interiors.svg",
+      "imageAlt": "Singhvi Interiors \u2014 illustrative website project cover",
+      "imageLabel": "PROJECT ILLUSTRATION"
+    },
+    {
+      "id": "akruti-wholesale",
+      "sourceType": "website",
+      "repo": "",
+      "title": "Akruti Wholesale",
+      "category": "web",
+      "categoryName": "WEB DEVELOPMENT",
+      "tags": [
+        "E-commerce",
+        "Wholesale",
+        "Saree catalogue"
+      ],
+      "desc": "A wholesale saree storefront with collection browsing, product catalogues, and retailer-focused information.",
+      "details": "An e-commerce website for Akruti Sarees Wholesale. Visitors can browse saree collections by category, explore product and catalogue information, and learn about the wholesale business through its contact and company pages.",
+      "kind": "Wholesale e-commerce",
+      "highlights": [
+        "Saree categories and collections",
+        "Product catalogue and cart",
+        "Wholesale business information"
+      ],
+      "artifacts": [],
+      "updatedAt": null,
+      "url": "https://akrutiwholesale.com/",
+      "image": "project-assets/akruti-wholesale.svg",
+      "imageAlt": "Akruti Wholesale \u2014 illustrative website project cover",
+      "imageLabel": "PROJECT ILLUSTRATION"
+    },
     {
       "id": "google-business-review-replies",
       "sourceType": "custom",
