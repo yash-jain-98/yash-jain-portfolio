@@ -1,6 +1,6 @@
 # GitHub project-source audit
 
-Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The gallery contains 21 public repository showcases plus five owner-described custom automation workflows and four live websites (30 projects total). Private repositories are not included in public content.
+Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The gallery contains 20 public repository showcases plus five owner-described custom automation workflows and four live websites (29 projects total). Private repositories are not included in public content.
 
 Every public repository tree was checked. Descriptions use README files, notebook sources, report text, workbook structure, or the verified file inventory. Source files remain linked to GitHub; large notebooks, videos, datasets, and office files are not bundled with the website.
 
@@ -16,7 +16,6 @@ The AI agents & automation section and the searchable project gallery both conta
 | [Power-Bi_Project_Data_Business_Analysis](https://github.com/yash-jain-98/Power-Bi_Project_Data_Business_Analysis) | Ride-hailing & churn dashboards | Dashboard collection |
 | [Car-Price-Prediction-Data-Science-Project](https://github.com/yash-jain-98/Car-Price-Prediction-Data-Science-Project) | Used-car price prediction | Machine-learning study |
 | [Bank-Customer-Churn-Data-Science-Project](https://github.com/yash-jain-98/Bank-Customer-Churn-Data-Science-Project) | Bank customer churn | Machine-learning study |
-| [ibm-python-project-web-scrapping](https://github.com/yash-jain-98/ibm-python-project-web-scrapping) | Stock-data collection with Python | Coursework |
 | [retail-analysis-power-bi](https://github.com/yash-jain-98/retail-analysis-power-bi) | Retail analysis in Power BI | Dashboard project |
 | [Loan-Approval-Prediction-Data-Science-Project](https://github.com/yash-jain-98/Loan-Approval-Prediction-Data-Science-Project) | Loan approval classification | Machine-learning study |
 | [Calgary-Crime-Neural-Network-Data-Science-Project](https://github.com/yash-jain-98/Calgary-Crime-Neural-Network-Data-Science-Project) | Calgary crime-data exploration | Experimental model |
@@ -83,11 +82,10 @@ Ten original repository images and PDF-page previews are retained as supplied. T
 - `kickstarter-report.png` — [Kickstarter_Report.pdf](https://github.com/yash-jain-98/kickstarter-project-excel/blob/main/Kickstarter_Report.pdf)
 - `sports-report.png` — [sports-goods-project-sample.pdf](https://github.com/yash-jain-98/sports-goods-project-excel/blob/main/sports-goods-project-sample.pdf)
 - `capstone.png` — [IBM Data Science Capstone Project.pdf](https://github.com/yash-jain-98/data-science-capstone/blob/main/IBM%20Data%20Science%20Capstone%20Project.pdf)
-- `stock-data.png` — [q5.png](https://github.com/yash-jain-98/ibm-python-project-web-scrapping/blob/main/q5.png)
 
 ## Maintenance
 
-Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 30 projects render by default. The Automation filter includes the five custom workflows plus one GitHub project (six total). Custom workflows have no fabricated repository links or update dates. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.
+Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 29 projects render by default. The Automation filter includes the five custom workflows. Custom workflows have no fabricated repository links or update dates. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.
 
 
 ## Live website projects added 13 October 2026
@@ -111,4 +109,7 @@ these four live websites (four total).
 At Yash’s request, Bike-buyer dashboard, Data-science tools & ecosystem,
 Multi-page Express website, and King County house-sales analysis were removed from the portfolio and its search/filter
 data. The GitHub repositories themselves were not changed. The current gallery
-contains 30 projects: 4 web, 14 analytics, 6 data science, and 6 automation.
+contains 29 projects: 4 web, 14 analytics, 6 data science, and 5 automation.
+
+Stock-data collection with Python was also removed at Yash’s request on
+13 October 2026. Its source repository is unchanged.
