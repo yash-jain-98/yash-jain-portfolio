@@ -497,6 +497,23 @@ nav > a.button:hover {
 nav a > span {
   margin-left: 4px;
 }
+/* Keep the service label and chevron centred on the same line. */
+.services-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.services-chevron {
+  width: 12px;
+  height: 12px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .menu-button {
   display: none;
 }
