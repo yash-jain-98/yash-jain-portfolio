@@ -1,6 +1,6 @@
 # GitHub project-source audit
 
-Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The gallery contains 25 public repository showcases plus five owner-described custom automation workflows and four live websites (34 projects total). Private repositories are not included in public content.
+Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The gallery contains 21 public repository showcases plus five owner-described custom automation workflows and four live websites (30 projects total). Private repositories are not included in public content.
 
 Every public repository tree was checked. Descriptions use README files, notebook sources, report text, workbook structure, or the verified file inventory. Source files remain linked to GitHub; large notebooks, videos, datasets, and office files are not bundled with the website.
 
@@ -32,11 +32,7 @@ The AI agents & automation section and the searchable project gallery both conta
 | [car-manufacturer-case-study-excel](https://github.com/yash-jain-98/car-manufacturer-case-study-excel) | Car-manufacturer case study | Spreadsheet project |
 | [demo-winery-sales-project-excel](https://github.com/yash-jain-98/demo-winery-sales-project-excel) | Winery sales analysis | Spreadsheet project |
 | [call-volume-trend-analysis-project-excel](https://github.com/yash-jain-98/call-volume-trend-analysis-project-excel) | Call-volume trend analysis | Spreadsheet project |
-| [bike-buyer-dashboard-power-query](https://github.com/yash-jain-98/bike-buyer-dashboard-power-query) | Bike-buyer dashboard | Spreadsheet project |
-| [ibm-data-analysis-with-python](https://github.com/yash-jain-98/ibm-data-analysis-with-python) | King County house-sales analysis | Coursework |
 | [data-science-capstone](https://github.com/yash-jain-98/data-science-capstone) | SpaceX landing-analysis presentation | Coursework presentation |
-| [ibm-data-science-projects](https://github.com/yash-jain-98/ibm-data-science-projects) | Data-science tools & ecosystem | Introductory coursework |
-| [node-express-website-local](https://github.com/yash-jain-98/node-express-website-local) | Multi-page Express website | Learning project |
 
 ## Other public repositories
 
@@ -91,7 +87,7 @@ Ten original repository images and PDF-page previews are retained as supplied. T
 
 ## Maintenance
 
-Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 34 projects render by default. The Automation filter includes the five custom workflows plus one GitHub project (six total). Custom workflows have no fabricated repository links or update dates. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.
+Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 30 projects render by default. The Automation filter includes the five custom workflows plus one GitHub project (six total). Custom workflows have no fabricated repository links or update dates. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.
 
 
 ## Live website projects added 13 October 2026
@@ -108,4 +104,11 @@ stack, sole authorship, conversion results, or custom booking/payment implementa
 These entries use `sourceType: "website"`, live-site links, and no invented
 repository, source file counts, or last-modified dates. The covers are labelled
 project illustrations rather than screenshots. The Web development filter includes
-these four websites and the existing Express repository (five total).
+these four live websites (four total).
+
+## Removed on 13 October 2026
+
+At Yash’s request, Bike-buyer dashboard, Data-science tools & ecosystem,
+Multi-page Express website, and King County house-sales analysis were removed from the portfolio and its search/filter
+data. The GitHub repositories themselves were not changed. The current gallery
+contains 30 projects: 4 web, 14 analytics, 6 data science, and 6 automation.
