@@ -31,7 +31,7 @@ mkdirSync("dist", { recursive: true });
 for (const asset of [
   "index.html", "style.css", "app.js", "projects-data.js", "hero.css", "hero.js",
   "hero-workspace.png", "calgary-analysis.png", "churn-analysis.png",
-  "fonts", "project-assets", "footer-assets", ".nojekyll",
+  "fonts", "project-assets", ".nojekyll",
 ]) {
   cpSync(asset, `dist/${asset}`, { recursive: true });
 }
