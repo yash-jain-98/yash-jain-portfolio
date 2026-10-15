@@ -202,7 +202,7 @@ export const PrismaHero = ({
                 <ArrowRight size={19} aria-hidden="true" />
               </span>
             </a>
-            <a className="prisma-work" href="#work">
+            <a className="prisma-work" href="projects.html">
               Explore my work <ArrowUpRight size={16} aria-hidden="true" />
             </a>
           </motion.div>

@@ -85,7 +85,7 @@ const serviceContent = {
 let workflowRun = 0;
 function selectService(mode, focus = false) {
   const content = serviceContent[mode];
-  if (!content) return;
+  if (!content || !$("#service-panel")) return;
   workflowRun++;
   $$(".service-tabs [role=tab]").forEach((button) => {
     const active = button.dataset.mode === mode;
@@ -109,11 +109,11 @@ function selectService(mode, focus = false) {
   void $("#service-panel").offsetWidth;
   $("#service-panel").classList.add("panel-enter");
 }
-$(".service-tabs").addEventListener("click", (event) => {
+$(".service-tabs")?.addEventListener("click", (event) => {
   const button = event.target.closest("[data-mode]");
   if (button) selectService(button.dataset.mode);
 });
-$(".service-tabs").addEventListener("keydown", (event) => {
+$(".service-tabs")?.addEventListener("keydown", (event) => {
   const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
   if (!keys.includes(event.key)) return;
   event.preventDefault();
@@ -127,7 +127,7 @@ $(".service-tabs").addEventListener("keydown", (event) => {
   if (event.key === "End") next = buttons.length - 1;
   selectService(buttons[next].dataset.mode, true);
 });
-$("#demo-stage").addEventListener("click", async (event) => {
+$("#demo-stage")?.addEventListener("click", async (event) => {
   const device = event.target.closest("[data-device]");
   if (device) {
     $(".browser-demo", $("#demo-stage")).classList.toggle(
@@ -361,6 +361,10 @@ dialog.addEventListener("click", (event) => {
   if (event.target.closest("[data-workflow-enquiry]")) {
     projectTrigger = null;
     dialog.close();
+    if (!$("#contact-form")) {
+      window.location.href = "index.html?service=automation#contact";
+      return;
+    }
     $("#service").value = "Automation & workflows";
     $("#contact").scrollIntoView({ behavior: "auto" });
     $("#client-name").focus({ preventScroll: true });
@@ -413,7 +417,10 @@ function createEmailDraft({ name, replyTo, service, message }) {
   const body = `Hi Yash,\n\nMy name is ${name}. I’m interested in ${service.toLowerCase()}.\n\n${message}\n\nYou can reach me at ${replyTo}.\n\nBest,\n${name}`;
   return `mailto:${email}?subject=${encodeURIComponent("Project enquiry: " + service)}&body=${encodeURIComponent(body)}`;
 }
-$("#contact-form").addEventListener("submit", (event) => {
+if ($("#service") && new URLSearchParams(window.location.search).get("service") === "automation") {
+  $("#service").value = "Automation & workflows";
+}
+$("#contact-form")?.addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.currentTarget,
     name = form.elements.name.value.trim(),
@@ -436,7 +443,7 @@ $("#contact-form").addEventListener("submit", (event) => {
 $$("#contact-form input, #contact-form textarea").forEach((input) =>
   input.addEventListener("input", () => input.setCustomValidity("")),
 );
-$(".copy-email").addEventListener("click", async (event) => {
+$(".copy-email")?.addEventListener("click", async (event) => {
   const button = event.currentTarget;
   try {
     await navigator.clipboard.writeText(email);
@@ -473,6 +480,7 @@ const driftingSection = $(".drifting-section");
 const driftingToggle = $(".drifting-toggle");
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 function syncDriftingMotion() {
+  if (!driftingToggle || !driftingSection) return;
   driftingToggle.hidden = reducedMotion.matches;
   if (reducedMotion.matches) driftingSection.classList.add("is-paused");
   else
@@ -481,7 +489,7 @@ function syncDriftingMotion() {
       driftingToggle.getAttribute("aria-pressed") === "true",
     );
 }
-driftingToggle.addEventListener("click", () => {
+driftingToggle?.addEventListener("click", () => {
   const paused = driftingToggle.getAttribute("aria-pressed") !== "true";
   driftingToggle.setAttribute("aria-pressed", String(paused));
   driftingToggle.textContent = paused ? "Resume motion" : "Pause motion";

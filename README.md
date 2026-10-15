@@ -123,3 +123,13 @@ The October readability update keeps essential body copy at 16px, controls at
 text uses darker green-gray, filters have a solid selected state, and gallery
 cards use one column on phones and two on tablets. Services, workflows, and
 contact content reflow to keep larger text readable.
+
+## Projects page
+
+The navigation and hero work links open `projects.html`, a standalone catalogue
+with all 29 projects, shared search/filter/sort controls, and project dialogs.
+It shares `projects-data.js` and `app.js` with the home page. Shared page-specific
+features only initialize when their elements exist. Automation enquiries return
+to the home contact form with the service preselected. Relative links support
+both the custom domain and the GitHub Pages repository path. The build copies
+`projects.html` into `dist/` alongside the root entry point.

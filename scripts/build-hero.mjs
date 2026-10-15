@@ -29,7 +29,7 @@ execFileSync(
 rmSync("dist", { recursive: true, force: true });
 mkdirSync("dist", { recursive: true });
 for (const asset of [
-  "index.html", "style.css", "app.js", "projects-data.js", "hero.css", "hero.js",
+  "index.html", "projects.html", "style.css", "app.js", "projects-data.js", "hero.css", "hero.js",
   "hero-workspace.png", "calgary-analysis.png", "churn-analysis.png",
   "fonts", "project-assets", ".nojekyll",
 ]) {
