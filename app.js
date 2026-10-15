@@ -402,7 +402,7 @@ document.addEventListener("keydown", (event) => {
 document.addEventListener("click", (event) => {
   if (!event.target.closest(".navigation")) closeMenu();
 });
-matchMedia("(min-width:901px)").addEventListener("change", closeMenu);
+matchMedia("(min-width:1101px)").addEventListener("change", closeMenu);
 $$("[data-service]").forEach((link) => {
   link.addEventListener("click", (event) => {
     $("#service").value = event.currentTarget.dataset.service;

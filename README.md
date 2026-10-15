@@ -88,11 +88,11 @@ Do not edit the generated `dist/` copy.
 ## Mobile refinements
 
 The hero flows naturally on small screens; navigation uses a scrollable menu up
-to 900px, including short landscape displays. Primary touch controls are at least 44px
+to 1100px, including short landscape displays. Primary touch controls are at least 44px
 high, form inputs use 16px text on touch devices, and dialogs fit the dynamic
 viewport. Phone/tablet browser checks covered 320×568 through 1024×768, plus
 1440×900 desktop, gallery filtering, all service panels, project dialogs,
-contact validation, footer navigation, and reduced-motion video/carousel controls.
+contact validation, footer navigation, and reduced-motion controls.
 
 The repository-root site was also verified at `/yash-jain-portfolio/` in phone,
 landscape, and desktop viewports. All 25 project previews resolved, and hero/menu
@@ -117,3 +117,9 @@ The Web development filter contains the four live website projects.
 
 The “Different needs. One connected approach.” footer carousel was removed at
 Yash’s request. The animated contact bar and email links remain in the footer.
+
+The October readability update keeps essential body copy at 16px, controls at
+14–16px, and project metadata at 12px or larger on all screen sizes. Secondary
+text uses darker green-gray, filters have a solid selected state, and gallery
+cards use one column on phones and two on tablets. Services, workflows, and
+contact content reflow to keep larger text readable.

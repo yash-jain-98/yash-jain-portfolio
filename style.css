@@ -4021,3 +4021,185 @@ body.dialog-open {
     overscroll-behavior: contain;
   }
 }
+/* Readability baseline: keep body copy and controls comfortable at every width.
+   Small type is reserved for decorative previews, never essential content. */
+:root { --muted: #43594f; }
+body { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+p { color: var(--muted); }
+.eyebrow, .service-copy .eyebrow, .drifting-copy .eyebrow,
+.contact-copy .eyebrow { font-size: 12px; line-height: 1.6; letter-spacing: .1em; color: var(--accent); }
+.section-heading p:not(.eyebrow), .split > div:last-child p,
+.service-copy > p:not(.eyebrow), .service-copy ul,
+.automation-case > p, .automation-details p,
+.about-copy > p:not(.lead):not(.eyebrow), .toolkit-grid p,
+.process-section .split > p, .process-steps p, .faq-list details p,
+.contact-copy > p:not(.eyebrow), .footer-contact-intro > p:last-of-type,
+.drifting-copy > p:not(.eyebrow), .project-description,
+dialog p:not(.eyebrow), .gallery-empty p {
+  font-size: 16px; line-height: 1.75; color: var(--muted);
+}
+.about-copy .lead { font-size: 19px; line-height: 1.65; }
+.button, .text-link, .service-copy .text-link, .automation-case > .text-link,
+.about-copy .text-link, .faq-section .text-link, .drifting-copy .button,
+.contact-section form .button, .gallery-footer .button {
+  font-size: 15px; line-height: 1.5; min-height: 48px;
+}
+.text-link { display: inline-flex; align-items: center; gap: 8px; }
+button, a, input, select, textarea, summary { -webkit-tap-highlight-color: #18594e20; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+nav { font-size: 15px; gap: clamp(16px, 2vw, 30px); }
+.brand-caption { font-size: 10px; letter-spacing: .12em; }
+.announcement { font-size: 12px; line-height: 1.6; padding: 8px 16px; }
+.tool-strip p { font-size: 12px; color: var(--muted); }
+.service-tabs button { font-size: 15px; min-height: 48px; color: var(--muted); }
+.service-tabs button[aria-selected="true"] { color: var(--accent); font-weight: 650; }
+.service-copy > p:not(.eyebrow) { max-width: 58ch; }
+.automation-number, .automation-flow li > span, .toolkit-number,
+.process-steps article > span, .about-signature span { font-size: 12px; color: var(--accent); }
+.automation-tools li, .toolkit-grid li, .about-principles,
+.orbit-label b { font-size: 13px; color: var(--muted); }
+.automation-flow strong { font-size: 15px; }
+.automation-flow small { font-size: 14px; }
+.automation-details summary, .faq-list summary { font-size: 16px; line-height: 1.6; }
+.faq-list summary span { flex: none; color: var(--accent); }
+/* Project information stays readable outside the decorative illustrations. */
+.gallery-summary { font-size: 15px; color: var(--muted); line-height: 1.65; }
+.gallery-summary strong { color: var(--ink); }
+.gallery-updated { font-size: 13px; color: var(--muted); }
+.gallery-toolbar label, label, .contact-section label { font-size: 14px; font-weight: 500; color: var(--muted); }
+input, select, textarea, .project-search-field input, .project-sort-field select {
+  font-size: 16px; line-height: 1.5; min-height: 50px; color: var(--ink); border-color: #879d93;
+}
+input::placeholder, textarea::placeholder { color: #5b6e65; opacity: 1; }
+.project-sort-field { width: 220px; }
+.project-search-field { min-width: 0; }
+.project-search-field svg { stroke: var(--muted); top: 16px; }
+.project-filters { gap: 8px; }
+.project-filters button { font-size: 14px; min-height: 46px; padding: 10px 15px; color: var(--muted); border-color: #c5d2cb; }
+.project-filters button > span { font-size: 12px; opacity: 1; margin-left: 7px; }
+.project-filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: white; }
+.gallery-results-bar .result-count, .gallery-clear, .gallery-profile { font-size: 14px; color: var(--muted); }
+.gallery-clear { min-height: 44px; }
+.project-category-line .project-category, .project-kind, .tag {
+  font-size: 12px; line-height: 1.6; color: var(--muted);
+}
+.project-category-line .project-category { letter-spacing: .06em; font-weight: 600; }
+.project-category-line { align-items: center; min-height: 0; }
+.project-kind { border-color: #b3c5bc; }
+.tag { padding: 4px 10px; background: #f1f5f2; border-color: #d0ddd5; }
+.project-card h3 { font-size: 25px; line-height: 1.25; letter-spacing: -.035em; }
+.project-card .project-description { min-height: 0; margin-bottom: 4px; }
+.project-card .project-meta { margin-bottom: 18px; }
+.project-card .project-links { transform: none; gap: 12px; flex-wrap: wrap; padding-top: 8px; }
+.project-links, .project-links button, .project-links a { font-size: 14px; line-height: 1.5; }
+.project-links button, .project-links a { display: inline-flex; align-items: center; gap: 5px; min-height: 44px; }
+.project-links a { color: var(--accent); }
+.visual-label { font-size: 10px; color: var(--muted); letter-spacing: .03em; }
+.project-preview.has-preview { padding-bottom: 32px; }
+.project-grid { row-gap: 48px; }
+.project-highlights { font-size: 16px; line-height: 1.7; color: var(--muted); }
+.project-artifacts a { font-size: 14px; min-height: 48px; overflow-wrap: anywhere; }
+.artifact-type, .dialog-project-preview figcaption { font-size: 12px; color: var(--muted); }
+.project-source-note { font-size: 14px !important; color: var(--muted) !important; }
+.dialog-close { width: 44px; height: 44px; color: var(--accent); }
+dialog { max-height: calc(100dvh - 32px); overscroll-behavior: contain; }
+dialog h2 { padding-right: 28px; }
+.copy-email, .linkedin-contact, .drifting-toggle { font-size: 14px; color: var(--accent); min-height: 44px; }
+.email-link { font-size: 18px; color: var(--accent); overflow-wrap: anywhere; }
+.form-note, .footer-bottom { font-size: 13px; color: var(--muted); }
+.footer-bottom a { color: var(--accent); }
+.footer-top > p, .footer-top > a:not(.brand) { font-size: 14px; color: var(--muted); }
+.footer-contact-links a small { font-size: 12px; }
+.footer-contact-links a strong { font-size: clamp(16px, 1.7vw, 21px); }
+/* Interactive demo controls must be usable even though the artwork is miniature. */
+.browser-bar button, .demo-toggle button, .run-workflow { min-height: 44px; font-size: 14px; }
+.browser-bar { flex-wrap: wrap; }
+.demo-caption, .demo-data-note, .workflow-log, .model-note { font-size: 13px; line-height: 1.65; color: var(--muted); }
+.demo-caption { flex-wrap: wrap; gap: 10px; }
+@media (max-width: 1100px) {
+  html { scroll-padding-top: 105px; }
+  .wrap { width: calc(100% - 64px); }
+  .navigation { height: 85px; width: calc(100% - 48px); }
+  .menu-button { display: flex; align-items: center; gap: 10px; background: white; border: 1px solid #b7c9bf; border-radius: 25px; font-size: 15px; padding: 10px 14px; min-height: 46px; }
+  #main-nav { position: absolute; top: 85px; left: 12px; right: 12px; background: white; border: 1px solid #c5d2cb; border-radius: 15px; box-shadow: 0 20px 30px #324d4316; padding: 16px; display: none; flex-direction: column; align-items: stretch; gap: 0; font-size: 16px; max-height: calc(100dvh - 105px); overflow-y: auto; overscroll-behavior: contain; }
+  #main-nav.open { display: flex; }
+  #main-nav > a:not(.button) { padding: 12px; min-height: 48px; border-bottom: 1px solid var(--line); }
+  #main-nav .button { margin-top: 12px; font-size: 16px; }
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 28px; }
+  .services-section { padding: 56px 32px; }
+  .service-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service-tabs button { white-space: normal; padding: 14px 10px; }
+  .service-panel { grid-template-columns: 1fr; padding: 32px; gap: 32px; }
+  .service-stage { width: 100%; max-width: 640px; margin-inline: auto; }
+  .automation-case { padding: 28px; }
+  .automation-flow { grid-template-columns: 1fr; gap: 16px; }
+  .automation-flow li { padding: 12px 0 0 38px; }
+  .automation-flow li > span { position: absolute; left: 0; top: 14px; }
+  .about-section, .faq-section, .contact-section { grid-template-columns: 1fr; gap: 40px; }
+  .about-section, .contact-section, .process-section { padding: 56px 40px; }
+  .about-art { width: min(360px, 100%); margin: 0 auto 26px; }
+  .about-copy { max-width: 65ch; }
+  .toolkit-grid { grid-template-columns: 1fr; gap: 28px; }
+  .toolkit-grid > div + div { border-left: 0; padding-left: 0; padding-top: 28px; border-top: 1px solid var(--line); }
+  .process-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+  .process-section .split { align-items: flex-start; }
+  .contact-copy h2 { font-size: 56px; }
+  .contact-section form { width: 100%; padding: 32px; }
+  .form-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .footer-contact-links { grid-template-columns: 1fr; }
+  .footer-top { flex-wrap: wrap; gap: 24px; }
+}
+@media (max-width: 700px) {
+  html { scroll-padding-top: 94px; }
+  .wrap { width: calc(100% - 40px); }
+  .section-shell { width: calc(100% - 24px); border-radius: 22px; }
+  .section { padding-block: 60px; }
+  .navigation { width: calc(100% - 32px); height: 80px; }
+  #main-nav { top: 80px; max-height: calc(100dvh - 96px); }
+  .brand { font-size: 20px; gap: 9px; }
+  .brand-mark { font-size: 34px; padding-right: 10px; }
+  .brand-caption { font-size: 9px; letter-spacing: .08em; }
+  .menu-button { gap: 7px; padding-inline: 12px; font-size: 14px; }
+  h2, .about-copy h2, .faq-section h2, .drifting-copy h2 { font-size: clamp(32px, 8.5vw, 42px); line-height: 1.15; letter-spacing: -.04em; }
+  .services-section, .about-section, .contact-section, .process-section { padding: 40px 20px; }
+  .service-panel { padding: 24px 18px; }
+  .service-copy h3, .automation-case h3 { font-size: 30px; line-height: 1.2; }
+  .service-tabs { gap: 8px; border: 0; }
+  .service-tabs button { font-size: 14px; border: 1px solid #b7c9bf; border-radius: 10px; margin: 0; }
+  .service-tabs button[aria-selected="true"] { background: var(--accent); color: white; border-color: var(--accent); }
+  .service-tabs button > span { font-size: 19px; }
+  .automation-heading, .automation-grid, .project-grid { grid-template-columns: 1fr; }
+  .automation-case, .automation-case:nth-child(-n + 2) { grid-column: auto; padding: 24px; }
+  .gallery-summary { gap: 8px; align-items: baseline; }
+  .gallery-updated { width: 100%; margin-left: 0; }
+  .gallery-toolbar { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .project-sort-field { width: 100%; }
+  .project-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+  .project-filters button { padding: 10px 12px; }
+  .project-preview { height: auto; aspect-ratio: 1.55; min-height: 185px; }
+  .project-card h3 { font-size: 26px; }
+  .project-links { gap: 12px; }
+  .process-steps { grid-template-columns: 1fr; gap: 28px; }
+  .process-steps h3 { font-size: 24px; }
+  .contact-copy h2 { font-size: clamp(38px, 11vw, 52px); letter-spacing: -.04em; }
+  .contact-section form { padding: 24px 18px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .footer-top { display: flex; flex-wrap: wrap; gap: 18px 24px; }
+  .footer-top > .brand, .footer-top > p { width: 100%; text-align: left; }
+  .footer-bottom { flex-wrap: wrap; align-items: center; gap: 8px 20px; }
+  .footer-contact-bar { padding: 28px 20px; }
+  .footer-contact-intro h2 { font-size: 34px; }
+  .footer-contact-links a { padding: 16px 12px; gap: 8px; }
+  .footer-contact-links a strong { font-size: 16px; }
+  .drifting-section { padding-bottom: 76px; }
+  dialog { padding: 52px 22px 26px; }
+  dialog h2 { font-size: 28px; }
+}
+@media (max-width: 360px) {
+  .brand-caption { letter-spacing: 0; font-size: 8px; }
+  .navigation { width: calc(100% - 24px); }
+  .brand { font-size: 18px; }
+  .menu-button { padding-inline: 10px; }
+  .service-tabs button { flex-direction: column; gap: 3px; }
+  .email-link { font-size: 16px; }
+}

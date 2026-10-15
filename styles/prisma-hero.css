@@ -308,3 +308,31 @@
   .prisma-work, .prisma-motion-control { min-height: 44px; }
   .prisma-actions { gap: 8px; }
 }
+
+/* Readable text over the photograph, with natural flow on smaller screens. */
+.prisma-hero { min-height: 760px; }
+.prisma-wash {
+  background: linear-gradient(180deg, rgba(246,247,241,.95), rgba(239,244,237,.76) 40%, rgba(246,247,241,.94) 70%, #f4f5ef);
+}
+.prisma-topline, .prisma-introduction .eyebrow, .prisma-role { font-size: 12px; line-height: 1.6; letter-spacing: .1em; color: #354f43; }
+.prisma-summary > p { font-size: 16px; line-height: 1.75; color: #354f43; }
+.prisma-cta, .prisma-work { font-size: 16px; min-height: 48px; }
+.prisma-motion-control { font-size: 13px; min-height: 44px; color: #354f43; }
+@media (max-width: 1100px) {
+  .prisma-hero { display: flex; flex-direction: column; min-height: 0; height: auto; max-height: none; }
+  .prisma-introduction { position: relative; inset: auto; margin: 24px 42px 0; }
+  .prisma-introduction > p:last-child { font-size: 38px; }
+  .prisma-bottom { position: relative; inset: auto; padding: 70px 42px 24px; }
+  .prisma-summary { align-items: flex-start; }
+  .prisma-motion-control { position: relative; inset: auto; align-self: flex-end; margin: 0 28px 20px; }
+}
+@media (max-width: 700px) {
+  .prisma-topline { padding: 24px; gap: 18px; font-size: 11px; }
+  .prisma-topline span { max-width: none; flex: 1; }
+  .prisma-introduction { margin: 24px 24px 0; }
+  .prisma-introduction > p:last-child { font-size: 32px; }
+  .prisma-bottom { padding: 48px 24px 24px; }
+  .prisma-role { font-size: 11px; }
+  .prisma-summary > p { margin-bottom: 20px; }
+  .prisma-actions { gap: 12px; }
+}
