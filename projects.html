@@ -28,9 +28,9 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css?v=20261015-projects" />
+    <link rel="stylesheet" href="style.css?v=20261016-categories" />
     <script src="projects-data.js?v=20261013-no-stock" defer></script>
-    <script src="app.js?v=20261015-projects" defer></script>
+    <script src="app.js?v=20261016-categories" defer></script>
   </head>
   <body class="projects-page" id="top">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -149,30 +149,13 @@
             </div>
           </div>
           <div class="project-sort-field">
-            <label for="project-sort">Sort projects</label
+            <label for="project-sort">Sort within each category</label
             ><select id="project-sort" aria-controls="projects">
               <option value="featured">Featured first</option>
               <option value="recent">Recently updated</option>
               <option value="title">Project name A–Z</option>
             </select>
           </div>
-        </div>
-        <div class="project-filters" role="group" aria-label="Filter projects">
-          <button aria-pressed="true" data-filter="all">
-            All work <span data-filter-count="all">29</span>
-          </button>
-          <button aria-pressed="false" data-filter="web">
-            Web development <span data-filter-count="web">4</span>
-          </button>
-          <button aria-pressed="false" data-filter="analytics">
-            Data analytics <span data-filter-count="analytics">14</span>
-          </button>
-          <button aria-pressed="false" data-filter="science">
-            Data science <span data-filter-count="science">6</span>
-          </button>
-          <button aria-pressed="false" data-filter="auto">
-            Automation <span data-filter-count="auto">5</span>
-          </button>
         </div>
         <div class="gallery-results-bar">
           <p
@@ -191,15 +174,15 @@
             Show all projects
           </button>
         </div>
-        <div class="project-grid" id="projects"></div>
+        <div class="project-categories" id="projects" data-layout="categories"></div>
         <div class="gallery-empty" id="gallery-empty" hidden>
           <h3>No projects found.</h3>
           <p>
-            Try another topic or tool, or clear your filters to explore all
+            Try another topic or tool, or clear your search to explore all
             projects.
           </p>
           <button type="button" class="button button-white" id="reset-projects">
-            Clear search & filters
+            Clear search
           </button>
         </div>
         <div class="gallery-footer">

@@ -191,6 +191,13 @@ const normalizeSearch = (value) =>
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
+const groupedGallery = $("#projects").dataset.layout === "categories";
+const projectCategories = [
+  { id: "web", title: "Web development", description: "Live websites for businesses, brands, and experiences." },
+  { id: "analytics", title: "Data analytics", description: "Dashboards, reports, and analysis that turn data into useful insights." },
+  { id: "science", title: "Data science", description: "Exploratory studies, machine-learning models, and documented notebooks." },
+  { id: "auto", title: "AI & automation", description: "Custom workflows that connect tools and simplify everyday work." },
+];
 const galleryState = { category: "all", query: "", sort: "featured" };
 function projectVisual(project) {
   if (project.image)
@@ -252,24 +259,37 @@ function getFilteredProjects() {
 }
 function projectDestinationLink(project) {
   if (project.sourceType === "custom") {
-    return `<a href="#automation">Workflow collection ${arrowIcon}</a>`;
+    return `<a href="${groupedGallery ? "index.html#automation" : "#automation"}">Workflow collection ${arrowIcon}</a>`;
   }
   const website = project.sourceType === "website";
   const label = website ? `Visit ${project.title} website` : `View ${project.title} repository on GitHub`;
   return `<a href="${escapeHTML(project.url)}" target="_blank" rel="noopener" aria-label="${escapeHTML(label)}">${website ? "Visit website" : "Repository"} ${arrowIcon}</a>`;
 }
 
+function projectCard(project) {
+  return `<article class="project-card" data-project-id="${escapeHTML(project.id)}" data-category="${project.category}"><div class="project-preview ${project.image ? "has-preview" : ""}" aria-hidden="true">${projectVisual(project)}<span class="visual-label">${escapeHTML(project.imageLabel)}</span></div><div class="project-category-line"><p class="project-category">${escapeHTML(project.categoryName)}</p><span class="project-kind">${escapeHTML(project.kind)}</span></div><h3>${escapeHTML(project.title)}</h3><p class="project-description">${escapeHTML(project.desc)}</p><div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div><div class="project-links"><button type="button" data-project="${project.index}" aria-label="Explore ${escapeHTML(project.title)}">Explore project ${arrowIcon}</button>${projectDestinationLink(project)}</div></article>`;
+}
+
 function renderProjects() {
   const filtered = getFilteredProjects();
-  $("#projects").innerHTML = filtered
-    .map(
-      (project) =>
-        `<article class="project-card" data-project-id="${escapeHTML(project.id)}" data-category="${project.category}"><div class="project-preview ${project.image ? "has-preview" : ""}" aria-hidden="true">${projectVisual(project)}<span class="visual-label">${escapeHTML(project.imageLabel)}</span></div><div class="project-category-line"><p class="project-category">${escapeHTML(project.categoryName)}</p><span class="project-kind">${escapeHTML(project.kind)}</span></div><h3>${escapeHTML(project.title)}</h3><p class="project-description">${escapeHTML(project.desc)}</p><div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div><div class="project-links"><button type="button" data-project="${project.index}" aria-label="Explore ${escapeHTML(project.title)}">Explore project ${arrowIcon}</button>${projectDestinationLink(project)}</div></article>`,
-    )
-    .join("");
+  if (groupedGallery) {
+    $("#projects").innerHTML = projectCategories.map((category) => {
+      const matches = filtered.filter((project) => project.category === category.id);
+      if (!matches.length) return "";
+      return `<section class="project-category-section" id="category-${category.id}" aria-labelledby="category-${category.id}-title"><header class="project-category-heading"><div><h2 id="category-${category.id}-title">${escapeHTML(category.title)}</h2><p>${escapeHTML(category.description)}</p></div><span class="category-project-count">${matches.length} ${matches.length === 1 ? "project" : "projects"}</span></header><div class="project-grid">${matches.map(projectCard).join("")}</div></section>`;
+    }).join("");
+  } else {
+    $("#projects").innerHTML = filtered.map(projectCard).join("");
+  }
   $("#project-count").textContent = filtered.length
     ? `Showing ${filtered.length} of ${projects.length} projects${galleryState.category !== "all" || galleryState.query ? " matching your filters" : " · All projects are displayed below"}`
     : "No projects match your search and filters.";
+  if (groupedGallery) {
+    const categoryCount = new Set(filtered.map((project) => project.category)).size;
+    $("#project-count").textContent = filtered.length
+      ? `Showing ${filtered.length} of ${projects.length} projects across ${categoryCount} ${categoryCount === 1 ? "category" : "categories"}${galleryState.query ? " matching your search" : ""}`
+      : "No projects match your search.";
+  }
   $("#gallery-empty").hidden = filtered.length !== 0;
   $("#show-all-projects").hidden =
     galleryState.category === "all" && !galleryState.query;
@@ -280,7 +300,7 @@ function renderProjects() {
     ),
   );
 }
-$(".project-filters").addEventListener("click", (event) => {
+$(".project-filters")?.addEventListener("click", (event) => {
   const button = event.target.closest("[data-filter]");
   if (!button) return;
   clearTimeout(searchTimer);
@@ -314,7 +334,7 @@ function resetGallery() {
 }
 $("#show-all-projects").addEventListener("click", () => {
   resetGallery();
-  $('[data-filter="all"]').focus();
+  ($('[data-filter="all"]') || $("#project-search")).focus();
 });
 document.addEventListener("click", (event) => {
   if (event.target.closest('a[href="#work"]')) resetGallery();

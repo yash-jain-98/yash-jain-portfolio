@@ -4223,3 +4223,21 @@ dialog h2 { padding-right: 28px; }
 @media (max-width: 900px) {
   .projects-page .section-heading { grid-template-columns: 1fr; gap: 24px; }
 }
+
+
+/* The catalogue presents each discipline as a section of project cards. */
+.project-categories { display: grid; gap: 88px; }
+.project-category-section { min-width: 0; border-top: 1px solid #c5d2cb; padding-top: 36px; }
+.project-category-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 32px; }
+.project-category-heading h2 { font-size: clamp(30px, 3.4vw, 44px); line-height: 1.15; letter-spacing: -.04em; }
+.project-category-heading p { margin-top: 14px; font-size: 16px; line-height: 1.75; max-width: 58ch; }
+.category-project-count { flex: none; font-size: 14px; font-weight: 500; color: var(--accent); padding-top: 10px; }
+.projects-page .gallery-results-bar { margin: 24px 0 32px; }
+.projects-page .project-sort-field { width: 240px; }
+@media (max-width: 700px) {
+  .project-categories { gap: 60px; }
+  .project-category-section { padding-top: 28px; }
+  .project-category-heading { flex-direction: column; gap: 12px; margin-bottom: 24px; }
+  .category-project-count { padding-top: 0; }
+  .projects-page .project-sort-field { width: 100%; }
+}
