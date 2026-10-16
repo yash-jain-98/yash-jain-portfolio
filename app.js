@@ -193,10 +193,10 @@ const normalizeSearch = (value) =>
     .toLowerCase();
 const groupedGallery = $("#projects").dataset.layout === "categories";
 const projectCategories = [
-  { id: "web", title: "Web development", description: "Live websites for businesses, brands, and experiences." },
-  { id: "analytics", title: "Data analytics", description: "Dashboards, reports, and analysis that turn data into useful insights." },
-  { id: "science", title: "Data science", description: "Exploratory studies, machine-learning models, and documented notebooks." },
   { id: "auto", title: "AI & automation", description: "Custom workflows that connect tools and simplify everyday work." },
+  { id: "web", title: "Websites for business", description: "Live websites for businesses, brands, and experiences." },
+  { id: "analytics", title: "Data analytics for business", description: "Dashboards, reports, and analysis that turn data into useful insights." },
+  { id: "science", title: "Data science", description: "Exploratory studies, machine-learning models, and documented notebooks." },
 ];
 const galleryState = { category: "all", query: "", sort: "featured" };
 function projectVisual(project) {

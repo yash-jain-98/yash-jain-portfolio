@@ -127,8 +127,8 @@ contact content reflow to keep larger text readable.
 ## Projects page
 
 The navigation and hero work links open `projects.html`, a standalone catalogue
-with all 29 projects grouped into Web development, Data analytics, Data science,
-and AI & automation sections. Search applies across sections; sorting orders
+with all 29 projects grouped, in order, into AI & automation, Websites for business,
+Data analytics for business, and Data science sections. Search applies across sections; sorting orders
 cards within each category. Empty categories are omitted from search results.
 The home page retains its original category filters and gallery. Both pages share
 project cards and dialogs.
