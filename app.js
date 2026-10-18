@@ -1,3 +1,13 @@
+// Keep old bookmarks usable while showing the directory URL in the address bar.
+const cleanPageURL = new URL(window.location.href);
+if (cleanPageURL.pathname.endsWith("/index.html")) {
+  cleanPageURL.pathname = cleanPageURL.pathname.slice(0, -"index.html".length);
+}
+if (cleanPageURL.hash === "#home") cleanPageURL.hash = "";
+if (cleanPageURL.href !== window.location.href) {
+  history.replaceState(history.state, "", cleanPageURL);
+}
+
 const projects = window.PORTFOLIO_DATA?.projects || [];
 
 const $ = (selector, root = document) => root.querySelector(selector);
@@ -259,7 +269,7 @@ function getFilteredProjects() {
 }
 function projectDestinationLink(project) {
   if (project.sourceType === "custom") {
-    return `<a href="${groupedGallery ? "index.html#automation" : "#automation"}">Workflow collection ${arrowIcon}</a>`;
+    return `<a href="${groupedGallery ? "./#automation" : "#automation"}">Workflow collection ${arrowIcon}</a>`;
   }
   const website = project.sourceType === "website";
   const label = website ? `Visit ${project.title} website` : `View ${project.title} repository on GitHub`;
@@ -382,7 +392,7 @@ dialog.addEventListener("click", (event) => {
     projectTrigger = null;
     dialog.close();
     if (!$("#contact-form")) {
-      window.location.href = "index.html?service=automation#contact";
+      window.location.href = new URL("./?service=automation#contact", document.baseURI).href;
       return;
     }
     $("#service").value = "Automation & workflows";

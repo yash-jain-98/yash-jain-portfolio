@@ -126,7 +126,7 @@ contact content reflow to keep larger text readable.
 
 ## Projects page
 
-The navigation and hero work links open `projects.html`, a standalone catalogue
+The navigation and hero work links open `/projects/` (`projects/index.html`), a standalone catalogue
 with all 29 projects grouped, in order, into AI & automation, Websites for business,
 Data analytics for business, and Data science sections. Search applies across sections; sorting orders
 cards within each category. Empty categories are omitted from search results.
@@ -136,4 +136,10 @@ It shares `projects-data.js` and `app.js` with the home page. Shared page-specif
 features only initialize when their elements exist. Automation enquiries return
 to the home contact form with the service preselected. Relative links support
 both the custom domain and the GitHub Pages repository path. The build copies
-`projects.html` into `dist/` alongside the root entry point.
+the `projects/` directory into `dist/` alongside the root entry point.
+
+Home links use the root directory URL, without `index.html` or `#home`.
+The old `/projects.html` URL redirects to `/projects/`; explicit `index.html`
+bookmarks are normalized in the address bar. The Projects page uses a relative
+base URL so its shared assets and home links work under a GitHub Pages repository
+prefix too. Canonical links identify the custom-domain URLs.
