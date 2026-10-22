@@ -179,55 +179,14 @@ $("#demo-stage")?.addEventListener("click", async (event) => {
 });
 selectService("web");
 
-const arrowIcon =
-  '<svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>';
-const escapeHTML = (value) =>
-  String(value).replace(
-    /[&<>"']/g,
-    (character) =>
-      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
-        character
-      ],
-  );
-const formatProjectDate = (value) =>
-  new Intl.DateTimeFormat("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  }).format(new Date(value + "T00:00:00Z"));
-const normalizeSearch = (value) =>
-  String(value)
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
+const { arrowIcon, escapeHTML, projectCard, projectGroups } = window.PORTFOLIO_RENDER;
+const formatProjectDate = value => new Intl.DateTimeFormat("en-GB", {
+  day: "numeric", month: "short", year: "numeric", timeZone: "UTC"
+}).format(new Date(value + "T00:00:00Z"));
+const normalizeSearch = value => String(value).normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+if ($("#projects")) {
 const groupedGallery = $("#projects").dataset.layout === "categories";
-const projectCategories = [
-  { id: "auto", title: "AI & automation", description: "Custom workflows that connect tools and simplify everyday work." },
-  { id: "web", title: "Websites for business", description: "Live websites for businesses, brands, and experiences." },
-  { id: "analytics", title: "Data analytics for business", description: "Dashboards, reports, and analysis that turn data into useful insights." },
-  { id: "science", title: "Data science", description: "Exploratory studies, machine-learning models, and documented notebooks." },
-];
 const galleryState = { category: "all", query: "", sort: "featured" };
-function projectVisual(project) {
-  if (project.image)
-    return `<img src="${escapeHTML(project.image)}" alt="" loading="lazy" decoding="async">`;
-  const mark = {
-    web: "&lt;/&gt;",
-    analytics: "XLS",
-    science: "PY",
-    auto: "PY",
-  }[project.category];
-  return `<div class="repository-file-preview"><div class="file-preview-top"><span>${mark}</span><span>${escapeHTML(project.kind)}</span></div><strong>${escapeHTML(project.title)}</strong><div class="preview-file-list">${project.artifacts
-    .slice(0, 2)
-    .map(
-      (file) =>
-        `<div><span>${escapeHTML(file.type)}</span><span>${escapeHTML(file.name)}</span></div>`,
-    )
-    .join(
-      "",
-    )}</div><small>${project.fileCount} source files · ${escapeHTML(project.tags[0])}</small></div>`;
-}
 function getFilteredProjects() {
   const words = normalizeSearch(galleryState.query)
     .trim()
@@ -267,27 +226,10 @@ function getFilteredProjects() {
     filtered.sort((a, b) => a.title.localeCompare(b.title));
   return filtered;
 }
-function projectDestinationLink(project) {
-  if (project.sourceType === "custom") {
-    return `<a href="${groupedGallery ? "./#automation" : "#automation"}">Workflow collection ${arrowIcon}</a>`;
-  }
-  const website = project.sourceType === "website";
-  const label = website ? `Visit ${project.title} website` : `View ${project.title} repository on GitHub`;
-  return `<a href="${escapeHTML(project.url)}" target="_blank" rel="noopener" aria-label="${escapeHTML(label)}">${website ? "Visit website" : "Repository"} ${arrowIcon}</a>`;
-}
-
-function projectCard(project) {
-  return `<article class="project-card" data-project-id="${escapeHTML(project.id)}" data-category="${project.category}"><div class="project-preview ${project.image ? "has-preview" : ""}" aria-hidden="true">${projectVisual(project)}<span class="visual-label">${escapeHTML(project.imageLabel)}</span></div><div class="project-category-line"><p class="project-category">${escapeHTML(project.categoryName)}</p><span class="project-kind">${escapeHTML(project.kind)}</span></div><h3>${escapeHTML(project.title)}</h3><p class="project-description">${escapeHTML(project.desc)}</p><div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div><div class="project-links"><button type="button" data-project="${project.index}" aria-label="Explore ${escapeHTML(project.title)}">Explore project ${arrowIcon}</button>${projectDestinationLink(project)}</div></article>`;
-}
-
 function renderProjects() {
   const filtered = getFilteredProjects();
   if (groupedGallery) {
-    $("#projects").innerHTML = projectCategories.map((category) => {
-      const matches = filtered.filter((project) => project.category === category.id);
-      if (!matches.length) return "";
-      return `<section class="project-category-section" id="category-${category.id}" aria-labelledby="category-${category.id}-title"><header class="project-category-heading"><div><h2 id="category-${category.id}-title">${escapeHTML(category.title)}</h2><p>${escapeHTML(category.description)}</p></div><span class="category-project-count">${matches.length} ${matches.length === 1 ? "project" : "projects"}</span></header><div class="project-grid">${matches.map(projectCard).join("")}</div></section>`;
-    }).join("");
+    $("#projects").innerHTML = projectGroups(filtered);
   } else {
     $("#projects").innerHTML = filtered.map(projectCard).join("");
   }
@@ -363,6 +305,7 @@ $$("[data-filter-count]").forEach((element) => {
 });
 $("#gallery-total").textContent = String(projects.length);
 renderProjects();
+document.body.classList.add("gallery-enhanced");
 
 function projectResources(project) {
   if (project.sourceType === "website") {
@@ -379,6 +322,7 @@ let projectTrigger;
 $("#projects").addEventListener("click", (event) => {
   const trigger = event.target.closest("[data-project]");
   if (!trigger) return;
+  event.preventDefault();
   projectTrigger = trigger;
   const project = projects[Number(trigger.dataset.project)];
   $("#dialog-content").innerHTML =
@@ -415,6 +359,8 @@ dialog.addEventListener("close", () => {
   projectTrigger?.focus();
 });
 
+} // End gallery enhancement; service pages do not require a gallery.
+
 const menuButton = $(".menu-button"),
   nav = $("#main-nav");
 function closeMenu() {
@@ -439,7 +385,7 @@ document.addEventListener("click", (event) => {
 matchMedia("(min-width:1101px)").addEventListener("change", closeMenu);
 $$("[data-service]").forEach((link) => {
   link.addEventListener("click", (event) => {
-    $("#service").value = event.currentTarget.dataset.service;
+    if ($("#service")) $("#service").value = event.currentTarget.dataset.service;
   });
 });
 
@@ -447,9 +393,14 @@ function createEmailDraft({ name, replyTo, service, message }) {
   const body = `Hi Yash,\n\nMy name is ${name}. I’m interested in ${service.toLowerCase()}.\n\n${message}\n\nYou can reach me at ${replyTo}.\n\nBest,\n${name}`;
   return `mailto:${email}?subject=${encodeURIComponent("Project enquiry: " + service)}&body=${encodeURIComponent(body)}`;
 }
-if ($("#service") && new URLSearchParams(window.location.search).get("service") === "automation") {
-  $("#service").value = "Automation & workflows";
-}
+const enquiryServices = {
+  automation: "Automation & workflows",
+  websites: "Website design & development",
+  analytics: "Data analytics & reporting",
+  science: "Data science & machine learning",
+};
+const requestedService = enquiryServices[new URLSearchParams(window.location.search).get("service")];
+if ($("#service") && requestedService) $("#service").value = requestedService;
 $("#contact-form")?.addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.currentTarget,

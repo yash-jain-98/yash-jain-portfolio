@@ -478,23 +478,23 @@ p {
   letter-spacing: 1.7px;
   margin-top: 6px;
 }
-nav {
+#main-nav {
   display: flex;
   gap: 34px;
   align-items: center;
   font-size: 13px;
   font-weight: 550;
 }
-nav > a:not(.button) {
+#main-nav > a:not(.button) {
   padding-block: 14px;
 }
-nav > a:hover {
+#main-nav > a:hover {
   color: var(--accent);
 }
-nav > a.button:hover {
+#main-nav > a.button:hover {
   color: #fff;
 }
-nav a > span {
+#main-nav a > span {
   margin-left: 4px;
 }
 /* Keep the service label and chevron centred on the same line. */
@@ -1948,7 +1948,7 @@ body.dialog-open {
   .navigation {
     width: calc(100% - 72px);
   }
-  nav {
+  #main-nav {
     gap: 22px;
   }
   .hero {
@@ -2097,7 +2097,7 @@ body.dialog-open {
   .brand-caption {
     font-size: 7px;
   }
-  nav {
+  #main-nav {
     gap: 17px;
     font-size: 11px;
   }
@@ -2395,7 +2395,7 @@ body.dialog-open {
     padding: 10px 14px;
     min-height: 44px;
   }
-  nav {
+  #main-nav {
     position: absolute;
     top: 77px;
     left: 12px;
@@ -2411,14 +2411,14 @@ body.dialog-open {
     gap: 0;
     font-size: 14px;
   }
-  nav.open {
+  #main-nav.open {
     display: flex;
   }
-  nav > a:not(.button) {
+  #main-nav > a:not(.button) {
     padding: 12px;
     border-bottom: 1px solid #f0f4f2;
   }
-  nav .button {
+  #main-nav .button {
     margin-top: 14px;
     font-size: 13px;
   }
@@ -3416,7 +3416,7 @@ body.dialog-open {
   color: var(--accent);
 }
 @media (max-width: 1150px) {
-  nav {
+  #main-nav {
     gap: 20px;
   }
   .navigation {
@@ -3433,7 +3433,7 @@ body.dialog-open {
   }
 }
 @media (max-width: 900px) {
-  nav {
+  #main-nav {
     gap: 13px;
   }
   .repository-file-preview > strong {
@@ -3461,7 +3461,7 @@ body.dialog-open {
     padding: 10px 14px;
     min-height: 44px;
   }
-  nav {
+  #main-nav {
     position: absolute;
     top: 85px;
     left: 12px;
@@ -3477,20 +3477,20 @@ body.dialog-open {
     gap: 0;
     font-size: 14px;
   }
-  nav.open {
+  #main-nav.open {
     display: flex;
   }
-  nav > a:not(.button) {
+  #main-nav > a:not(.button) {
     padding: 12px;
     border-bottom: 1px solid #f0f4f2;
   }
-  nav .button {
+  #main-nav .button {
     margin-top: 14px;
     font-size: 13px;
   }
 }
 @media (max-width: 680px) {
-  nav {
+  #main-nav {
     top: 77px;
   }
   .gallery-summary {
@@ -4047,7 +4047,7 @@ dialog p:not(.eyebrow), .gallery-empty p {
 .text-link { display: inline-flex; align-items: center; gap: 8px; }
 button, a, input, select, textarea, summary { -webkit-tap-highlight-color: #18594e20; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
-nav { font-size: 15px; gap: clamp(16px, 2vw, 30px); }
+#main-nav { font-size: 15px; gap: clamp(16px, 2vw, 30px); }
 .brand-caption { font-size: 10px; letter-spacing: .12em; }
 .announcement { font-size: 12px; line-height: 1.6; padding: 8px 16px; }
 .tool-strip p { font-size: 12px; color: var(--muted); }
@@ -4224,6 +4224,99 @@ dialog h2 { padding-right: 28px; }
   .projects-page .section-heading { grid-template-columns: 1fr; gap: 24px; }
 }
 
+
+/* Static project details are useful without JS; JS retains the modal preview. */
+.project-details { min-width: 0; }
+.project-details > summary { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 6px 0; color: var(--accent); font-size: 14px; font-weight: 600; cursor: pointer; list-style: none; }
+.project-details > summary::-webkit-details-marker { display: none; }
+.project-details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.project-links:has(.project-details[open]) { display: block; }
+.project-inline-details { padding: 16px 0; font-size: 16px; line-height: 1.75; overflow-wrap: anywhere; }
+.project-inline-details h4 { margin: 20px 0 8px; font-size: 18px; }
+.project-inline-details ul { padding-left: 20px; }
+.project-inline-details a { text-decoration: underline; text-underline-offset: 3px; color: var(--accent); }
+.project-card, .project-category-section { scroll-margin-top: 130px; }
+
+/* Service pages share the portfolio's colour, typography and rhythm. */
+.service-page-links, .footer-services { display: flex; position: static; flex-wrap: wrap; justify-content: center; gap: 12px 28px; width: auto; padding: 16px 24px; font-size: 14px; }
+.service-page-links { margin: 0 auto 32px; max-width: 1050px; border-block: 1px solid #cedbd3; }
+.service-page-links > a, .footer-services > a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--accent); text-decoration: underline; text-underline-offset: 5px; }
+.footer-services { justify-content: flex-start; padding-inline: 0; border-bottom: 1px solid var(--line); margin-top: 36px; }
+.service-page-main { padding-bottom: 64px; }
+.service-intro { padding-block: 30px 0; }
+.breadcrumbs { display: flex; position: static; flex-wrap: wrap; gap: 12px; width: auto; padding: 0; font-size: 14px; color: var(--muted); margin-bottom: 40px; }
+.breadcrumbs a { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+.service-hero-layout { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.service-hero-layout > * { min-width: 0; }
+.service-page h1 { font-size: clamp(38px, 4.3vw, 62px); line-height: 1.08; letter-spacing: -.045em; }
+.service-page h1 span { display: block; color: var(--accent); margin-top: 12px; }
+.service-lead { font-size: 18px; line-height: 1.8; margin: 28px 0; max-width: 60ch; }
+.service-location { font-size: 14px; line-height: 1.7; margin-top: 20px; max-width: 45ch; }
+.service-hero-figure { margin: 0; padding: 26px; border: 1px solid #dce5df; background: var(--wash); border-radius: 24px; }
+.service-hero-figure img { width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: contain; border-radius: 12px; }
+.service-hero-figure figcaption { font-size: 13px; line-height: 1.6; color: var(--muted); margin-top: 18px; }
+.service-tool-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 20px 0 0; }
+.service-tool-list li { border: 1px solid #c8d7ce; border-radius: 20px; padding: 6px 12px; font-size: 13px; color: var(--accent); background: #fff; }
+.service-fit { display: grid; grid-template-columns: 140px 1fr; gap: 24px; align-items: start; padding: 28px 0; border-block: 1px solid #cedbd3; margin-top: 60px; }
+.service-fit .eyebrow { margin: 4px 0 0; }
+.service-fit p { font-size: 18px; line-height: 1.7; max-width: 68ch; }
+.service-content-section { padding-block: 76px; }
+.service-section-intro { margin-bottom: 36px; max-width: 800px; }
+.service-page h2 { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.15; letter-spacing: -.035em; }
+.service-page h3 { font-size: 23px; line-height: 1.3; letter-spacing: -.02em; }
+.service-section-intro > p:not(.eyebrow) { margin-top: 24px; font-size: 17px; line-height: 1.8; }
+.service-deliverables { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+.service-deliverables article { padding-top: 24px; border-top: 1px solid #bccfc3; }
+.service-step-number { display: block; font-size: 14px; color: var(--accent); margin-bottom: 18px; }
+.service-deliverables h3, .service-process-list h3 { margin-bottom: 16px; }
+.service-deliverables p, .service-process-list p, .service-related-projects p, .service-planning p { font-size: 16px; line-height: 1.8; }
+.service-process-section { background: var(--wash); padding: 56px clamp(24px, 5vw, 64px); }
+.service-process-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; padding: 0; list-style: none; }
+.service-process-list li { border-top: 1px solid #bccfc3; padding-top: 22px; }
+.service-related-projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 28px; margin-bottom: 30px; }
+.service-related-projects article { min-width: 0; }
+.service-project-image { display: block; background: var(--wash); border-radius: 16px; padding: 18px; margin-bottom: 20px; }
+.service-project-image img { width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: contain; }
+.service-related-projects .eyebrow { margin: 0 0 12px; }
+.service-related-projects h3 { margin-bottom: 14px; }
+.service-related-projects h3 a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+.service-planning { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; border-block: 1px solid #cedbd3; padding-block: 48px; }
+.service-planning h3 { margin: 0 0 14px; }
+.service-planning p + h3 { margin-top: 28px; }
+.service-faq { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; }
+.service-faq details { border-top: 1px solid #cedbd3; padding: 0; }
+.service-faq details:last-child { border-bottom: 1px solid #cedbd3; }
+.service-faq summary { padding: 22px 24px 22px 0; font-size: 17px; line-height: 1.5; cursor: pointer; color: var(--ink); }
+.service-faq details p { padding: 0 20px 24px 0; font-size: 16px; line-height: 1.8; }
+.service-final-cta { background: #e7efea; text-align: center; padding: 56px 24px; }
+.service-final-cta h2 { max-width: 750px; margin: 0 auto 22px; }
+.service-final-cta p:not(.eyebrow) { max-width: 60ch; margin: 0 auto 26px; font-size: 17px; line-height: 1.8; }
+.service-email { display: block; margin-top: 18px; color: var(--accent); text-decoration: underline; overflow-wrap: anywhere; }
+@media (max-width: 1000px) {
+  .service-hero-layout { grid-template-columns: 1fr; gap: 36px; }
+  .service-hero-figure { max-width: 620px; }
+  .service-process-list, .service-related-projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service-planning, .service-faq { gap: 32px; }
+  .service-deliverables { gap: 22px; }
+}
+@media (max-width: 650px) {
+  .service-page-links, .footer-services { display: grid; grid-template-columns: 1fr; gap: 0; padding-block: 12px; }
+  .service-page-links { padding-inline: 0; margin-inline: 24px; }
+  .service-page-links > a { justify-content: space-between; }
+  .service-intro { padding-top: 16px; }
+  .breadcrumbs { margin-bottom: 24px; font-size: 13px; }
+  .service-page h1 { font-size: clamp(34px, 9vw, 44px); }
+  .service-lead { font-size: 17px; margin: 24px 0; }
+  .service-hero-figure { padding: 18px; }
+  .service-fit { grid-template-columns: 1fr; gap: 12px; margin-top: 36px; }
+  .service-fit p { font-size: 16px; }
+  .service-content-section { padding-block: 48px; }
+  .service-deliverables, .service-process-list, .service-related-projects, .service-planning, .service-faq { grid-template-columns: 1fr; gap: 30px; }
+  .service-process-section { padding: 36px 24px; }
+  .service-section-intro > p:not(.eyebrow) { font-size: 16px; }
+  .service-final-cta { padding: 40px 22px; }
+  .service-location { font-size: 14px; }
+}
 
 /* The catalogue presents each discipline as a section of project cards. */
 .project-categories { display: grid; gap: 88px; }
