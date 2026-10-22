@@ -171,43 +171,26 @@ export const PrismaHero = ({
       )}
       <div className="prisma-wash" aria-hidden="true" />
       <div className="prisma-grain" aria-hidden="true" />
-      <div className="prisma-topline">
-        <span>INDEPENDENT DEVELOPER & ANALYST</span>
-        <span>WEB / DATA / AUTOMATION</span>
+      <div className="prisma-editorial-copy">
+        <motion.p className="eyebrow" {...entrance(0.1)}>YASH JAIN · INDEPENDENT DEVELOPER & ANALYST</motion.p>
+        <h1 id="hero-title">
+          <WordsPullUp text="Digital solutions." />
+          <WordsPullUp text="Built for business." className="prisma-title-accent" />
+        </h1>
+        <motion.p className="prisma-lead" {...entrance(0.25)}>
+          Websites that represent your business. Data that informs your decisions.
+          Automation that takes care of the repetitive work.
+        </motion.p>
+        <motion.div className="prisma-actions" {...entrance(0.4)}>
+          <a className="prisma-cta" href="#contact">Discuss your project <span><ArrowRight size={19} aria-hidden="true" /></span></a>
+          <a className="prisma-work" href="projects/">View the work <ArrowUpRight size={17} aria-hidden="true" /></a>
+        </motion.div>
+        <motion.div className="prisma-engagement" {...entrance(0.5)}>
+          <span className="prisma-signature" aria-hidden="true">yj.</span>
+          <p>One point of contact.<br /><strong>From the first brief to the final handoff.</strong></p>
+        </motion.div>
       </div>
-      <motion.div className="prisma-introduction" {...entrance(0.15)}>
-        <p className="eyebrow">YOUR IDEA. A SOLUTION THAT FITS.</p>
-        <p>
-          Thoughtfully designed.
-          <br />
-          <span>Purposefully built.</span>
-        </p>
-      </motion.div>
-      <div className="prisma-bottom">
-        <div className="prisma-name">
-          <p className="prisma-role">CUSTOM DIGITAL SOLUTIONS</p>
-          <h1 id="hero-title">
-            <WordsPullUp text="Yash Jain" showAsterisk />
-          </h1>
-        </div>
-        <div className="prisma-summary">
-          <motion.p {...entrance(0.5)}>
-            I build custom websites, turn data into clear insights, and automate
-            everyday work—around your business and the way you operate.
-          </motion.p>
-          <motion.div className="prisma-actions" {...entrance(0.7)}>
-            <a className="prisma-cta" href="#contact">
-              Let’s build something
-              <span>
-                <ArrowRight size={19} aria-hidden="true" />
-              </span>
-            </a>
-            <a className="prisma-work" href="projects/">
-              Explore my work <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
-          </motion.div>
-        </div>
-      </div>
+      <div className="prisma-image-caption" aria-hidden="true"><span>CONSIDERED IN EVERY DETAIL</span><p>Clear thinking.<br />Practical execution.</p></div>
       {!failed && (
         <button
           className="prisma-motion-control"
