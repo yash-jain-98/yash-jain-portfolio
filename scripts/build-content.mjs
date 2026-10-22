@@ -12,6 +12,15 @@ const { escapeHTML: e, arrowIcon, projectCard, projectGroups } = context.PORTFOL
 const read = path => readFileSync(path, "utf8");
 const personId = `${origin}/#yash-jain`;
 const websiteId = `${origin}/#website`;
+const clarityTag = `<!-- CLARITY:START -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "z1m4xkdi2h");
+    </script>
+    <!-- CLARITY:END -->`;
 const person = {
   "@type": "Person", "@id": personId, name: "Yash Jain", url: `${origin}/`,
   jobTitle: "Freelance web developer and data analyst", email: "mailto:works.yashjain@gmail.com",
@@ -26,7 +35,8 @@ function replaceRegion(html, name, content) {
 const serviceLinks = (label, className) => `<nav class="${className}" aria-label="${label}">${services.map(service => `<a href="services/${service.slug}/">${e(service.name)} ${arrowIcon}</a>`).join("")}</nav>`;
 function decorate(html, { path, title, description, service, collection = false }) {
   const url = origin + path;
-  html = html.replace(/<!-- SEO:START -->[\s\S]*?<!-- SEO:END -->\s*/g, "")
+  html = html.replace(/<!-- CLARITY:START -->[\s\S]*?<!-- CLARITY:END -->\s*/g, "")
+    .replace(/<!-- SEO:START -->[\s\S]*?<!-- SEO:END -->\s*/g, "")
     .replace(/<title>[\s\S]*?<\/title>\s*/g, "")
     .replace(/<link\b[^>]*rel="canonical"[^>]*>\s*/g, "")
     .replace(/<meta\b[^>]*(?:name="(?:description|author|twitter:[^"]+)"|property="og:[^"]+")[^>]*>\s*/g, "");
@@ -82,7 +92,7 @@ function decorate(html, { path, title, description, service, collection = false 
       .service-panel { grid-template-columns: 1fr; }
     </style></noscript>
     <!-- SEO:END -->`;
-  return html.replace(/\s*<\/head>/, `\n    ${seo}\n  </head>`).replace(/[ \t]+$/gm, "");
+  return html.replace(/\s*<\/head>/, `\n    ${clarityTag}\n    ${seo}\n  </head>`).replace(/[ \t]+$/gm, "");
 }
 
 let home = read("index.html");

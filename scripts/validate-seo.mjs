@@ -27,6 +27,8 @@ for (const path of paths) {
   assert(html.includes(`property="og:url" content="${origin}${path}"`));
   assert.equal((html.match(/googletagmanager\.com\/gtag\/js\?id=G-7ZG1TPQ7KM/g) || []).length, 1);
   assert.match(html, /<head>\s*<!-- Google tag \(gtag.js\) -->\s*<script async/);
+  assert.equal((html.match(/https:\/\/www\.clarity\.ms\/tag\//g) || []).length, 1, `${file}: one Clarity loader`);
+  assert.equal((html.match(/"z1m4xkdi2h"/g) || []).length, 1, `${file}: correct Clarity project`);
   const json = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
   assert.equal(json.length, 1);
   const schema = JSON.parse(json[0][1]);

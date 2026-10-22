@@ -31,6 +31,8 @@ The service pages use a relative base URL, as the project catalogue does, so
 assets and home links work under either the custom domain or a repository prefix.
 Every content page retains exactly one Google Analytics tag after `<head>`.
 The legacy redirect suppresses its own page view.
+Microsoft Clarity (`z1m4xkdi2h`) is included once in each of the six content-page
+heads by the shared builder. The legacy redirect is tracked at its destination.
 
 Structured data describes the person, website, pages, services, breadcrumbs and
 project collection. It makes no review, rating, price, accreditation or guaranteed
