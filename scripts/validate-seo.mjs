@@ -47,7 +47,16 @@ for (const path of paths) {
   } else {
     assert.equal((html.match(/class="project-card"/g) || []).length, projects.length);
     assert.equal((html.match(/class="project-details"/g) || []).length, projects.length);
-    for (const project of projects) assert(html.includes(`id="project-${project.id}"`));
+    assert.equal((html.match(/<dt>The problem<\/dt>/g) || []).length, projects.length);
+    assert.equal((html.match(/<dt>My contribution<\/dt>/g) || []).length, projects.length);
+    assert.equal((html.match(/<dt>The result<\/dt>/g) || []).length, projects.length);
+    assert(html.includes(`<strong id="gallery-total">${projects.length}</strong>`));
+    for (const project of projects) {
+      assert(html.includes(`id="project-${project.id}"`));
+      assert(project.caseStudy.problem && project.caseStudy.contribution && project.caseStudy.result);
+      if (project.demoUrl) assert.equal(project.sourceType, "website", "Only supplied website demos are currently available");
+      if (project.codeUrl) assert(project.artifacts.some(file => file.type === "IPYNB"), "Code links require a source notebook");
+    }
   }
   const pageURL = origin + path;
   const baseMatch = html.match(/<base href="([^"]+)"/);

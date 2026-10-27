@@ -4413,3 +4413,23 @@ input, select, textarea { border-radius: 6px; }
  .category-project-count { white-space: nowrap; font-size: 12px; }
  .projects-page #work > .section-heading { padding-bottom: 26px; }
 }
+
+/* Evidence-led project summaries are visible before opening the full case. */
+.project-case-study { margin: 16px 0 0; display: grid; gap: 16px; }
+.project-case-study > div { padding-left: 13px; border-left: 2px solid #d3ded3; }
+.project-case-study > div:last-child { border-left-color: #5e8770; }
+.project-case-study dt { font-size: 11px; font-weight: 650; letter-spacing: .07em; text-transform: uppercase; color: #385645; margin-bottom: 5px; }
+.project-case-study dd { margin: 0; color: #4c6155; font-size: 15px; line-height: 1.65; }
+.project-card .project-meta { margin-top: 24px; }
+.project-destinations { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.project-resource-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 16px; }
+.project-resource-actions a { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 10px 18px; border: 1px solid #bfd0c1; border-radius: 6px; color: #18594e; font-size: 15px; font-weight: 550; }
+.project-resource-actions a:first-child { background: #18594e; color: white; border-color: #18594e; }
+.project-resource-actions a:hover { text-decoration: underline; text-underline-offset: 4px; }
+#dialog-content .project-case-study { margin: 28px 0; gap: 22px; }
+#dialog-content .project-case-study dt { font-size: 12px; }
+#dialog-content .project-case-study dd { font-size: 16px; line-height: 1.8; }
+@media (max-width: 700px) {
+ .project-case-study dd { font-size: 16px; }
+ .project-case-study { gap: 18px; }
+}

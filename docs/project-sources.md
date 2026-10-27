@@ -1,6 +1,6 @@
 # GitHub project-source audit
 
-Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The gallery contains 20 public repository showcases plus five owner-described custom automation workflows and four live websites (29 projects total). Private repositories are not included in public content.
+Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The current gallery contains 22 repository showcases plus five owner-described custom automation workflows and four live websites (31 projects total); the two additions reviewed on 27 October are documented below. Private repositories are not included in public content.
 
 Every public repository tree was checked. Descriptions use README files, notebook sources, report text, workbook structure, or the verified file inventory. Source files remain linked to GitHub; large notebooks, videos, datasets, and office files are not bundled with the website.
 
@@ -85,7 +85,7 @@ Ten original repository images and PDF-page previews are retained as supplied. T
 
 ## Maintenance
 
-Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 29 projects render by default. The Automation filter includes the five custom workflows. Custom workflows have no fabricated repository links or update dates. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.
+Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 31 projects render by default. The Automation filter includes the five custom workflows. Custom workflows have no fabricated repository links or update dates. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.
 
 
 ## Live website projects added 13 October 2026
@@ -108,8 +108,39 @@ these four live websites (four total).
 
 At Yash’s request, Bike-buyer dashboard, Data-science tools & ecosystem,
 Multi-page Express website, and King County house-sales analysis were removed from the portfolio and its search/filter
-data. The GitHub repositories themselves were not changed. The current gallery
-contains 29 projects: 4 web, 14 analytics, 6 data science, and 5 automation.
+data. The GitHub repositories themselves were not changed. At that point, the gallery
+contained 29 projects: 4 web, 14 analytics, 6 data science, and 5 automation.
 
 Stock-data collection with Python was also removed at Yash’s request on
 13 October 2026. Its source repository is unchanged.
+
+
+## Additions and case summaries — 27 October 2026
+
+The current catalogue contains 31 projects: four websites, five custom workflows,
+14 analytics projects and eight data-science studies (22 repository showcases).
+The original 10 October profile-wide audit date is retained; this update reviewed
+only the two repositories supplied by Yash.
+
+- Heart-Stroke-Detection-Data-Science-Project, commit
+  `509147fc219370dde06f92905b4ed7ced7c46861`: README, notebook, file inventory and
+  original accuracy-versus-recall chart. The recorded tree found 11/62 stroke cases;
+  other models found none. The README documents rerun variation and limitations.
+- Warranty-Claim-Fraud-Detection-Data-Science-Project, commit
+  `c0e608dc740e5836c528aa429d05b60e3bc3b5ee`: README, notebook, file inventory and
+  original accuracy-versus-recall chart. The recorded tree found 1/8 test frauds;
+  the forest and logistic regression predicted every claim as genuine.
+
+Charts are copied without alteration to `project-assets/stroke-model-evaluation.png`
+and `project-assets/warranty-fraud-evaluation.png`. Counts and model findings are
+reported from the repositories, not independent reruns. These are studies, not
+medical or production fraud-detection products. No live demo URL was supplied.
+
+Each project now has an explicit `caseStudy` object with problem, contribution
+and result, rendered in both galleries and project dialogs. Original context,
+limitations, attribution and artifact links remain available. Website contributions
+are described broadly because detailed task ownership has not been specified.
+`demoUrl` and `codeUrl` are optional: only supplied live websites receive demo links,
+and repositories containing notebooks receive code links. Workbook/report-only
+repositories use “View project files”. New demos can be added later without
+changing the renderer. No performance gains or business impact are invented.

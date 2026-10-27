@@ -133,7 +133,7 @@ export const services = [
       ["Are the portfolio models deployed business systems?", "The data-science portfolio contains project studies, notebooks and coursework. Each project identifies its context; it should not be treated as evidence of a production deployment."],
       ["Can we start with a small study?", "Yes. A focused exploratory analysis or baseline model can help establish whether the question and available data justify further work."],
     ],
-    projectIds: ["bank-customer-churn-data-science-project", "car-price-prediction-data-science-project", "room-occupancy-data-science-project"],
+    projectIds: ["bank-customer-churn-data-science-project", "car-price-prediction-data-science-project", "room-occupancy-data-science-project", "heart-stroke-detection-data-science-project", "warranty-claim-fraud-detection-data-science-project"],
     cta: "Let’s find out what your data can support.",
   },
 ];

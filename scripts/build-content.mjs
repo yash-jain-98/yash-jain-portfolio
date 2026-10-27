@@ -95,7 +95,15 @@ function decorate(html, { path, title, description, service, collection = false 
   return html.replace(/\s*<\/head>/, `\n    ${clarityTag}\n    ${seo}\n  </head>`).replace(/[ \t]+$/gm, "");
 }
 
-let home = read("index.html");
+
+function updateProjectCounts(html) {
+  const count = category => category === "all" ? projects.length : projects.filter(project => project.category === category).length;
+  return html.replace(/(<strong id="gallery-total">)\d+(<\/strong>)/g, `$1${projects.length}$2`)
+    .replace(/(data-filter-count="([^"]+)">)\d+/g, (_, start, category) => start + count(category))
+    .replace(/\d+ GitHub projects/g, `${projects.filter(project => project.repo).length} GitHub projects`);
+}
+
+let home = updateProjectCounts(read("index.html"));
 home = home.replace(/<noscript\s+>[\s\S]*?<\/noscript\s*>/g, '<noscript><p>Project details and source links are available above. Enable JavaScript to use search and filters.</p></noscript>');
 home = replaceRegion(home, "PROJECTS", projects.map(projectCard).join("\n"));
 home = replaceRegion(home, "SERVICE-LINKS", serviceLinks("Read about each service", "service-page-links"));
@@ -106,13 +114,13 @@ home = decorate(home, {
 });
 writeFileSync("index.html", home);
 
-let catalogue = read("projects/index.html");
+let catalogue = updateProjectCounts(read("projects/index.html"));
 catalogue = replaceRegion(catalogue, "PROJECTS", projectGroups(projects));
 catalogue = replaceRegion(catalogue, "FOOTER-SERVICES", serviceLinks("Services", "footer-services"));
 catalogue = catalogue.replace(/<noscript\s*>[\s\S]*?<\/noscript\s*>/g, "");
 catalogue = decorate(catalogue, {
   path: "/projects/", title: "Website, Analytics & Automation Projects | Yash Jain", collection: true,
-  description: "Explore 29 projects by Yash Jain: five custom automations, four live business websites, and data analytics and data-science projects with source files.",
+  description: `Explore ${projects.length} projects by Yash Jain: five custom automations, four live business websites, and data analytics and data-science projects with source files.`,
 });
 writeFileSync("projects/index.html", catalogue);
 

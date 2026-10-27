@@ -179,7 +179,7 @@ $("#demo-stage")?.addEventListener("click", async (event) => {
 });
 selectService("web");
 
-const { arrowIcon, escapeHTML, projectCard, projectGroups } = window.PORTFOLIO_RENDER;
+const { arrowIcon, escapeHTML, projectCard, projectGroups, projectCaseStudy, projectActionLinks } = window.PORTFOLIO_RENDER;
 const formatProjectDate = value => new Intl.DateTimeFormat("en-GB", {
   day: "numeric", month: "short", year: "numeric", timeZone: "UTC"
 }).format(new Date(value + "T00:00:00Z"));
@@ -207,6 +207,7 @@ function getFilteredProjects() {
           project.url,
           project.desc,
           project.details,
+          ...Object.values(project.caseStudy || {}),
           project.categoryName,
           project.kind,
           ...project.tags,
@@ -308,13 +309,13 @@ renderProjects();
 document.body.classList.add("gallery-enhanced");
 
 function projectResources(project) {
-  if (project.sourceType === "website") {
-    return `<a class="button" href="${escapeHTML(project.url)}" target="_blank" rel="noopener">Visit live website ${arrowIcon}</a>`;
-  }
-  if (project.sourceType === "custom") {
-    return `<p class="project-source-note">Custom automation project. A public source repository has not been linked for this workflow.</p><button type="button" class="button" data-workflow-enquiry>Discuss a similar workflow ${arrowIcon}</button>`;
-  }
-  return `<h3 class="dialog-subheading">Explore the original files</h3><ul class="project-artifacts">${project.artifacts.map((file) => `<li><a href="${escapeHTML(file.url)}" target="_blank" rel="noopener"><span class="artifact-type">${escapeHTML(file.type)}</span><span>${escapeHTML(file.name)}</span>${arrowIcon}</a></li>`).join("")}</ul><p class="project-source-note">${project.fileCount} source files · Updated ${formatProjectDate(project.updatedAt)}<br>Files open on GitHub. Office files and videos may need downloading to view.</p><a class="button" href="${escapeHTML(project.url)}" target="_blank" rel="noopener">View repository on GitHub ${arrowIcon}</a>`;
+  const links = projectActionLinks(project);
+  const note = project.sourceType === "website"
+    ? "The demo opens the live business website. A public source-code link has not been supplied."
+    : project.sourceType === "custom"
+      ? "Workflow described by Yash. A public demo and source-code link have not been supplied."
+      : "Source files and recorded findings are available below. No live demo is currently linked.";
+  return `${links ? `<div class="project-resource-actions">${links}</div>` : ""}<p class="project-source-note">${note}</p>${project.artifacts.length ? `<h3 class="dialog-subheading">Evidence & project files</h3><ul class="project-artifacts">${project.artifacts.map(file => `<li><a href="${escapeHTML(file.url)}" target="_blank" rel="noopener"><span class="artifact-type">${escapeHTML(file.type)}</span><span>${escapeHTML(file.name)}</span>${arrowIcon}</a></li>`).join("")}</ul>` : ""}${project.sourceType === "custom" ? `<button type="button" class="button" data-workflow-enquiry>Discuss a similar workflow ${arrowIcon}</button>` : ""}`;
 }
 
 const dialog = $("#project-dialog");
@@ -326,7 +327,7 @@ $("#projects").addEventListener("click", (event) => {
   projectTrigger = trigger;
   const project = projects[Number(trigger.dataset.project)];
   $("#dialog-content").innerHTML =
-    `<p class="eyebrow">${escapeHTML(project.categoryName)} · ${escapeHTML(project.kind)}</p><h2 id="dialog-title">${escapeHTML(project.title)}</h2>${project.image ? `<figure class="dialog-project-preview"><img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.imageAlt)}"><figcaption>${escapeHTML(project.imageLabel)}</figcaption></figure>` : ""}<p>${escapeHTML(project.details)}</p>${project.highlights.length ? `<h3 class="dialog-subheading">A closer look</h3><ul class="project-highlights">${project.highlights.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>` : ""}<div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div>${projectResources(project)}`;
+    `<p class="eyebrow">${escapeHTML(project.categoryName)} · ${escapeHTML(project.kind)}</p><h2 id="dialog-title">${escapeHTML(project.title)}</h2>${project.image ? `<figure class="dialog-project-preview"><img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.imageAlt)}"><figcaption>${escapeHTML(project.imageLabel)}</figcaption></figure>` : ""}${projectCaseStudy(project)}<h3 class="dialog-subheading">Project context</h3><p>${escapeHTML(project.details)}</p>${project.highlights.length ? `<h3 class="dialog-subheading">A closer look</h3><ul class="project-highlights">${project.highlights.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>` : ""}<div class="project-meta">${project.tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div>${projectResources(project)}`;
   dialog.showModal();
   document.body.classList.add("dialog-open");
 });
