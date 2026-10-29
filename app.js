@@ -405,6 +405,8 @@ if ($("#service") && requestedService) $("#service").value = requestedService;
 const contactForm = $("#contact-form");
 const contactEndpoint = window.PORTFOLIO_CONTACT?.endpoint || "";
 const sheetsEnabled = /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(contactEndpoint);
+const whatsappUrl = /^https:\/\/wa\.me\/[1-9][0-9]{6,14}$/.test(window.PORTFOLIO_CONTACT?.whatsappUrl || "")
+  ? window.PORTFOLIO_CONTACT.whatsappUrl : "";
 let contactStartedAt = Date.now();
 let pendingEnquiry = null;
 let sendingEnquiry = false;
@@ -419,8 +421,8 @@ function syncPhoneCountry() {
 $("#phone-country")?.addEventListener("change", syncPhoneCountry);
 syncPhoneCountry();
 if (contactForm && sheetsEnabled) {
-  contactForm.querySelector('button[type="submit"]').firstChild.textContent = "Send enquiry ";
-  $("#form-status").textContent = "Your enquiry will be sent directly. No email app needed.";
+  contactForm.querySelector('button[type="submit"]').firstChild.textContent = whatsappUrl ? "Send enquiry & open WhatsApp " : "Send enquiry ";
+  $("#form-status").textContent = whatsappUrl ? "After your enquiry is saved, you’ll be redirected to WhatsApp to continue the conversation." : "Your enquiry will be sent directly. No email app needed.";
 }
 contactForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -464,7 +466,17 @@ contactForm?.addEventListener("submit", async (event) => {
     const result = await response.json();
     if (result.ok !== true || result.requestId !== requestId) throw new Error("Submission not confirmed");
     form.reset(); syncPhoneCountry(); pendingEnquiry = null; contactStartedAt = Date.now();
-    $("#form-status").textContent = "Thank you. Your enquiry has been received. I’ll get back to you using the contact details you provided.";
+    $("#form-status").textContent = whatsappUrl
+      ? "Thank you. Your enquiry has been saved. Opening WhatsApp…"
+      : "Thank you. Your enquiry has been received. I’ll get back to you using the contact details you provided.";
+    if (whatsappUrl) {
+      const fallback = $("#whatsapp-continue");
+      fallback.href = whatsappUrl;
+      fallback.hidden = false;
+      // Redirect only after the server confirms storage for this request ID.
+      // No customer details are appended, and no WhatsApp message is sent automatically.
+      setTimeout(() => window.location.assign(whatsappUrl), 700);
+    }
   } catch {
     $("#form-status").textContent = "We couldn’t confirm your submission. Your details are still here—please retry, or email works.yashjain@gmail.com.";
   } finally {

@@ -4443,3 +4443,6 @@ input, select, textarea { border-radius: 6px; }
 #custom-code-field[hidden] { display: none; }
 #contact-form [type="submit"]:disabled { cursor: wait; opacity: .7; }
 @media (max-width: 480px) { .phone-fields { grid-template-columns: 1fr; gap: 0; } }
+
+#whatsapp-continue[hidden] { display: none; }
+#whatsapp-continue { margin-top: 16px; min-height: 44px; }

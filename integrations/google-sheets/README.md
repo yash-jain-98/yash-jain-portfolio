@@ -54,3 +54,18 @@ Keep the email fallback until live end-to-end checks pass.
 The contact form is masked for Clarity, and no submitted content is sent to GA4.
 While `endpoint` is empty, submission opens an email draft containing all fields;
 it does not store a row or trigger a server notification.
+
+
+## Endpoint configured — 29 October 2026
+
+The owner supplied the deployed `/exec` URL, which is now configured in
+`contact-config.js`. On a matching confirmed success response, the form displays
+confirmation and redirects to `https://wa.me/919510542689`. A visible continuation
+link is also supplied. Failed/unconfirmed submissions retain the enquiry and do
+not redirect. Customer fields are not appended to the WhatsApp URL and the site
+does not send a WhatsApp message automatically.
+
+The local browser tests mock the Apps Script response. This execution environment
+cannot access script.google.com (network policy denies it), so actual sheet writes,
+notification delivery and Google's cross-origin response still need a live test.
+The endpoint being configured does not establish that end-to-end verification passed.
