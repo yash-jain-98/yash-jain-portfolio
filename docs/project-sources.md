@@ -1,6 +1,6 @@
 # GitHub project-source audit
 
-Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The current gallery contains 22 repository showcases plus five owner-described custom automation workflows and four live websites (31 projects total); the two additions reviewed on 27 October are documented below. Private repositories are not included in public content.
+Reviewed 53 accessible repositories on 10 October 2026: 42 public and 11 private. The current gallery contains 18 repository showcases plus five owner-described custom automation workflows and four live websites (27 projects total); the two additions reviewed on 27 October are documented below. Private repositories are not included in public content.
 
 Every public repository tree was checked. Descriptions use README files, notebook sources, report text, workbook structure, or the verified file inventory. Source files remain linked to GitHub; large notebooks, videos, datasets, and office files are not bundled with the website.
 
@@ -25,12 +25,8 @@ The AI agents & automation section and the searchable project gallery both conta
 | [sales-dashboard-excel](https://github.com/yash-jain-98/sales-dashboard-excel) | Sales dashboard | Spreadsheet project |
 | [sports-goods-project-excel](https://github.com/yash-jain-98/sports-goods-project-excel) | Sporting-goods analysis | Spreadsheet project |
 | [imdb-movie-database-excel](https://github.com/yash-jain-98/imdb-movie-database-excel) | IMDb movie-database analysis | Spreadsheet project |
-| [kickstarter-project-excel](https://github.com/yash-jain-98/kickstarter-project-excel) | Kickstarter campaign analysis | Spreadsheet project |
 | [hr-sample-data-dashboard-excel](https://github.com/yash-jain-98/hr-sample-data-dashboard-excel) | HR sample-data dashboard | Spreadsheet project |
 | [hotel-booking-sample-dashboard-excel](https://github.com/yash-jain-98/hotel-booking-sample-dashboard-excel) | Hotel-booking dashboard | Spreadsheet project |
-| [car-manufacturer-case-study-excel](https://github.com/yash-jain-98/car-manufacturer-case-study-excel) | Car-manufacturer case study | Spreadsheet project |
-| [demo-winery-sales-project-excel](https://github.com/yash-jain-98/demo-winery-sales-project-excel) | Winery sales analysis | Spreadsheet project |
-| [call-volume-trend-analysis-project-excel](https://github.com/yash-jain-98/call-volume-trend-analysis-project-excel) | Call-volume trend analysis | Spreadsheet project |
 | [data-science-capstone](https://github.com/yash-jain-98/data-science-capstone) | SpaceX landing-analysis presentation | Coursework presentation |
 
 ## Other public repositories
@@ -85,7 +81,7 @@ Ten original repository images and PDF-page previews are retained as supplied. T
 
 ## Maintenance
 
-Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 31 projects render by default. The Automation filter includes the five custom workflows. Custom workflows have no fabricated repository links or update dates. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.
+Edit `projects-data.js` to update the curated snapshot. Re-check repository visibility, file paths, descriptions, and attribution before adding a project. The website does not call the GitHub API or expose account credentials. Search, filtering, and sorting operate locally. All 27 projects render by default. The Automation filter includes the five custom workflows. Custom workflows have no fabricated repository links or update dates. Selecting All work, the Show all projects control, or the Projects navigation link clears active search/category filters.
 
 
 ## Live website projects added 13 October 2026
@@ -117,7 +113,7 @@ Stock-data collection with Python was also removed at Yash’s request on
 
 ## Additions and case summaries — 27 October 2026
 
-The current catalogue contains 31 projects: four websites, five custom workflows,
+After the 27 October additions, the catalogue contained 31 projects: four websites, five custom workflows,
 14 analytics projects and eight data-science studies (22 repository showcases).
 The original 10 October profile-wide audit date is retained; this update reviewed
 only the two repositories supplied by Yash.
@@ -144,3 +140,12 @@ are described broadly because detailed task ownership has not been specified.
 and repositories containing notebooks receive code links. Workbook/report-only
 repositories use “View project files”. New demos can be added later without
 changing the renderer. No performance gains or business impact are invented.
+
+
+## Removed on 29 October 2026
+
+At Yash’s request, Call-volume trend analysis, Winery sales analysis,
+Car-manufacturer case study and Kickstarter campaign analysis were removed from
+both public galleries and the searchable catalogue. The GitHub repositories are
+unchanged. The current collection has 27 projects: four websites, five custom
+workflows, ten analytics projects and eight data-science studies (18 repositories).
