@@ -5,12 +5,12 @@ storage and email; no Google credentials are shipped to the browser.
 
 ## Activate in the owner's Google account
 
-1. Open https://script.google.com/ and create a new project named **Portfolio enquiries**.
+1. Open [the supplied enquiry spreadsheet](https://docs.google.com/spreadsheets/d/1YR3krXB9KNwZRF4OlybF-fe64hWRdgMG3CwyrsEv39M/edit), then choose **Extensions → Apps Script**. Name the script project **Portfolio enquiries**.
 2. Replace its `Code.gs` with this folder's `Code.gs`. Under Project Settings,
    enable the manifest editor and replace `appsscript.json` with the supplied file.
-3. Run **setup** once and approve access to Sheets and email. It creates a private
-   spreadsheet (or uses the bound spreadsheet). Copy its URL from the execution log.
-   Running setup again reuses the same sheet. Keep the sheet private.
+3. Run **setup** once and approve access to Sheets and email. It creates an
+   **Enquiries** tab in your supplied spreadsheet. Running setup again reuses it.
+   Existing tabs are preserved. Keep the spreadsheet private.
 4. Choose **Deploy → New deployment → Web app**. Execute as **Me**, with access
    **Anyone** so visitors do not need to sign into Google. If your organisation
    disallows anonymous web apps, this route needs a different form backend.

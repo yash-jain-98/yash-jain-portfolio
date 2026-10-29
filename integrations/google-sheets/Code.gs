@@ -1,25 +1,23 @@
 /** Portfolio enquiries. Deploy as a public web app executing as the owner.
  * Run setup() once before deploying. Never put credentials in contact-config.js.
  */
+const TARGET_SPREADSHEET_ID = '1YR3krXB9KNwZRF4OlybF-fe64hWRdgMG3CwyrsEv39M';
 const NOTIFICATION_EMAIL = 'works.yashjain@gmail.com';
 const SHEET_NAME = 'Enquiries';
 const HEADERS = ['Received at', 'Request ID', 'Name', 'Email', 'Country', 'Calling code', 'Phone number', 'What can I help with?', 'Project details', 'Notification status', 'Payload fingerprint'];
 
 function setup() {
   const properties = PropertiesService.getScriptProperties();
-  let spreadsheet;
-  if (properties.getProperty('SPREADSHEET_ID')) {
-    spreadsheet = SpreadsheetApp.openById(properties.getProperty('SPREADSHEET_ID'));
-  } else {
-    spreadsheet = SpreadsheetApp.getActiveSpreadsheet() || SpreadsheetApp.create('Yash Jain — Website enquiries');
-    properties.setProperty('SPREADSHEET_ID', spreadsheet.getId());
-  }
+  const spreadsheet = SpreadsheetApp.openById(TARGET_SPREADSHEET_ID);
+  properties.setProperty('SPREADSHEET_ID', spreadsheet.getId());
   const sheet = spreadsheet.getSheetByName(SHEET_NAME) || spreadsheet.insertSheet(SHEET_NAME);
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(HEADERS);
     sheet.setFrozenRows(1);
     sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
     sheet.getRange('E:I').setNumberFormat('@');
+  } else if (JSON.stringify(sheet.getRange(1, 1, 1, HEADERS.length).getValues()[0]) !== JSON.stringify(HEADERS)) {
+    throw new Error('The existing Enquiries tab has different columns. Rename it before running setup; its contents have not been changed.');
   }
   // Request the email permission during owner setup, not during a visitor request.
   MailApp.getRemainingDailyQuota();
