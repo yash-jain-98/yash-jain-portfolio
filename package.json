@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node scripts/build-hero.mjs",
     "typecheck": "tsc --noEmit",
-    "check:seo": "node scripts/validate-seo.mjs"
+    "check:seo": "node scripts/validate-seo.mjs",
+    "check:contact": "node scripts/check-contact.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

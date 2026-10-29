@@ -390,8 +390,8 @@ $$("[data-service]").forEach((link) => {
   });
 });
 
-function createEmailDraft({ name, replyTo, service, message }) {
-  const body = `Hi Yash,\n\nMy name is ${name}. I’m interested in ${service.toLowerCase()}.\n\n${message}\n\nYou can reach me at ${replyTo}.\n\nBest,\n${name}`;
+function createEmailDraft({ name, replyTo, service, message, phone }) {
+  const body = `Hi Yash,\n\nMy name is ${name}.\n\nWhat I need help with: ${service}\n\n${message}\n\nEmail: ${replyTo}${phone ? "\nPhone: " + phone : ""}\n\nBest,\n${name}`;
   return `mailto:${email}?subject=${encodeURIComponent("Project enquiry: " + service)}&body=${encodeURIComponent(body)}`;
 }
 const enquiryServices = {
@@ -402,25 +402,74 @@ const enquiryServices = {
 };
 const requestedService = enquiryServices[new URLSearchParams(window.location.search).get("service")];
 if ($("#service") && requestedService) $("#service").value = requestedService;
-$("#contact-form")?.addEventListener("submit", (event) => {
+const contactForm = $("#contact-form");
+const contactEndpoint = window.PORTFOLIO_CONTACT?.endpoint || "";
+const sheetsEnabled = /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(contactEndpoint);
+let contactStartedAt = Date.now();
+let pendingEnquiry = null;
+let sendingEnquiry = false;
+function syncPhoneCountry() {
+  if (!contactForm) return;
+  const custom = $("#phone-country").value === "OTHER";
+  $("#custom-code-field").hidden = !custom;
+  $("#custom-dial-code").disabled = !custom;
+  $("#client-phone").setCustomValidity("");
+  $("#custom-dial-code").setCustomValidity("");
+}
+$("#phone-country")?.addEventListener("change", syncPhoneCountry);
+syncPhoneCountry();
+if (contactForm && sheetsEnabled) {
+  contactForm.querySelector('button[type="submit"]').firstChild.textContent = "Send enquiry ";
+  $("#form-status").textContent = "Your enquiry will be sent directly. No email app needed.";
+}
+contactForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const form = event.currentTarget,
-    name = form.elements.name.value.trim(),
-    message = form.elements.message.value.trim();
+  if (sendingEnquiry) return;
+  const form = event.currentTarget;
+  const name = form.elements.name.value.trim();
+  const service = form.elements.service.value.trim();
+  const message = form.elements.message.value.trim();
+  const phoneInput = form.elements.phone.value.trim();
+  const country = form.elements.country.value;
+  const dialCode = country === "OTHER" ? form.elements.customDialCode.value.trim() : form.elements.country.selectedOptions[0].dataset.dialCode;
+  const digits = phoneInput.replace(/[^0-9]/g, "");
   form.elements.name.setCustomValidity(name ? "" : "Please enter your name.");
-  form.elements.message.setCustomValidity(
-    message ? "" : "Please add a few details about your project.",
-  );
+  form.elements.service.setCustomValidity(service ? "" : "Please tell me what you need help with.");
+  form.elements.message.setCustomValidity(message ? "" : "Please add a few details about your project.");
+  form.elements.phone.setCustomValidity(!phoneInput || (/^[0-9 ()-]+$/.test(phoneInput) && digits.length >= 6 && (dialCode.replace(/[^0-9]/g, "") + digits).length <= 15) ? "" : "Enter your phone number using digits, spaces, brackets or hyphens. Choose the country code separately.");
+  form.elements.customDialCode.setCustomValidity(!phoneInput || country !== "OTHER" || /^\+[1-9][0-9]{0,3}$/.test(dialCode) ? "" : "Enter a country code beginning with +, such as +358.");
   if (!form.reportValidity()) return;
-  const draft = createEmailDraft({
-    name,
-    replyTo: form.elements.email.value.trim(),
-    service: form.elements.service.value,
-    message,
-  });
-  $("#form-status").textContent =
-    "Your email draft is ready. If your email app does not open, use the email address beside this form.";
-  window.location.href = draft;
+  if (form.elements.companyWebsite.value) return;
+  const phone = phoneInput ? `${dialCode} ${phoneInput}` : "";
+  const replyTo = form.elements.email.value.trim();
+  if (!sheetsEnabled) {
+    $("#form-status").textContent = "Your email draft is ready. Send it from your email app to complete your enquiry.";
+    window.location.href = createEmailDraft({ name, replyTo, service, message, phone });
+    return;
+  }
+  const payload = { name, email: replyTo, enquiry: service, message, phone: phoneInput, dialCode: phoneInput ? dialCode : "", country: phoneInput ? country : "", companyWebsite: "" };
+  const signature = JSON.stringify(payload);
+  if (pendingEnquiry?.signature !== signature) pendingEnquiry = { signature, requestId: crypto.randomUUID() };
+  const requestId = pendingEnquiry.requestId;
+  const button = form.querySelector('button[type="submit"]');
+  sendingEnquiry = true; button.disabled = true; form.setAttribute("aria-busy", "true");
+  $("#form-status").textContent = "Sending your enquiry…";
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 20000);
+  try {
+    // URL-encoded fields keep this a simple cross-origin POST; never use no-cors,
+    // because an opaque response cannot confirm that the enquiry was saved.
+    const response = await fetch(contactEndpoint, { method: "POST", body: new URLSearchParams({ ...payload, requestId, startedAt: String(contactStartedAt) }), signal: controller.signal, credentials: "omit", redirect: "follow" });
+    if (!response.ok) throw new Error("Submission failed");
+    const result = await response.json();
+    if (result.ok !== true || result.requestId !== requestId) throw new Error("Submission not confirmed");
+    form.reset(); syncPhoneCountry(); pendingEnquiry = null; contactStartedAt = Date.now();
+    $("#form-status").textContent = "Thank you. Your enquiry has been received. I’ll get back to you using the contact details you provided.";
+  } catch {
+    $("#form-status").textContent = "We couldn’t confirm your submission. Your details are still here—please retry, or email works.yashjain@gmail.com.";
+  } finally {
+    clearTimeout(timeout); sendingEnquiry = false; button.disabled = false; form.removeAttribute("aria-busy");
+  }
 });
 $$("#contact-form input, #contact-form textarea").forEach((input) =>
   input.addEventListener("input", () => input.setCustomValidity("")),

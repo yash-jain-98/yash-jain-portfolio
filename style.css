@@ -4433,3 +4433,13 @@ input, select, textarea { border-radius: 6px; }
  .project-case-study dd { font-size: 16px; }
  .project-case-study { gap: 18px; }
 }
+
+.phone-fields { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 16px; }
+.phone-fields > div { min-width: 0; }
+.phone-fields input, .phone-fields select { width: 100%; }
+.field-optional { font-size: 12px; font-weight: 400; }
+.contact-section .field-hint { font-size: 12px; line-height: 1.6; margin: 8px 0 20px; color: #526357; }
+.contact-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+#custom-code-field[hidden] { display: none; }
+#contact-form [type="submit"]:disabled { cursor: wait; opacity: .7; }
+@media (max-width: 480px) { .phone-fields { grid-template-columns: 1fr; gap: 0; } }
