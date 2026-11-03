@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import vm from "node:vm";
 import { services } from "./services.mjs";
 import { serviceMenu } from "./service-menu.mjs";
+import { serviceInsights } from "./service-insights.mjs";
 
 const origin = "https://jainyash.in";
 const context = { window: {} };
@@ -136,6 +137,7 @@ const navigation = catalogue.match(/<div class="announcement">[\s\S]*?<\/header>
   .replace('href="projects/" aria-current="page"', 'href="projects/"');
 const footer = catalogue.match(/<footer\b[\s\S]*?<\/footer>/)[0];
 for (const service of services) {
+  const insights = serviceInsights[service.key];
   const path = `/services/${service.slug}/`;
   const related = service.projectIds.map(id => {
     const project = projects.find(item => item.id === id);
@@ -154,9 +156,15 @@ for (const service of services) {
       </div>
       <div class="service-fit"><span class="eyebrow">A GOOD FIT</span><p>${e(service.fit)}</p></div>
     </section>
+    <section class="section-shell service-market" aria-labelledby="market-heading">
+      <div class="market-intro"><div><p class="eyebrow">THE MARKET, IN NUMBERS</p><h2 id="market-heading">${e(insights.title)}</h2></div><p>${e(insights.intro)}</p></div>
+      <div class="market-stat-grid">${insights.stats.map(stat => `<article class="market-stat"><p class="market-scope">${e(stat.scope)}</p><p class="market-value">${e(stat.value)}</p><h3>${e(stat.label)}</h3><p class="market-detail">${e(stat.detail)}</p><a class="market-source" href="${e(stat.source.url)}" target="_blank" rel="noopener">${e(stat.source.name)} ${arrowIcon}<span class="sr-only"> (opens in a new tab)</span></a></article>`).join("")}</div>
+      <p class="market-note">External research for context. These figures describe the markets or surveys shown, not results from my services. Reviewed <time datetime="2026-11-03">3 November 2026</time>.</p>
+    </section>
     <section class="wrap service-content-section" aria-labelledby="deliverables-heading"><div class="service-section-intro"><h2 id="deliverables-heading">What we can build together.</h2><p>${e(service.overview)}</p></div>
       <div class="service-deliverables">${service.deliverables.map(([title, text], index) => `<article id="capability-${index + 1}"><span class="service-step-number">0${index + 1}</span><h3>${e(title)}</h3><p>${e(text)}</p></article>`).join("")}</div>
     </section>
+    <section class="wrap service-features" aria-labelledby="features-heading"><div class="service-section-intro"><p class="eyebrow">THOUGHT THROUGH, END TO END</p><h2 id="features-heading">The details that make it work.</h2><p>Features shaped around your project. We agree the exact deliverables before the build.</p></div><div class="service-feature-grid">${insights.features.map(([title, text], index) => `<article><span class="feature-number" aria-hidden="true">0${index + 1}</span><div><h3>${e(title)}</h3><p>${e(text)}</p></div></article>`).join("")}</div></section>
     <section class="section-shell service-process-section" aria-labelledby="delivery-heading"><div class="service-section-intro"><p class="eyebrow">A CLEAR PROCESS</p><h2 id="delivery-heading">From the first question<br />to the final handover.</h2></div><ol class="service-process-list">${service.steps.map(([title, text], index) => `<li><span class="service-step-number">0${index + 1}</span><h3>${e(title)}</h3><p>${e(text)}</p></li>`).join("")}</ol></section>
     <section class="wrap service-content-section" aria-labelledby="related-heading"><div class="service-section-intro"><p class="eyebrow">EXPLORE THE WORK</p><h2 id="related-heading">Projects behind the practice.</h2><p>See the project context and available source files in the full collection.</p></div><div class="service-related-projects">${related.map(project => `<article><a class="service-project-image" href="projects/#project-${e(project.id)}" tabindex="-1" aria-hidden="true"><img src="${e(project.image)}" alt="" loading="lazy" decoding="async" width="800" height="500" /></a><p class="eyebrow">${e(project.kind)}</p><h3><a href="projects/#project-${e(project.id)}">${e(project.title)} ${arrowIcon}</a></h3><p>${e(project.desc)}</p></article>`).join("")}</div><a class="text-link" href="projects/#category-${service.category}">Explore all ${e(service.name.toLowerCase())} projects →</a></section>
     <section class="wrap service-planning" aria-labelledby="scope-heading"><div><p class="eyebrow">BEFORE WE START</p><h2 id="scope-heading">Clear scope.<br />Useful expectations.</h2></div><div><h3>What to bring</h3><p>${e(service.prepare)}</p><h3>How the project is scoped</h3><p>${e(service.scope)}</p></div></section>
