@@ -27,7 +27,6 @@ The AI agents & automation section and the searchable project gallery both conta
 | [imdb-movie-database-excel](https://github.com/yash-jain-98/imdb-movie-database-excel) | IMDb movie-database analysis | Spreadsheet project |
 | [hr-sample-data-dashboard-excel](https://github.com/yash-jain-98/hr-sample-data-dashboard-excel) | HR sample-data dashboard | Spreadsheet project |
 | [hotel-booking-sample-dashboard-excel](https://github.com/yash-jain-98/hotel-booking-sample-dashboard-excel) | Hotel-booking dashboard | Spreadsheet project |
-| [data-science-capstone](https://github.com/yash-jain-98/data-science-capstone) | SpaceX landing-analysis presentation | Coursework presentation |
 
 ## Other public repositories
 
@@ -149,3 +148,7 @@ Car-manufacturer case study and Kickstarter campaign analysis were removed from
 both public galleries and the searchable catalogue. The GitHub repositories are
 unchanged. The current collection has 27 projects: four websites, five custom
 workflows, ten analytics projects and eight data-science studies (18 repositories).
+
+## Removed on 3 November 2026
+
+SpaceX landing-analysis presentation was removed from both galleries and the searchable catalogue at Yash’s request. Its repository is unchanged. The current collection has 26 projects: four websites, five custom workflows, ten analytics projects and seven data-science studies (17 repositories).

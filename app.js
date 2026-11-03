@@ -364,7 +364,10 @@ dialog.addEventListener("close", () => {
 
 const menuButton = $(".menu-button"),
   nav = $("#main-nav");
+const servicesDropdown = $(".services-dropdown");
+const servicesSummary = servicesDropdown?.querySelector("summary");
 function closeMenu() {
+  if (servicesDropdown) servicesDropdown.open = false;
   nav.classList.remove("open");
   menuButton.setAttribute("aria-expanded", "false");
 }
@@ -375,13 +378,25 @@ menuButton.addEventListener("click", () => {
 });
 $$("#main-nav a").forEach((link) => link.addEventListener("click", closeMenu));
 document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && servicesDropdown?.open) {
+    servicesDropdown.open = false;
+    servicesSummary.focus();
+    event.preventDefault();
+    return;
+  }
   if (event.key === "Escape" && nav.classList.contains("open")) {
     closeMenu();
     menuButton.focus();
   }
 });
 document.addEventListener("click", (event) => {
+  if (servicesDropdown && !servicesDropdown.contains(event.target)) servicesDropdown.open = false;
   if (!event.target.closest(".navigation")) closeMenu();
+});
+servicesDropdown?.addEventListener("focusout", () => {
+  requestAnimationFrame(() => {
+    if (!servicesDropdown.contains(document.activeElement)) servicesDropdown.open = false;
+  });
 });
 matchMedia("(min-width:1101px)").addEventListener("change", closeMenu);
 $$("[data-service]").forEach((link) => {

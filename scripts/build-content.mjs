@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import vm from "node:vm";
 import { services } from "./services.mjs";
+import { serviceMenu } from "./service-menu.mjs";
 
 const origin = "https://jainyash.in";
 const context = { window: {} };
@@ -89,6 +90,8 @@ function decorate(html, { path, title, description, service, collection = false 
       #main-nav { display: flex !important; position: static !important; flex-wrap: wrap; width: 100%; max-height: none; }
       .navigation { flex-wrap: wrap; height: auto; padding-block: 16px; }
       .site-header { position: static; }
+      .services-dropdown { width: 100%; }
+      .services-mega-menu { position: static; transform: none; width: 100%; max-height: none; }
       .service-panel { grid-template-columns: 1fr; }
     </style></noscript>
     <!-- SEO:END -->`;
@@ -104,6 +107,7 @@ function updateProjectCounts(html) {
 }
 
 let home = updateProjectCounts(read("index.html"));
+home = replaceRegion(home, "HEADER-SERVICES", serviceMenu());
 home = home.replace(/<noscript\s+>[\s\S]*?<\/noscript\s*>/g, '<noscript><p>Project details and source links are available above. Enable JavaScript to use search and filters.</p></noscript>');
 home = replaceRegion(home, "PROJECTS", projects.map(projectCard).join("\n"));
 home = replaceRegion(home, "SERVICE-LINKS", serviceLinks("Read about each service", "service-page-links"));
@@ -115,6 +119,7 @@ home = decorate(home, {
 writeFileSync("index.html", home);
 
 let catalogue = updateProjectCounts(read("projects/index.html"));
+catalogue = replaceRegion(catalogue, "HEADER-SERVICES", serviceMenu());
 catalogue = replaceRegion(catalogue, "PROJECTS", projectGroups(projects));
 catalogue = replaceRegion(catalogue, "FOOTER-SERVICES", serviceLinks("Services", "footer-services"));
 catalogue = catalogue.replace(/<noscript\s*>[\s\S]*?<\/noscript\s*>/g, "");
@@ -150,7 +155,7 @@ for (const service of services) {
       <div class="service-fit"><span class="eyebrow">A GOOD FIT</span><p>${e(service.fit)}</p></div>
     </section>
     <section class="wrap service-content-section" aria-labelledby="deliverables-heading"><div class="service-section-intro"><h2 id="deliverables-heading">What we can build together.</h2><p>${e(service.overview)}</p></div>
-      <div class="service-deliverables">${service.deliverables.map(([title, text], index) => `<article><span class="service-step-number">0${index + 1}</span><h3>${e(title)}</h3><p>${e(text)}</p></article>`).join("")}</div>
+      <div class="service-deliverables">${service.deliverables.map(([title, text], index) => `<article id="capability-${index + 1}"><span class="service-step-number">0${index + 1}</span><h3>${e(title)}</h3><p>${e(text)}</p></article>`).join("")}</div>
     </section>
     <section class="section-shell service-process-section" aria-labelledby="delivery-heading"><div class="service-section-intro"><p class="eyebrow">A CLEAR PROCESS</p><h2 id="delivery-heading">From the first question<br />to the final handover.</h2></div><ol class="service-process-list">${service.steps.map(([title, text], index) => `<li><span class="service-step-number">0${index + 1}</span><h3>${e(title)}</h3><p>${e(text)}</p></li>`).join("")}</ol></section>
     <section class="wrap service-content-section" aria-labelledby="related-heading"><div class="service-section-intro"><p class="eyebrow">EXPLORE THE WORK</p><h2 id="related-heading">Projects behind the practice.</h2><p>See the project context and available source files in the full collection.</p></div><div class="service-related-projects">${related.map(project => `<article><a class="service-project-image" href="projects/#project-${e(project.id)}" tabindex="-1" aria-hidden="true"><img src="${e(project.image)}" alt="" loading="lazy" decoding="async" width="800" height="500" /></a><p class="eyebrow">${e(project.kind)}</p><h3><a href="projects/#project-${e(project.id)}">${e(project.title)} ${arrowIcon}</a></h3><p>${e(project.desc)}</p></article>`).join("")}</div><a class="text-link" href="projects/#category-${service.category}">Explore all ${e(service.name.toLowerCase())} projects →</a></section>
@@ -159,6 +164,7 @@ for (const service of services) {
     <section class="section-shell service-final-cta"><p class="eyebrow">LET’S MAKE IT USEFUL</p><h2>${e(service.cta)}</h2><p>Share what you want to achieve, your current setup and any important constraints.</p><a class="button" href="./?service=${service.key}#contact">Start a conversation ${arrowIcon}</a><a class="service-email" href="mailto:works.yashjain@gmail.com">works.yashjain@gmail.com</a></section>
   </main>`;
   let html = `<!doctype html>\n<html lang="en">\n${head}\n<body class="service-page" id="top"><a class="skip-link" href="services/${service.slug}/#main">Skip to content</a>${navigation}${body}${footer.replace('href="projects/">Back to top', `href="services/${service.slug}/#top">Back to top`)}</body></html>`;
+  html = replaceRegion(html, "HEADER-SERVICES", serviceMenu(service.slug));
   html = decorate(html, { path, title: service.title, description: service.description, service });
   mkdirSync(`services/${service.slug}`, { recursive: true });
   writeFileSync(`services/${service.slug}/index.html`, html);

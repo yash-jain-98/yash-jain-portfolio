@@ -1177,54 +1177,6 @@ window.PORTFOLIO_DATA = {
       },
       "demoUrl": null,
       "codeUrl": null
-    },
-    {
-      "id": "data-science-capstone",
-      "repo": "data-science-capstone",
-      "title": "SpaceX landing-analysis presentation",
-      "category": "science",
-      "categoryName": "DATA SCIENCE",
-      "tags": [
-        "Data science",
-        "Presentation",
-        "Classification"
-      ],
-      "desc": "An IBM capstone presentation documenting Falcon 9 landing analysis.",
-      "details": "The repository contains PDF and PowerPoint presentations covering data collection, exploratory analysis, visual analytics, and classification of Falcon 9 landing outcomes. It contains presentation materials rather than runnable notebooks. The deck includes IBM course-template credits and a Daniel Barnes footer.",
-      "kind": "Coursework presentation",
-      "highlights": [
-        "Data-collection methodology",
-        "Visual-analytics presentation",
-        "Classification discussion"
-      ],
-      "artifacts": [
-        {
-          "name": "IBM Data Science Capstone Project.pdf",
-          "path": "IBM Data Science Capstone Project.pdf",
-          "type": "PDF",
-          "url": "https://github.com/yash-jain-98/data-science-capstone/blob/main/IBM%20Data%20Science%20Capstone%20Project.pdf"
-        },
-        {
-          "name": "IBM Data Science Capstone Project.pptx",
-          "path": "IBM Data Science Capstone Project.pptx",
-          "type": "PPTX",
-          "url": "https://github.com/yash-jain-98/data-science-capstone/blob/main/IBM%20Data%20Science%20Capstone%20Project.pptx"
-        }
-      ],
-      "fileCount": 2,
-      "updatedAt": "2024-05-16",
-      "url": "https://github.com/yash-jain-98/data-science-capstone",
-      "image": "project-assets/capstone.png",
-      "imageAlt": "SpaceX landing-analysis presentation — repository preview",
-      "imageLabel": "ORIGINAL REPOSITORY PREVIEW",
-      "searchTerms": "data science capstone",
-      "caseStudy": {
-        "problem": "How can Falcon 9 landing outcomes be explored and communicated?",
-        "contribution": "Portfolio material covers data collection, visual analysis and classification in a capstone presentation.",
-        "result": "PDF and PowerPoint deliverables; the deck retains IBM course-template credits and a Daniel Barnes footer."
-      },
-      "demoUrl": null,
-      "codeUrl": null
     }
   ]
 };
