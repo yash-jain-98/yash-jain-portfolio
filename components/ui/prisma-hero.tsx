@@ -1,5 +1,5 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Pause, Play } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -115,20 +115,9 @@ export const PrismaHero = ({
   const reduced = useMotionPreference();
   const [failed, setFailed] = useState(false);
   const [ready, setReady] = useState(false);
-  const [playing, setPlaying] = useState(false);
   useEffect(() => {
     if (reduced) video.current?.pause();
   }, [reduced]);
-  async function toggleVideo() {
-    if (!video.current) return;
-    if (video.current.paused) {
-      try {
-        await video.current.play();
-      } catch {
-        setFailed(true);
-      }
-    } else video.current.pause();
-  }
   const entrance = (delay: number) => ({
     initial: reduced ? (false as const) : { y: 20, opacity: 0 },
     animate: { y: 0, opacity: 1 },
@@ -161,11 +150,8 @@ export const PrismaHero = ({
           aria-hidden="true"
           tabIndex={-1}
           onLoadedData={() => setReady(true)}
-          onPlay={() => setPlaying(true)}
-          onPause={() => setPlaying(false)}
           onError={() => {
             setFailed(true);
-            setPlaying(false);
           }}
         />
       )}
@@ -191,23 +177,7 @@ export const PrismaHero = ({
         </motion.div>
       </div>
       <div className="prisma-image-caption" aria-hidden="true"><span>CONSIDERED IN EVERY DETAIL</span><p>Clear thinking.<br />Practical execution.</p></div>
-      {!failed && (
-        <button
-          className="prisma-motion-control"
-          type="button"
-          onClick={toggleVideo}
-          aria-label={
-            playing ? "Pause background video" : "Play background video"
-          }
-        >
-          {playing ? (
-            <Pause size={13} aria-hidden="true" />
-          ) : (
-            <Play size={13} aria-hidden="true" />
-          )}
-          {playing ? "Pause video" : "Play video"}
-        </button>
-      )}
+
     </div>
   );
 };

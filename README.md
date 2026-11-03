@@ -63,7 +63,7 @@ npm run typecheck
 npm run build
 ```
 
-The supplied CloudFront video URL is used directly. It was blocked by this execution environment’s network policy, so its actual content/playback could not be verified here. The hero retains its local image when video fails, has play/pause controls, and disables autoplay for reduced-motion users. Media controls were checked with a local test clip; failed-video fallback, all hero links, the gallery reset, no-JavaScript fallback, and layouts at 320–1920 pixels were checked in Chromium.
+The supplied CloudFront video URL is used directly. It was blocked by this execution environment’s network policy, so its actual content/playback could not be verified here. The hero retains its local image when video fails, disables autoplay for reduced-motion users. The earlier media controls were checked with a local test clip; failed-video fallback, all hero links, the gallery reset, no-JavaScript fallback, and layouts at 320–1920 pixels were checked in Chromium.
 
 
 ## GitHub Pages
@@ -143,3 +143,5 @@ The old `/projects.html` URL redirects to `/projects/`; explicit `index.html`
 bookmarks are normalized in the address bar. The Projects page uses a relative
 base URL so its shared assets and home links work under a GitHub Pages repository
 prefix too. Canonical links identify the custom-domain URLs.
+
+On 3 November 2026, the hero’s visible play/pause button and its unused handlers were removed at Yash’s request. Background playback, reduced-motion behaviour and the image fallback are retained.
