@@ -30,8 +30,8 @@ export const serviceInsights = {
     ],
     features: [
       ["Designed for every screen", "Readable type, clear navigation and usable forms across phones, tablets and desktops."],
-      ["A clear path to an enquiry", "Purposeful service pages, calls to action and contact forms connected to an agreed destination."],
-      ["Search-ready page structure", "Crawlable content, page titles, descriptions and a sitemap, with structured data where appropriate."],
+      ["Advertising connected to your website", "Google Ads and Meta Ads campaigns with relevant landing pages, enquiry tracking and an agreed budget."],
+      ["Local and AI search visibility", "Google Business Profile maintenance, technical SEO and clear answer-led content for AEO and GEO."],
       ["Built for the handover", "Choose custom code, WordPress or Shopify around your editing needs, with guidance for routine updates."],
     ],
   },
@@ -48,21 +48,6 @@ export const serviceInsights = {
       ["Filters that answer questions", "Explore performance by the relevant period, product, customer group or business unit."],
       ["Checked against the source", "Review duplicates, missing values and joins, then reconcile key totals with the underlying files."],
       ["A practical refresh plan", "Agree manual or scheduled refresh, required access and licences, with notes for the person maintaining the report."],
-    ],
-  },
-  science: {
-    title: "The demand for data skills is growing.",
-    intro: "Employer expectations show where investment is heading. A focused study helps test whether a particular data problem is ready for modelling.",
-    stats: [
-      { value: "86%", label: "expect AI and information processing to transform their business", scope: "Global employer survey · Outlook to 2030", detail: "Employer expectations in the 2025 report; not an observed success rate for AI projects.", source: wef },
-      { value: "#1", label: "AI and big data lead the fastest-growing skills", scope: "Global employer survey · 2025–2030 outlook", detail: "Top-ranked skill category in the World Economic Forum’s projected skills outlook.", source: wef },
-      { value: "39%", label: "of existing skill sets are expected to change or become outdated", scope: "Global employer survey · 2025–2030 outlook", detail: "Average expected change across workers’ skills, not the share of jobs being replaced.", source: wef },
-    ],
-    features: [
-      ["A baseline before complexity", "Start with a simple comparison so an advanced model has a meaningful standard to improve on."],
-      ["Evaluation that fits the question", "Use relevant measures such as precision and recall, with separate training and evaluation data."],
-      ["Readable notebooks and findings", "Follow the preparation, assumptions and model comparisons through documented Python notebooks."],
-      ["Clear limits and next steps", "Explain data gaps, error patterns and what further validation is needed before any production use."],
     ],
   },
 };

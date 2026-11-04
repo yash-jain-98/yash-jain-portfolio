@@ -8,7 +8,6 @@
     { id: "auto", title: "AI & automation", description: "Custom workflows that connect tools and simplify everyday work." },
     { id: "web", title: "Websites for business", description: "Live websites for businesses, brands, and experiences." },
     { id: "analytics", title: "Data analytics for business", description: "Dashboards, reports, and analysis that turn data into useful insights." },
-    { id: "science", title: "Data science", description: "Exploratory studies, machine-learning models, and documented notebooks." },
   ];
   function projectCaseStudy(project) {
     if (!project.caseStudy) return "";

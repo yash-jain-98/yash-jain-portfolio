@@ -5,13 +5,11 @@ const icons = {
   automation: '<rect x="3" y="3" width="6" height="6" rx="1.5"/><rect x="15" y="15" width="6" height="6" rx="1.5"/><path d="M9 6h6a3 3 0 0 1 3 3v6M6 9v9h9"/>',
   websites: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01M8 13l-2 2 2 2m8-4 2 2-2 2"/>',
   analytics: '<path d="M4 20V4m0 16h17M9 16v-5m5 5V7m5 9v-3"/>',
-  science: '<circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="m7 7 3 3m4 0 3-3M7 17l3-3m4 0 3 3"/>',
 };
 const descriptions = {
   automation: "Connect your tools. Simplify the everyday.",
-  websites: "A considered online home for your business.",
+  websites: "Your website, advertising and search presence, connected.",
   analytics: "Turn business data into clearer decisions.",
-  science: "Explore patterns. Test what’s possible.",
 };
 const escape = text => text.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
 

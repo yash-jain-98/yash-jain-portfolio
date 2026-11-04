@@ -4458,7 +4458,7 @@ input, select, textarea { border-radius: 6px; }
 .mega-heading { padding: 24px 32px 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid #e5ebe6; }
 .mega-heading p { font-size: 11px; letter-spacing: .12em; font-weight: 650; color: #4d6558; margin: 0; }
 .mega-heading > span { font-size: 13px; font-weight: 400; color: #52675b; }
-.mega-service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 28px 16px; }
+.mega-service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 28px 16px; }
 .mega-service { padding: 0 20px; min-width: 0; }
 .mega-service + .mega-service { border-left: 1px solid #e5ebe6; }
 .mega-service-title { display: grid; grid-template-columns: 1fr 20px; gap: 16px 8px; align-items: center; color: #1e4033; }
@@ -4544,3 +4544,12 @@ input, select, textarea { border-radius: 6px; }
   .service-feature-grid article { gap: 14px; }
   .service-features { padding-bottom: 48px; }
 }
+
+/* Introduction sits between services and the project stories. */
+.about-section { margin-top: 64px; }
+.about-profile-link { display: inline-flex; align-items: center; min-height: 44px; margin-block: 12px; font-size: 15px; line-height: 1.6; color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 600px) { .service-tabs { grid-template-columns: 1fr; } .service-tabs button { flex-direction: row; gap: 8px; } .about-section { margin-top: 32px; } }
+
+.about-copy > p + p { margin-top: 16px; }
+.about-profile-link { gap: 8px; }
+.about-profile-link .icon-arrow { flex: none; }

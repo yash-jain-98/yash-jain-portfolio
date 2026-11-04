@@ -152,3 +152,7 @@ workflows, ten analytics projects and eight data-science studies (18 repositorie
 ## Removed on 3 November 2026
 
 SpaceX landing-analysis presentation was removed from both galleries and the searchable catalogue at Yash’s request. Its repository is unchanged. The current collection has 26 projects: four websites, five custom workflows, ten analytics projects and seven data-science studies (17 repositories).
+
+## Data science paused on 4 November 2026
+
+At Yash’s request, all seven data-science studies and their public service page were withdrawn pending readiness. The current galleries contain 19 projects: five automations, four websites and ten analytics projects. Historical source records above remain an audit trail; GitHub repositories are unchanged.

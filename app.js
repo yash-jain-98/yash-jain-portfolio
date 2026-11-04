@@ -28,21 +28,21 @@ function dashboardDemo(interactive = true, period = "month") {
 function workflowDemo(interactive = true) {
   return `<div class="workflow-demo"><div class="demo-topline">A little less manual work.<span>WORKFLOW DEMO</span></div><div class="flow-nodes"><div class="flow-node"><span>⇣</span>Collect<br>data</div><b class="flow-arrow">→</b><div class="flow-node"><span>⌘</span>Clean &<br>transform</div><b class="flow-arrow">→</b><div class="flow-node"><span>▥</span>Prepare<br>report</div></div>${interactive ? '<button type="button" class="run-workflow">Run sample workflow <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></button><p class="workflow-log" aria-live="polite">A browser demonstration using sample records.</p>' : '<p class="demo-data-note">Collect. Transform. Understand.</p>'}</div>`;
 }
-const scienceDemo = `<div class="science-demo"><div class="demo-topline">From patterns to possibilities.<span>MODEL STUDY</span></div><svg viewBox="0 0 360 130" role="img" aria-label="Illustrative chart comparing observed and modeled values"><path d="M10 110H350M10 75H350M10 40H350M10 5H350" stroke="#edf1ef" fill="none"/><path d="M10 100L40 75L70 90L100 61L130 73L160 49L190 65L220 31L250 49L280 19L310 38L350 12" stroke="#3e7b69" stroke-width="3" fill="none"/><path d="M10 105L40 96L70 84L100 76L130 69L160 63L190 55L220 49L250 42L280 35L310 29L350 20" stroke="#a4c4ba" stroke-width="2" stroke-dasharray="5 4" fill="none"/></svg><div class="model-legend"><span>Observed</span><span>Modeled</span></div><p class="model-note">Ask a question. Explore the data. Evaluate the model.<br>Illustrative values; no predictive performance is claimed.</p></div>`;
 const codeDemo = `<div class="code-preview"><span>business_questions.sql &nbsp; • • •</span><pre><b>SELECT</b> category,<br>       <b>SUM</b>(sales) AS total<br><b>FROM</b> retail_data<br><b>GROUP BY</b> category<br><b>ORDER BY</b> total DESC;</pre><span>Good questions. Clearer answers.</span></div>`;
 const serviceContent = {
   web: {
-    kicker: "WEBSITE DESIGN & DEVELOPMENT",
-    title: "A first impression.<br>A lasting connection.",
+    kicker: "WEBSITES & DIGITAL MARKETING",
+    title: "Build your presence.<br>Reach your customers.",
     description:
-      "Give your business a home on the web that feels like you. Clear storytelling, thoughtful interfaces, and responsive development that makes every interaction count.",
+      "Connect your website, advertising and search presence. From responsive websites to paid campaigns and local discovery, choose the support your business needs.",
     items: [
-      "Business websites & landing pages",
-      "Responsive design, from phone to desktop",
-      "Website redesigns & interface improvements",
+      "Business websites, landing pages & ecommerce",
+      "Google Ads & Meta Ads setup and management",
+      "Google Business Profile setup & maintenance",
+      "SEO, AEO & GEO for search and AI discovery",
     ],
-    cta: "Let’s talk websites",
-    service: "Website design & development",
+    cta: "Let’s discuss your online presence",
+    service: "Websites & digital marketing",
     demo: () => webDemo(),
     caption: "Try the preview: switch between desktop and mobile.",
   },
@@ -60,21 +60,6 @@ const serviceContent = {
     service: "Data analytics & reporting",
     demo: () => dashboardDemo(),
     caption: "Explore the sample data: switch the reporting period.",
-  },
-  science: {
-    kicker: "DATA SCIENCE & MACHINE LEARNING",
-    title: "Find the patterns.<br>Ask better questions.",
-    description:
-      "Explore what your data can tell you with Python, notebooks, and thoughtfully evaluated models. A practical approach that makes the assumptions and limitations clear.",
-    items: [
-      "Exploratory data analysis",
-      "Machine-learning studies & model evaluation",
-      "Documented notebooks & visual explanations",
-    ],
-    cta: "Let’s discuss your data challenge",
-    service: "Data science & machine learning",
-    demo: () => scienceDemo,
-    caption: "Explore real notebooks and model studies in Selected work.",
   },
   auto: {
     kicker: "AUTOMATION & WORKFLOWS",
@@ -411,9 +396,8 @@ function createEmailDraft({ name, replyTo, service, message, phone }) {
 }
 const enquiryServices = {
   automation: "Automation & workflows",
-  websites: "Website design & development",
+  websites: "Websites & digital marketing",
   analytics: "Data analytics & reporting",
-  science: "Data science & machine learning",
 };
 const requestedService = enquiryServices[new URLSearchParams(window.location.search).get("service")];
 if ($("#service") && requestedService) $("#service").value = requestedService;
