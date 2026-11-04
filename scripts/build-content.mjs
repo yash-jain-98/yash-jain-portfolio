@@ -109,8 +109,8 @@ function updateProjectCounts(html) {
 
 let home = updateProjectCounts(read("index.html"));
 home = replaceRegion(home, "HEADER-SERVICES", serviceMenu());
-home = home.replace(/<noscript\s+>[\s\S]*?<\/noscript\s*>/g, '<noscript><p>Project details and source links are available above. Enable JavaScript to use search and filters.</p></noscript>');
-home = replaceRegion(home, "PROJECTS", projects.map(projectCard).join("\n"));
+home = home.replace(/<noscript\s+>[\s\S]*?<\/noscript\s*>/g, '<noscript><p>Project details and source links are available above. Enable JavaScript to use search and sorting.</p></noscript>');
+home = replaceRegion(home, "PROJECTS", projectGroups(projects));
 home = replaceRegion(home, "SERVICE-LINKS", serviceLinks("Read about each service", "service-page-links"));
 home = replaceRegion(home, "FOOTER-SERVICES", serviceLinks("Services", "footer-services"));
 home = decorate(home, {
